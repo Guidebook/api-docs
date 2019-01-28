@@ -112,6 +112,11 @@ requesting_user_email      |  The email for the requesting user.
 
 Standard fields. No additional fields.
 
+`Builder-GuidePublished`
+
+Standard fields, No additional fields.
+
+
 ## Security
 
 When implementing your Webhook URL, please make sure to confirm that the POST data being sent to your Webhook is coming from Guidebook!!  Each Webhook you set up on Guidebook will have an unique security token.  This token will be visible on your Webhooks setup screen.

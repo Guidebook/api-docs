@@ -72,7 +72,7 @@ guide                | yes | integer  | The specific `Guide` your `Link` belongs
 source_content_type  | yes | string   | The content type of the source object.  The options are: "schedule.session", "custom_list.customlistitem"
 source_object_id     | yes | integer  | The id number of the source object.  Not updatable after creation.
 target_content_type  | yes | string   | The content type of the target object.  The options are: "schedule.session", "custom_list.customlistitem"
-source_object_id     | yes | integer  | The id number of the target object.  Not updatable after creation.
+target_object_id     | yes | integer  | The id number of the target object.  Not updatable after creation.
 rank                 | no  | integer  | The order the `Link` will appear in the `Links` section on the app.  `Links` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
 _title               | no  | string   | Use this field to override the default title of the `Link`.  The default behavior is to derive the title from the target object
 _description         | no  | string   | Use this field to override the default description of the `Link`.  The default behavior is to derive the description from the target object

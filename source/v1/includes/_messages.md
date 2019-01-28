@@ -28,8 +28,11 @@ response = request.post(attendees_list_url, data=post_data, headers={'Authorizat
   "inbox": 204,
   "title": "Title of Message",
   "message": "Message created from the Open API",
-  "scheduled_send_time": "2018-09-13T03:54:09.238987+0000"
+  "scheduled_send_time": "2018-09-13T03:54:09.238987+0000",
+  "attachment_object": null,
+  "is_push_notification": false
 }
+
 
 ```
 
@@ -49,6 +52,9 @@ inbox           | yes | integer  | The specific `Inbox` your `Message` belongs t
 title           | yes  | string  | A short title for your `Message`.  This is the subject line that will be displayed.  Limited to 80 characters.
 message         | no  | string   | Optional long message if you have more info to share.  Limited to 1024 characters.
 scheduled_send_time | no | datetime | Optional timestamp in UTC of when you want this `Message` to be sent to attendees.  If left blank, it will default to the current time and the message is sent immediately.
+is_push_notification | no | boolean | Optional boolean to indicate if you want to send the `Message` as a push notification. If left blank, it will default to false. Limits apply - See https://support.guidebook.com/hc/en-us/articles/205012050-Send-Notifications-to-Your-Users
+attachment_content_type | no | string | String indicating the content type of the attachment object.  The options are: "schedule.session", "custom_list.customlistitem". `attachment_object_id` must be filled out if this field is provided.
+attachment_object_id | no | integer | The id number of the attachment object.  Not updatable after creation. `attachment_content_type` must be filled out if this field is provided.
 
 
 
@@ -79,7 +85,9 @@ response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key}
       "inbox": 219,
       "title": "Message 1",
       "message": "Hello",
-      "scheduled_send_time": "2018-09-13T04:31:41.137633+0000"
+      "scheduled_send_time": "2018-09-13T04:31:41.137633+0000",
+      "attachment_object": null,
+      "is_push_notification": false
     },
     {
       "id": 39,
@@ -87,7 +95,9 @@ response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key}
       "inbox": 219,
       "title": "Message 2",
       "message": "Hello Again",
-      "scheduled_send_time": "2018-09-13T04:31:41.139402+0000"
+      "scheduled_send_time": "2018-09-13T04:31:41.139402+0000",
+      "attachment_object": null,
+      "is_push_notification": false
     },
     {
       "id": 40,
@@ -95,10 +105,13 @@ response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key}
       "inbox": 219,
       "title": "Message 3",
       "message": "Good Bye",
-      "scheduled_send_time": "2018-09-13T04:31:41.141097+0000"
+      "scheduled_send_time": "2018-09-13T04:31:41.141097+0000",
+      "attachment_object": null,
+      "is_push_notification": false
     }
   ]
 }
+
 ```
 
 
@@ -115,6 +128,7 @@ The fields returned in the `GET` responses include an additionally field:
 Parameter       | Type    | Description
 ---------       | ------- | -----------
 id              | integer  | An unique identifier for your `Message`.
+attachment_object | string | A string indicating the content type and id of the object. Ex. schedule.session:321
 
 
 ### Filtering data by `Guide` id and other fields

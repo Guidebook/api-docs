@@ -26,12 +26,15 @@ includes:
   - custom_lists
   - custom_list_items
   - custom_list_item_relations
+  - menuitems
   - links
   - link_categories
+  - cog_details
   - inboxes
   - messages
   - attendees
   - attendee_groups
+  - guidebook_id
   - personalized_schedules
   - webhooks
 
