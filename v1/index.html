@@ -3451,7 +3451,8 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
   </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Message created from the Open API"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"scheduled_send_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13T03:54:09.238987+0000"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"attachment_object"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+  </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"segmented_push_options"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -3516,7 +3517,21 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
 <td>integer</td>
 <td>The id number of the attachment object.  Not updatable after creation. <code>attachment_content_type</code> must be filled out if this field is provided.</td>
 </tr>
+<tr>
+<td>segmented_push_options</td>
+<td>sometimes</td>
+<td>JSON</td>
+<td>Required information for if you want to send push notifications to specific users.</td>
+</tr>
 </tbody></table>
+<h3 id='targeting-specific-users-with-code-segmented_push_options-code'>Targeting Specific Users with <code>segmented_push_options</code></h3>
+<p>To target specific users, issue a <code>POST</code> request where the <code>segmented_push_options</code> field is a dictionary like:</p>
+
+<p><code>{&quot;segment_type&quot;: &lt;segment_type&gt;, &quot;targets&quot;: [&lt;target_id_1&gt;, &lt;target_id_2&gt;, &lt;target_id_n&gt;]}</code></p>
+
+<p><code>segment_type</code> can be &quot;session&quot;, &quot;email&quot;, or &quot;attendees_and_groups&quot;. If targeting <code>attendees</code> or <code>groups</code>, you must sepcify which with a dictionary like:</p>
+
+<p><code>{&quot;segment_type&quot;: &quot;attendees_and_groups&quot;, &quot;targets&quot;: {&quot;groups&quot;: [&lt;group_id_1&gt;, &lt;group_id_2&gt;, &lt;group_id_n&gt;]}}</code></p>
 <h2 id='listing-code-messages-code'>Listing <code>Messages</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">messages_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/messages/'</span>
@@ -3541,7 +3556,8 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
       </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"scheduled_send_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13T04:31:41.137633+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attachment_object"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"segmented_push_options"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
@@ -3551,7 +3567,8 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
       </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello Again"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"scheduled_send_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13T04:31:41.139402+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attachment_object"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"segmented_push_options"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="p">{</span><span class="w">
       </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
@@ -3561,7 +3578,8 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
       </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Good Bye"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"scheduled_send_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-09-13T04:31:41.141097+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"attachment_object"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+      </span><span class="s2">"is_push_notification"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"segmented_push_options"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
     </span><span class="p">}</span><span class="w">
   </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3589,6 +3607,11 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
 <td>attachment_object</td>
 <td>string</td>
 <td>A string indicating the content type and id of the object. Ex. schedule.session:321</td>
+</tr>
+<tr>
+<td>segmented_push_options</td>
+<td>JSON</td>
+<td>A dictionary listing the targets your message will be sent to.</td>
 </tr>
 </tbody></table>
 <h3 id='filtering-data-by-code-guide-code-id-and-other-fields'>Filtering data by <code>Guide</code> id and other fields</h3>
