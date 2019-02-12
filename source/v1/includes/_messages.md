@@ -30,7 +30,8 @@ response = request.post(attendees_list_url, data=post_data, headers={'Authorizat
   "message": "Message created from the Open API",
   "scheduled_send_time": "2018-09-13T03:54:09.238987+0000",
   "attachment_object": null,
-  "is_push_notification": false
+  "is_push_notification": false,
+  "segmented_push_options": null
 }
 
 
@@ -55,7 +56,16 @@ scheduled_send_time | no | datetime | Optional timestamp in UTC of when you want
 is_push_notification | no | boolean | Optional boolean to indicate if you want to send the `Message` as a push notification. If left blank, it will default to false. Limits apply - See https://support.guidebook.com/hc/en-us/articles/205012050-Send-Notifications-to-Your-Users
 attachment_content_type | no | string | String indicating the content type of the attachment object.  The options are: "schedule.session", "custom_list.customlistitem". `attachment_object_id` must be filled out if this field is provided.
 attachment_object_id | no | integer | The id number of the attachment object.  Not updatable after creation. `attachment_content_type` must be filled out if this field is provided.
+segmented_push_options | sometimes | JSON | Required information for if you want to send push notifications to specific users. 
 
+### Targeting Specific Users with `segmented_push_options`
+To target specific users, issue a `POST` request where the `segmented_push_options` field is a dictionary like:
+
+`{"segment_type": <segment_type>, "targets": [<target_id_1>, <target_id_2>, <target_id_n>]}`
+
+`segment_type` can be "session", "email", or "attendees_and_groups". If targeting `attendees` or `groups`, you must sepcify which with a dictionary like:
+
+`{"segment_type": "attendees_and_groups", "targets": {"groups": [<group_id_1>, <group_id_2>, <group_id_n>]}}`
 
 
 ## Listing `Messages`
@@ -87,7 +97,8 @@ response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key}
       "message": "Hello",
       "scheduled_send_time": "2018-09-13T04:31:41.137633+0000",
       "attachment_object": null,
-      "is_push_notification": false
+      "is_push_notification": false,
+      "segmented_push_options": null
     },
     {
       "id": 39,
@@ -97,7 +108,8 @@ response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key}
       "message": "Hello Again",
       "scheduled_send_time": "2018-09-13T04:31:41.139402+0000",
       "attachment_object": null,
-      "is_push_notification": false
+      "is_push_notification": false,
+      "segmented_push_options": null
     },
     {
       "id": 40,
@@ -107,7 +119,8 @@ response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key}
       "message": "Good Bye",
       "scheduled_send_time": "2018-09-13T04:31:41.141097+0000",
       "attachment_object": null,
-      "is_push_notification": false
+      "is_push_notification": false,
+      "segmented_push_options": null
     }
   ]
 }
@@ -129,6 +142,7 @@ Parameter       | Type    | Description
 ---------       | ------- | -----------
 id              | integer  | An unique identifier for your `Message`.
 attachment_object | string | A string indicating the content type and id of the object. Ex. schedule.session:321
+segmented_push_options | JSON | A dictionary listing the targets your message will be sent to.
 
 
 ### Filtering data by `Guide` id and other fields
