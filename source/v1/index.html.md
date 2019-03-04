@@ -27,6 +27,7 @@ includes:
   - custom_list_items
   - custom_list_item_relations
   - menuitems
+  - pdfs
   - links
   - link_categories
   - cog_details
