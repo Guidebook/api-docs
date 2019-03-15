@@ -2642,7 +2642,7 @@ To retrieve an individual <code>MenuItem</code> object issue a <code>GET</code> 
 <h2 id='deleting-a-code-menuitem-code'>Deleting a <code>MenuItem</code></h2>
 <p><code>DELETE</code> requests are not supported for <code>MenuItem</code> objects. Instead, you can can issue a <code>PATCH</code> request to set the <code>enabled</code> status to <code>False</code>. This will hide the <code>MenuItem</code> from view. </p>
 <h1 id='pdfs'>PDFs</h1>
-<p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated with <code>PDFs</code> that you upload to your guide. To create a reference to a <code>PDF</code>, see the section on <a href="#links">Links</a>. </p>
+<p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated with <code>PDFs</code> that you upload to your guide. To create a reference to a <code>PDF</code>, see the section on <a href="#links">Links</a>. A <code>PDF</code> name is derived from the <code>Link</code> <code>_title</code> field, and if not provided, will default to the name on the pdf file. </p>
 <h2 id='creating-a-code-pdf-code'>Creating a <code>PDF</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">pdf_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/pdf/'</span>
@@ -2706,7 +2706,7 @@ To retrieve an individual <code>MenuItem</code> object issue a <code>GET</code> 
 <td>guide</td>
 <td>yes</td>
 <td>integer</td>
-<td>The specific <code>Guide</code> your <code>Link</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+<td>The specific <code>Guide</code> your <code>PDF</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
 </tr>
 <tr>
 <td>pdf_view_type</td>
@@ -2907,7 +2907,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <td>_title</td>
 <td>no</td>
 <td>string</td>
-<td>Use this field to override the default title of the <code>Link</code>.  The default behavior is to derive the title from the target object</td>
+<td>Use this field to override the default title of the <code>Link</code>.  The default behavior is to derive the title from the target object. Targets such as <code>PDFs</code> do not have their own title field, and depend on this to be given a custom name.</td>
 </tr>
 <tr>
 <td>_description</td>
