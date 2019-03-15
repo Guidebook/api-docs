@@ -1,6 +1,6 @@
 # PDFs
 
-Some resources (like `Sessions` and `CustomListItems`) can be associated with `PDFs` that you upload to your guide. To create a reference to a `PDF`, see the section on [Links](#links). 
+Some resources (like `Sessions` and `CustomListItems`) can be associated with `PDFs` that you upload to your guide. To create a reference to a `PDF`, see the section on [Links](#links). A `PDF` name is derived from the `Link` `_title` field, and if not provided, will default to the name on the pdf file. 
 
 ## Creating a `PDF`
 
@@ -66,7 +66,7 @@ This endpoint will create a `PDF` for your `Guide`.
 
 Parameter            | Required  | Type    | Description
 ---------            | --------  | ------- | -----------
-guide                | yes | integer  | The specific `Guide` your `Link` belongs to.  See section on [Guides](#guides) for more info.
+guide                | yes | integer  | The specific `Guide` your `PDF` belongs to.  See section on [Guides](#guides) for more info.
 pdf_view_type		 | yes | string  | This field is used to indicate the format of your input file. The options are `url` and `pdf`.
 url 				 | no | string  | URL of your `PDF`, if `pdf_view_type` is set to URL.
 pdf_file 			 | no | file  | Your pdf file, if `pdf_view_type` is set to PDF.
