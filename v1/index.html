@@ -375,6 +375,26 @@
               </ul>
           </li>
           <li>
+            <a href="#maps" class="toc-h1 toc-link" data-title="Maps">Maps</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-map-code" class="toc-h2 toc-link" data-title="Maps">Creating a <code>Map</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-maps-code" class="toc-h2 toc-link" data-title="Maps">Listing <code>Maps</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-map-code" class="toc-h2 toc-link" data-title="Maps">Retrieving a <code>Map</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-map-code" class="toc-h2 toc-link" data-title="Maps">Updating a <code>Map</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-map-code" class="toc-h2 toc-link" data-title="Maps">Deleting a <code>Map</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#customlists" class="toc-h1 toc-link" data-title="CustomLists">CustomLists</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1906,7 +1926,159 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="err">```</span><span class="w">
 
-</span></code></pre><h1 id='customlists'>CustomLists</h1><h2 id='creating-a-code-customlist-code'>Creating a <code>CustomList</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+</span></code></pre><h1 id='maps'>Maps</h1>
+<p>The <code>Maps</code> resource is a static map image that can be added to your guide. Example <code>Map</code> uses include campus maps, internal floor plans, and/or booth layouts for an exhibit hall or poster session. </p>
+<h2 id='creating-a-code-map-code'>Creating a <code>Map</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">map_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/maps/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"image"</span><span class="p">:</span> <span class="s">"map_image"</span><span class="p">,</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"MyMap"</span><span class="p">,</span>
+    <span class="s">"description"</span><span class="p">:</span> <span class="s">"Event Map"</span>
+<span class="p">}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'your_map.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">map_image</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">map_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/fsJcNBuRlw0MtNcIoC6MFBLicp43bp1q3L1y.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyMap"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Map"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will create a <code>Map</code> for your <code>Guide</code>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/maps/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>Map</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+<tr>
+<td>image</td>
+<td>yes</td>
+<td>file</td>
+<td>Your image file. It must be either JPG or PNG, and between 1000x1000 and 2000x2000 pixels.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>string</td>
+<td>Name of the <code>Map</code>.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>string</td>
+<td>Description that will be displayed in the app.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td>no</td>
+<td>int</td>
+<td>The order the <code>Map</code> will appear.</td>
+</tr>
+<tr>
+<td>menu_item</td>
+<td>no</td>
+<td>boolean</td>
+<td>Indicates if a menu item should be created for the <code>Map</code>. If not provided, it defaults to <code>False</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-maps-code'>Listing <code>Maps</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">map_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/maps/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `Maps` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">map_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/WH2CMLWJhbizmXD83qEm0GsiclZejP3QqNlf.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMap"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/fsJcNBuRlw0MtNcIoC6MFBLicp43bp1q3L1y.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyMap"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Map"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can also be used to read data on <code>Maps</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/maps/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only field.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>Map</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>Maps</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/maps/?guide=47</code></p>
+<h2 id='retrieving-a-code-map-code'>Retrieving a <code>Map</code></h2>
+<p>In the following examples, we will assume that the id of the <code>Map</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>Map</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/maps/71/</code></p>
+<h2 id='updating-a-code-map-code'>Updating a <code>Map</code></h2>
+<p>To modify an existing <code>Map</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/maps/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body.</p>
+<h2 id='deleting-a-code-map-code'>Deleting a <code>Map</code></h2>
+<p>To delete a particular <code>Map</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Map</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/maps/71/</code></p>
+<h1 id='customlists'>CustomLists</h1><h2 id='creating-a-code-customlist-code'>Creating a <code>CustomList</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">custom_lists_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/custom-lists/'</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
