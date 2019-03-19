@@ -52,7 +52,7 @@ image		 		 | yes | file  | Your image file. It must be either JPG or PNG, and be
 name 				 | yes | string  | Name of the `Map`.
 description 		 | no | string  | Description that will be displayed in the app.
 rank 			 	 | no | int  | The order the `Map` will appear.
-menu_item			 | no | boolean | Indicates if a menu item should be created for the `Map`. If not provided, it defaults to `False`. 
+
 
 ## Listing `Maps`
 
