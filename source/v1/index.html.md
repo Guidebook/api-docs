@@ -32,6 +32,7 @@ includes:
   - links
   - link_categories
   - cog_details
+  - sponsors
   - inboxes
   - messages
   - attendees

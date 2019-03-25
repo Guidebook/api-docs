@@ -40,8 +40,8 @@ This endpoint will create a `MenuItem` for the object related to the `object_id`
 Parameter            | Required  | Type    | Description
 ---------            | --------  | ------- | -----------
 guide                | yes | integer  | The specific `Guide` your `MenuItem` belongs to.  See section on [Guides](#guides) for more info.
-content_type  		 | yes | string   | The content type of the object you want a `MenuItem` for. The allowed content types are `custom_list.customlist`, `custom_list.customlistitem`, and `schedule.scheduletrack`.
-object_id     		 | yes | integer  | The id number of the object you want a `MenuItem` for.
+content_type  		 | yes | string   | The content type of the object you want a `MenuItem` for. The allowed content types are `custom_list.customlist`, `custom_list.customlistitem`, `schedule.scheduletrack`, and `menuitem_data_pointer.mapspointer`.
+object_id     		 | sometimes | integer  | The id number of the object you want a `MenuItem` for. If creating a `Map` menu item, this is not required. 
 title     			 | no | string   | The title of the `MenuItem`. If not provided, a default is used. 
 rank                 | no  | integer  | The order the `MenuItem` will appear in the `MenuItem` section. If not provided, a default is used.
 enabled     		 | no | boolean  | The enabled status of the `MenuItem`. If not provided, this defaults to `True`.
