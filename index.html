@@ -555,6 +555,26 @@
               </ul>
           </li>
           <li>
+            <a href="#sponsors" class="toc-h1 toc-link" data-title="Sponsors">Sponsors</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-sponsor-code" class="toc-h2 toc-link" data-title="Sponsors">Creating a <code>Sponsor</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-sponsors-code" class="toc-h2 toc-link" data-title="Sponsors">Listing <code>Sponsors</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-sponsor-code" class="toc-h2 toc-link" data-title="Sponsors">Retrieving a <code>Sponsor</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-sponsor-code" class="toc-h2 toc-link" data-title="Sponsors">Updating a <code>Sponsor</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-sponsor-code" class="toc-h2 toc-link" data-title="Sponsors">Deleting a <code>Sponsor</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#inboxes" class="toc-h1 toc-link" data-title="Inboxes">Inboxes</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2699,13 +2719,13 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 <td>content_type</td>
 <td>yes</td>
 <td>string</td>
-<td>The content type of the object you want a <code>MenuItem</code> for. The allowed content types are <code>custom_list.customlist</code>, <code>custom_list.customlistitem</code>, and <code>schedule.scheduletrack</code>.</td>
+<td>The content type of the object you want a <code>MenuItem</code> for. The allowed content types are <code>custom_list.customlist</code>, <code>custom_list.customlistitem</code>, <code>schedule.scheduletrack</code>, and <code>menuitem_data_pointer.mapspointer</code>.</td>
 </tr>
 <tr>
 <td>object_id</td>
-<td>yes</td>
+<td>sometimes</td>
 <td>integer</td>
-<td>The id number of the object you want a <code>MenuItem</code> for.</td>
+<td>The id number of the object you want a <code>MenuItem</code> for. If creating a <code>Map</code> menu item, this is not required.</td>
 </tr>
 <tr>
 <td>title</td>
@@ -3702,6 +3722,189 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
 <p>To delete a particular <code>QuickInfo</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>QuickInfo</code> you&#39;d like deleted:</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/quick-info/71/</code></p>
+<h1 id='sponsors'>Sponsors</h1>
+<p>The <code>Sponsors</code> resource is a way to create a banner ad in your guide. Banner ads appear at the bottom of the navigation menu.</p>
+<h2 id='creating-a-code-sponsor-code'>Creating a <code>Sponsor</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">sponsor_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/sponsors/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span>
+    <span class="s">"banner_url"</span><span class="p">:</span> <span class="s">"https://guidebook.com/"</span><span class="p">,</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"MySponsor"</span><span class="p">,</span>
+    <span class="s">"banner_image"</span><span class="p">:</span> <span class="s">"banner_image"</span><span class="p">,</span>
+    <span class="s">"website_only"</span><span class="p">:</span> <span class="n">true</span>
+<span class="p">}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'banner.png'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">banner_image</span><span class="p">:</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">sponsor_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://guidebook.com/"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MySponsor"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/5/6FTfnJ2M7YqbA0bX7aDiAIKXTGydE58Rdk66.png"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"banner_url_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"website_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description_html"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will create a <code>Sponsor</code> for your <code>Guide</code>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/sponsors/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>Sponsor</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>string</td>
+<td>Name of the <code>Sponsor</code>.</td>
+</tr>
+<tr>
+<td>banner_image</td>
+<td>yes</td>
+<td>file</td>
+<td>Your image file. It must be a PNG of size 600x110 pixels.</td>
+</tr>
+<tr>
+<td>website_only</td>
+<td>no</td>
+<td>boolean</td>
+<td>Indicates if a banner should launch directly to the <code>banner_url</code>, or to the <code>description_html</code>. The default is <code>False</code>, meaning that when a user taps on the banner in their device, they will be launched to <code>banner_url_text</code>.</td>
+</tr>
+<tr>
+<td>banner_url</td>
+<td>sometimes</td>
+<td>string</td>
+<td>The url that your banner_image should direct to when clicked on. This is required if <code>website_only</code> is <code>True</code>.</td>
+</tr>
+<tr>
+<td>banner_url_text</td>
+<td>sometimes</td>
+<td>string</td>
+<td>A sponsor description that is displayed instead of directing the user to the <code>banner_url</code>. This is required if <code>website_only</code> is <code>False</code>.</td>
+</tr>
+<tr>
+<td>description_html</td>
+<td>no</td>
+<td>string</td>
+<td>Optional html field to describe your Sponsor. Only rendered if <code>website_only</code> is <code>False</code>. This field supports basic HTML.  See section on <a href="#html-text">html text</a>.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>no</td>
+<td>integer</td>
+<td>The number of seconds that a banner is displayed for. Options are 5, 10, 20, and 30 seonds. If not provided, it defaults to 5 seconds.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>no</td>
+<td>boolean</td>
+<td>Indicates if the <code>Sponsor</code> banner should show up in the guide. The default is <code>True</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-sponsors-code'>Listing <code>Sponsors</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">sponsor_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/sponsors/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `Sponsors` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sponsor_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.google.com/"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A Sponsor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/7/AHbKlnQeA4PPbV7MFxwRlOa8sPkzyMyaHorZ.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_url_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sponsor Description"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"website_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description_html"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://guidebook.com/"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MySponsor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/5/6FTfnJ2M7YqbA0bX7aDiAIKXTGydE58Rdk66.png"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_url_text"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"website_only"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description_html"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can also be used to read data on <code>Sponsors</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/sponsors/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only field.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>Sponsor</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>Sponsors</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/sponsors/?guide=47</code></p>
+<h2 id='retrieving-a-code-sponsor-code'>Retrieving a <code>Sponsor</code></h2>
+<p>In the following examples, we will assume that the id of the <code>Sponsor</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/sponsors/71/</code></p>
+<h2 id='updating-a-code-sponsor-code'>Updating a <code>Sponsor</code></h2>
+<p>To modify an existing <code>Sponsor</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/sponsors/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body.</p>
+<h2 id='deleting-a-code-sponsor-code'>Deleting a <code>Sponsor</code></h2>
+<p>To delete a particular <code>Sponsor</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Sponsor</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/sponsors/71/</code></p>
 <h1 id='inboxes'>Inboxes</h1>
 <p><code>Inboxes</code> are used to store <code>Messages</code> to your <code>Attendees</code>.  At this current point in time, only GET operations are allowed for the <code>Inbox</code> object.</p>
 <h2 id='listing-code-inboxes-code'>Listing <code>Inboxes</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
