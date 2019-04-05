@@ -32,6 +32,8 @@ includes:
   - links
   - link_categories
   - cog_details
+  - albums
+  - photos
   - sponsors
   - inboxes
   - messages
