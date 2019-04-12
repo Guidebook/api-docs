@@ -69,6 +69,15 @@ session_id      | The id of the session the user registered for.
 session_name    | The name of the session the user registered for.
 
 
+`MobileApp-UserUnregisteredScheduleSession`
+
+Key             | Description
+---------       |  -----------
+session_id      | The id of the session the user removed.
+session_name    | The name of the session the user removed.
+
+
+
 `MobileApp-UserMadeToDoItem`
 
 Key             | Description
