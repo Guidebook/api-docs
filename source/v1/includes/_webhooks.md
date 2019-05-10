@@ -77,7 +77,6 @@ session_id      | The id of the session the user removed.
 session_name    | The name of the session the user removed.
 
 
-
 `MobileApp-UserMadeToDoItem`
 
 Key             | Description
@@ -91,6 +90,13 @@ custom_list_item_name    | The name of the custom list item the user added to th
 Key             | Description
 ---------       |  -----------
 photo_id      | The id of the photo the user uploaded.
+
+
+`MobileApp-UserReportedPhoto`
+
+Key             | Description
+---------       |  -----------
+photo_id      | The id of the photo the user reported.
 
 
 `MobileApp-UserTaggedOtherUser`
@@ -121,9 +127,14 @@ requesting_user_email      |  The email for the requesting user.
 
 Standard fields. No additional fields.
 
+
 `Builder-GuidePublished`
 
-Standard fields, No additional fields.
+Standard fields. No additional fields.
+
+`Builder-GuideCloned`
+
+Standard fields. No additional fields.
 
 
 ## Security
