@@ -5436,6 +5436,20 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 </tr>
 </tbody></table>
 
+<p><code>MobileApp-UserReportedPhoto</code></p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>photo_id</td>
+<td>The id of the photo the user reported.</td>
+</tr>
+</tbody></table>
+
 <p><code>MobileApp-UserTaggedOtherUser</code></p>
 
 <table><thead>
@@ -5510,7 +5524,11 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 
 <p><code>Builder-GuidePublished</code></p>
 
-<p>Standard fields, No additional fields.</p>
+<p>Standard fields. No additional fields.</p>
+
+<p><code>Builder-GuideCloned</code></p>
+
+<p>Standard fields. No additional fields.</p>
 <h2 id='security'>Security</h2>
 <p>When implementing your Webhook URL, please make sure to confirm that the POST data being sent to your Webhook is coming from Guidebook!!  Each Webhook you set up on Guidebook will have an unique security token.  This token will be visible on your Webhooks setup screen.</p>
 
