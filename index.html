@@ -4397,7 +4397,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 
 <p><code>{&quot;segment_type&quot;: &lt;segment_type&gt;, &quot;targets&quot;: [&lt;target_id_1&gt;, &lt;target_id_2&gt;, &lt;target_id_n&gt;]}</code></p>
 
-<p><code>segment_type</code> can be &quot;session&quot;, &quot;email&quot;, or &quot;attendees_and_groups&quot;. If targeting <code>attendees</code> or <code>groups</code>, you must sepcify which with a dictionary like:</p>
+<p><code>segment_type</code> can be &quot;session&quot;, &quot;email&quot;, or &quot;attendees_and_groups&quot;. If targeting <code>attendees</code> or <code>groups</code>, you must specify which with a dictionary like:</p>
 
 <p><code>{&quot;segment_type&quot;: &quot;attendees_and_groups&quot;, &quot;targets&quot;: {&quot;groups&quot;: [&lt;group_id_1&gt;, &lt;group_id_2&gt;, &lt;group_id_n&gt;]}}</code></p>
 <h2 id='listing-code-messages-code'>Listing <code>Messages</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -4543,7 +4543,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This endpoint will create an <code>Attendee</code> that is owned by your <code>Account</code>.  An <code>Attendee</code> is an object that formally defines a relation between a <code>Guide</code> and a Guidebook App end-user.  When importing your <code>Attendees</code>, we will attempt to match to existing users in the Guidebook database.  If no user is found via email matching, we will create a placeholder <code>Account</code> that the end-user can later claim by logging in.  Email invite functionality is not available via the Open API.  To send out email invites to your Attendees, please login to Builder and use the UI to send out email invites.</p>
+<p>This endpoint will create an <code>Attendee</code> that is owned by your <code>Account</code>.  An <code>Attendee</code> is an object that formally defines a relation between a <code>Guide</code> and a Guidebook App end-user.  When importing your <code>Attendees</code>, we will attempt to match to existing users in the Guidebook database.  If no user is found via email matching, we will create a placeholder <code>Account</code> that the end-user can later claim by logging in.</p>
 
 <p>The <code>Attendee</code> create operation is a special endpoint that we&#39;ve made idempotent to facilitate client use cases.  If an <code>Attendee</code> object already exists, we will return the <code>Attendee</code> object and the POST data supplied will be ignored and not treated as an update operation.</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -4687,7 +4687,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
-<p>This endpoint can also be used to read data on <code>Attendees</code>.  Typically, this endpoint is called with a <code>guide_id</code> filter such that it returns a list of <code>Attendees</code> associated to a lone <code>Guide</code> object that is owned by you.</p>
+<p>This endpoint can also be used to read data on <code>Attendees</code>.  Typically, this endpoint is called with a <code>guide</code> filter such that it returns a list of <code>Attendees</code> associated to a lone <code>Guide</code> object that is owned by you.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://builder.guidebook.com/open-api/v1/attendees/</code></p>
 <h3 id='model-fields-2'>Model Fields</h3>
