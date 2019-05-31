@@ -56,14 +56,14 @@ scheduled_send_time | no | datetime | Optional timestamp in UTC of when you want
 is_push_notification | no | boolean | Optional boolean to indicate if you want to send the `Message` as a push notification. If left blank, it will default to false. Limits apply - See https://support.guidebook.com/hc/en-us/articles/205012050-Send-Notifications-to-Your-Users
 attachment_content_type | no | string | String indicating the content type of the attachment object.  The options are: "schedule.session", "custom_list.customlistitem". `attachment_object_id` must be filled out if this field is provided.
 attachment_object_id | no | integer | The id number of the attachment object.  Not updatable after creation. `attachment_content_type` must be filled out if this field is provided.
-segmented_push_options | sometimes | JSON | Required information for if you want to send push notifications to specific users. 
+segmented_push_options | sometimes | JSON | Required information for if you want to send push notifications to specific users.
 
 ### Targeting Specific Users with `segmented_push_options`
 To target specific users, issue a `POST` request where the `segmented_push_options` field is a dictionary like:
 
 `{"segment_type": <segment_type>, "targets": [<target_id_1>, <target_id_2>, <target_id_n>]}`
 
-`segment_type` can be "session", "email", or "attendees_and_groups". If targeting `attendees` or `groups`, you must sepcify which with a dictionary like:
+`segment_type` can be "session", "email", or "attendees_and_groups". If targeting `attendees` or `groups`, you must specify which with a dictionary like:
 
 `{"segment_type": "attendees_and_groups", "targets": {"groups": [<group_id_1>, <group_id_2>, <group_id_n>]}}`
 

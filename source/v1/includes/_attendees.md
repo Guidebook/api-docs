@@ -46,7 +46,7 @@ response = request.post(attendees_list_url, data=post_data, headers={'Authorizat
 ```
 
 
-This endpoint will create an `Attendee` that is owned by your `Account`.  An `Attendee` is an object that formally defines a relation between a `Guide` and a Guidebook App end-user.  When importing your `Attendees`, we will attempt to match to existing users in the Guidebook database.  If no user is found via email matching, we will create a placeholder `Account` that the end-user can later claim by logging in.  Email invite functionality is not available via the Open API.  To send out email invites to your Attendees, please login to Builder and use the UI to send out email invites.
+This endpoint will create an `Attendee` that is owned by your `Account`.  An `Attendee` is an object that formally defines a relation between a `Guide` and a Guidebook App end-user.  When importing your `Attendees`, we will attempt to match to existing users in the Guidebook database.  If no user is found via email matching, we will create a placeholder `Account` that the end-user can later claim by logging in.
 
 The `Attendee` create operation is a special endpoint that we've made idempotent to facilitate client use cases.  If an `Attendee` object already exists, we will return the `Attendee` object and the POST data supplied will be ignored and not treated as an update operation.
 
@@ -172,7 +172,7 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 ```
 
 
-This endpoint can also be used to read data on `Attendees`.  Typically, this endpoint is called with a `guide_id` filter such that it returns a list of `Attendees` associated to a lone `Guide` object that is owned by you.
+This endpoint can also be used to read data on `Attendees`.  Typically, this endpoint is called with a `guide` filter such that it returns a list of `Attendees` associated to a lone `Guide` object that is owned by you.
 
 ### HTTP Request
 
