@@ -52,7 +52,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 
 Parameter       | Required  | Type    | Description
 ---------       | --------  | ------- | -----------
-question_set    | yes | integer  | The specific `QuestionSet` your `Question` belongs to.  See section on [QuestionSets](#question_sets) for more info.
+question_set    | yes | integer  | The specific `QuestionSet` your `Question` belongs to.  See section on [QuestionSets](#questionsets) for more info.
 text            | yes | string   | The text of your `Question`.
 requires_answer | no  | boolean  | A booelan value that indicates if this `Question` requires an answer from the end-user.
 rank            | yes | float    | Controls the display order in the `QuestionSet`.  `Questions` are displayed in ascending order.
@@ -65,7 +65,7 @@ display_type    | no  | integer  | Options are 1 for short text display and 2 fo
 
 Parameter       | Required  | Type    | Description
 ---------       | --------  | ------- | -----------
-question_set    | yes | integer  | The specific `QuestionSet` your `Question` belongs to.  See section on [QuestionSets](#question_sets) for more info.
+question_set    | yes | integer  | The specific `QuestionSet` your `Question` belongs to.  See section on [QuestionSets](#questionsets) for more info.
 text            | yes | string   | The text of your `Question`.
 requires_answer | no  | boolean  | A booelan value that indicates if this `Question` requires an answer from the end-user.
 rank            | yes | float    | Controls the display order in the `QuestionSet`.  `Questions` are displayed in ascending order.
@@ -175,12 +175,6 @@ Parameter       | Type    | Description
 id              | integer  | An unique identifier for your `Question`.
 created_at      | datetime | Time when this `Question` was created - UTC.
 
-
-### Filtering By `Guide` id
-
-Including a query parameter `guide` allows you to filter for all `Questions` related to a `Guide` you have access to (`Guide` 47 in the following example):
-
-`GET https://builder.guidebook.com/open-api/v1/free-response-questions?guide=47`
 
 ## Retrieving a `Question`
 In the following examples, we will assume that the id of the Multiple Choice `Question` we'd like to modify is 71.

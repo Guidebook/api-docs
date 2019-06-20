@@ -56,7 +56,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 
 Parameter       | Required  | Type    | Description
 ---------       | --------  | ------- | -----------
-question_set    | yes | integer  | The specific `QuestionSet` your `Survey` is linked to.  See section on [QuestionSets](#question_sets) for more info.
+question_set    | yes | integer  | The specific `QuestionSet` your `Survey` is linked to.  See section on [QuestionSets](#questionsets) for more info.
 submission_rule_type  | yes  | integer  | Options are 1 for single submission, 2 is for revisions allowed, and 3 is for multiple submissions.  Defaults to 1.
 user_login_required   | no  | boolean  | A booelan value that indicates if an user needs to be logged in before they can submit an answer to this `Survey`.
 label            | no | string   | Label field for your `Survey`.
