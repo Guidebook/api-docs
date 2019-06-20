@@ -4617,7 +4617,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>question_set</td>
 <td>yes</td>
 <td>integer</td>
-<td>The specific <code>QuestionSet</code> your <code>Survey</code> is linked to.  See section on <a href="#question_sets">QuestionSets</a> for more info.</td>
+<td>The specific <code>QuestionSet</code> your <code>Survey</code> is linked to.  See section on <a href="#questionsets">QuestionSets</a> for more info.</td>
 </tr>
 <tr>
 <td>submission_rule_type</td>
@@ -4903,7 +4903,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>question_set</td>
 <td>yes</td>
 <td>integer</td>
-<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#question_sets">QuestionSets</a> for more info.</td>
+<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#questionsets">QuestionSets</a> for more info.</td>
 </tr>
 <tr>
 <td>text</td>
@@ -4945,7 +4945,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>question_set</td>
 <td>yes</td>
 <td>integer</td>
-<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#question_sets">QuestionSets</a> for more info.</td>
+<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#questionsets">QuestionSets</a> for more info.</td>
 </tr>
 <tr>
 <td>text</td>
@@ -5184,10 +5184,6 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>Time when this <code>Question</code> was created - UTC.</td>
 </tr>
 </tbody></table>
-<h3 id='filtering-by-code-guide-code-id'>Filtering By <code>Guide</code> id</h3>
-<p>Including a query parameter <code>guide</code> allows you to filter for all <code>Questions</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example):</p>
-
-<p><code>GET https://builder.guidebook.com/open-api/v1/free-response-questions?guide=47</code></p>
 <h2 id='retrieving-a-code-question-code'>Retrieving a <code>Question</code></h2>
 <p>In the following examples, we will assume that the id of the Multiple Choice <code>Question</code> we&#39;d like to modify is 71.
 To retrieve an individual <code>Question</code> object issue a <code>GET</code> request like:</p>
