@@ -646,6 +646,66 @@
               </ul>
           </li>
           <li>
+            <a href="#surveys" class="toc-h1 toc-link" data-title="Surveys">Surveys</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-survey-code" class="toc-h2 toc-link" data-title="Surveys">Creating a <code>Survey</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-surveys-code" class="toc-h2 toc-link" data-title="Surveys">Listing <code>Surveys</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-survey-code" class="toc-h2 toc-link" data-title="Surveys">Retrieving a <code>Survey</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-survey-code" class="toc-h2 toc-link" data-title="Surveys">Updating a <code>Survey</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-survey-code" class="toc-h2 toc-link" data-title="Surveys">Deleting a <code>Survey</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#questionsets" class="toc-h1 toc-link" data-title="QuestionSets">QuestionSets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-questionset-code" class="toc-h2 toc-link" data-title="QuestionSets">Creating a <code>QuestionSet</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-questionsets-code" class="toc-h2 toc-link" data-title="QuestionSets">Listing <code>QuestionSets</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-questionset-code" class="toc-h2 toc-link" data-title="QuestionSets">Retrieving a <code>QuestionSet</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-questionset-code" class="toc-h2 toc-link" data-title="QuestionSets">Updating a <code>QuestionSet</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-questionset-code" class="toc-h2 toc-link" data-title="QuestionSets">Deleting a <code>QuestionSet</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#questions" class="toc-h1 toc-link" data-title="Questions">Questions</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-question-code" class="toc-h2 toc-link" data-title="Questions">Creating a <code>Question</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-questions-code" class="toc-h2 toc-link" data-title="Questions">Listing <code>Questions</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-question-code" class="toc-h2 toc-link" data-title="Questions">Retrieving a <code>Question</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-question-code" class="toc-h2 toc-link" data-title="Questions">Updating a <code>Question</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-question-code" class="toc-h2 toc-link" data-title="Questions">Deleting a <code>Question</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#attendees" class="toc-h1 toc-link" data-title="Attendees">Attendees</a>
               <ul class="toc-list-h2">
                   <li>
@@ -4504,6 +4564,645 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <p>To delete a particular <code>Message</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Message</code> you&#39;d like deleted.  Be very careful about deleting <code>Messages</code> that have been sent.  The delete operation only removes the <code>Message</code> on the Guidebook side, users will retain the <code>Messages</code> they have downloaded on their devices.</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/messages/71/</code></p>
+<h1 id='surveys'>Surveys</h1><h2 id='creating-a-code-survey-code'>Creating a <code>Survey</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">survey_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/surveys/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="s">"submission_rule_type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"user_login_required"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"label"</span><span class="p">:</span> <span class="s">"Please Fill in this Form"</span><span class="p">,</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Event Feedback Survey"</span><span class="p">,</span>
+    <span class="s">"description"</span><span class="p">:</span> <span class="s">"Survey for gathering feedback about the event."</span><span class="p">,</span>
+    <span class="s">"is_collecting_responses"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">survey_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">482</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please Fill in this Form"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Survey"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey for gathering feedback about the event."</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><code>Surveys</code> are the top level model that allows you to control the UI and submission behavior for <code>QuestionSets</code> and <code>Questions</code>.   The organization of the models is as follows.  You can create a <code>QuestionSet</code> that is the container for your question objects.  You can then create all the questions you want and link these to the <code>QuestionSet</code> container.   Finally, you can then link your <code>QuestionSet</code> object to a <code>Survey</code> object.  This <code>Survey</code> object will control additional options on how you want to handle response submissions from your <code>Attendees</code>.</p>
+
+<aside class="notice">
+You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/surveys/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>question_set</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>QuestionSet</code> your <code>Survey</code> is linked to.  See section on <a href="#question_sets">QuestionSets</a> for more info.</td>
+</tr>
+<tr>
+<td>submission_rule_type</td>
+<td>yes</td>
+<td>integer</td>
+<td>Options are 1 for single submission, 2 is for revisions allowed, and 3 is for multiple submissions.  Defaults to 1.</td>
+</tr>
+<tr>
+<td>user_login_required</td>
+<td>no</td>
+<td>boolean</td>
+<td>A booelan value that indicates if an user needs to be logged in before they can submit an answer to this <code>Survey</code>.</td>
+</tr>
+<tr>
+<td>label</td>
+<td>no</td>
+<td>string</td>
+<td>Label field for your <code>Survey</code>.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>no</td>
+<td>string</td>
+<td>The title of your <code>Survey</code>.</td>
+</tr>
+<tr>
+<td>description</td>
+<td>no</td>
+<td>string</td>
+<td>The description of your <code>Survey</code>.</td>
+</tr>
+<tr>
+<td>is_collecting_responses</td>
+<td>no</td>
+<td>boolean</td>
+<td>A booelan value that indicates if this <code>Survey</code> is collecting responses.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-surveys-code'>Listing <code>Surveys</code></h2>
+<p>This endpoint will list all <code>Surveys</code> that are owned by your Account.</p>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">survey_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/surveys/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all surveys you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">survey_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">482</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please Fill in this Form"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Survey"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey for gathering feedback about the event."</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/surveys/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only fields</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>An unique identifier for your <code>QuestionSet</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time when this <code>QuestionSet</code> was created - UTC.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieving-a-code-survey-code'>Retrieving a <code>Survey</code></h2>
+<p>In the following examples, we will assume that the id of the <code>Survey</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>Survey</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/surveys/71/</code></p>
+<h2 id='updating-a-code-survey-code'>Updating a <code>Survey</code></h2>
+<p>To modify an existing <code>Survey</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/surveys/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body.</p>
+<h2 id='deleting-a-code-survey-code'>Deleting a <code>Survey</code></h2>
+<p>To delete a particular <code>Survey</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Survey</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/surveys/71/</code></p>
+<h1 id='questionsets'>QuestionSets</h1><h2 id='creating-a-code-questionset-code'>Creating a <code>QuestionSet</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">question_sets_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/question-sets/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Question Set"</span><span class="p">,</span>
+    <span class="s">"is_branch"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Question Set"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p><code>QuestionSets</code> are part of the larger feature of <code>Surveys</code>.   The organization of the models is as follows.  You can create a <code>QuestionSet</code> that is the container for your question objects.  You can then create all the questions you want and link these to the <code>QuestionSet</code> container.   Finally, you can then link your <code>QuestionSet</code> object to a <code>Survey</code> object.  This <code>Survey</code> object will control additional options on how you want to handle response submissions from your <code>Attendees</code>.</p>
+
+<aside class="notice">
+You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/question-sets/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>QUestionSet</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+<tr>
+<td>name</td>
+<td>yes</td>
+<td>string</td>
+<td>The title of your <code>QuestionSet</code>.</td>
+</tr>
+<tr>
+<td>is_branch</td>
+<td>no</td>
+<td>boolean</td>
+<td>A booelan value that indicates if this <code>QuestionSet</code> is a branch off an existing <code>Question</code>.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-questionsets-code'>Listing <code>QuestionSets</code></h2>
+<p>This endpoint will list all <code>QuestionSets</code> that are owned by your Account. Typically, this endpoint is called with a <code>guide</code> filter such that it returns a list of <code>QuestionSets</code> associated to a lone <code>Guide</code> object that is owned by you.</p>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">question_sets_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/question-sets/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all question sets you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Question Set"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/question-sets/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only fields</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>An unique identifier for your <code>QuestionSet</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time when this <code>QuestionSet</code> was created - UTC.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-by-code-guide-code-id'>Filtering By <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>QuestionSets#</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/question-sets/?guide=47</code></p>
+<h2 id='retrieving-a-code-questionset-code'>Retrieving a <code>QuestionSet</code></h2>
+<p>In the following examples, we will assume that the id of the <code>QuestionSet</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/question-sets/71/</code></p>
+<h2 id='updating-a-code-questionset-code'>Updating a <code>QuestionSet</code></h2>
+<p>To modify an existing <code>QuestionSet</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/question-sets/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body.</p>
+<h2 id='deleting-a-code-questionset-code'>Deleting a <code>QuestionSet</code></h2>
+<p>To delete a particular <code>QuestionSet</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>QuestionSet</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/question-sets/71/</code></p>
+<h1 id='questions'>Questions</h1><h2 id='creating-a-code-question-code'>Creating a <code>Question</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">free_response_question_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/free-response-questions/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="s">"text"</span><span class="p">:</span> <span class="s">"What did you think of the event?"</span><span class="p">,</span>
+    <span class="s">"requires_answer"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+    <span class="s">"rank"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
+    <span class="s">"display_type"</span><span class="p">:</span> <span class="mi">2</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">free_response_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What did you think of the event?"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"display_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>There are four distinct types of <code>Questions</code> you can create via the Open API.  The above examples illustrate how you can create Free Response Questions, Multiple Choice Questions, Sliding Scale Questions, and Grid Questions.</p>
+
+<aside class="notice">
+You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/free-response-questions/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>question_set</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#question_sets">QuestionSets</a> for more info.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>yes</td>
+<td>string</td>
+<td>The text of your <code>Question</code>.</td>
+</tr>
+<tr>
+<td>requires_answer</td>
+<td>no</td>
+<td>boolean</td>
+<td>A booelan value that indicates if this <code>Question</code> requires an answer from the end-user.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td>yes</td>
+<td>float</td>
+<td>Controls the display order in the <code>QuestionSet</code>.  <code>Questions</code> are displayed in ascending order.</td>
+</tr>
+<tr>
+<td>display_type</td>
+<td>no</td>
+<td>integer</td>
+<td>Options are 1 for short text display and 2 for long text display.  Defaults to 1.</td>
+</tr>
+</tbody></table>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/sliding-scale-questions/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>question_set</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#question_sets">QuestionSets</a> for more info.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>yes</td>
+<td>string</td>
+<td>The text of your <code>Question</code>.</td>
+</tr>
+<tr>
+<td>requires_answer</td>
+<td>no</td>
+<td>boolean</td>
+<td>A booelan value that indicates if this <code>Question</code> requires an answer from the end-user.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td>yes</td>
+<td>float</td>
+<td>Controls the display order in the <code>QuestionSet</code>.  <code>Questions</code> are displayed in ascending order.</td>
+</tr>
+<tr>
+<td>scale_min_value</td>
+<td>yes</td>
+<td>integer</td>
+<td>The minimum value to display for the sliding scale.  Lowest value is 0.</td>
+</tr>
+<tr>
+<td>scale_max_value</td>
+<td>yes</td>
+<td>integer</td>
+<td>The maximum value to display for the sliding scale.  Highest value is 10.</td>
+</tr>
+<tr>
+<td>scale_min_label</td>
+<td>no</td>
+<td>string</td>
+<td>An optional label for the minimum value on the scale.</td>
+</tr>
+<tr>
+<td>scale_max_label</td>
+<td>no</td>
+<td>string</td>
+<td>An optional label for the maximum value on the scale.</td>
+</tr>
+</tbody></table>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/multiple-choice-questions/</code></p>
+<h3 id='model-fields-3'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>question_set</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#questionsets">QuestionSets</a> for more info.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>yes</td>
+<td>string</td>
+<td>The text of your <code>Question</code>.</td>
+</tr>
+<tr>
+<td>requires_answer</td>
+<td>no</td>
+<td>boolean</td>
+<td>A booelan value that indicates if this <code>Question</code> requires an answer from the end-user.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td>yes</td>
+<td>float</td>
+<td>Controls the display order in the <code>QuestionSet</code>.  <code>Questions</code> are displayed in ascending order.</td>
+</tr>
+<tr>
+<td>display_type</td>
+<td>no</td>
+<td>integer</td>
+<td>Options are 1 for list display and 2 for drop down display.  Defaults to 1.</td>
+</tr>
+<tr>
+<td>selection_type</td>
+<td>no</td>
+<td>integer</td>
+<td>Options are 1 for single answer and 2 for multiple answer.  Defaults to 1.</td>
+</tr>
+<tr>
+<td>num_required_answers</td>
+<td>yes</td>
+<td>integer</td>
+<td>The minimum number of required selections to be considered a valid submission.</td>
+</tr>
+<tr>
+<td>required_exact_number_of_answers</td>
+<td>no</td>
+<td>boolean</td>
+<td>A boolean value that indicates if the exact number of answers defined in <code>num_required_answers</code> need to be submitted.</td>
+</tr>
+</tbody></table>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/multiple-choice-question-choices/</code></p>
+<h3 id='model-fields-4'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>multiple_choice_question</td>
+<td>no</td>
+<td>integer</td>
+<td>The id of the specific Multiple Choice Question your choice belongs to.</td>
+</tr>
+<tr>
+<td>grid_choice_question</td>
+<td>no</td>
+<td>integer</td>
+<td>The id of the specific Grid Question this choice belongs to.  Either this field OR multiple_choice_question needs to be filled in.</td>
+</tr>
+<tr>
+<td>text</td>
+<td>yes</td>
+<td>string</td>
+<td>The text of your choice.</td>
+</tr>
+<tr>
+<td>rank</td>
+<td>yes</td>
+<td>float</td>
+<td>Controls the display order of this choice.</td>
+</tr>
+<tr>
+<td>question_branch</td>
+<td>no</td>
+<td>integer</td>
+<td>The id of the <code>QuestionSet</code> branch that this choice will branch off into if selected.</td>
+</tr>
+</tbody></table>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/grid-questions/</code></p>
+<h3 id='model-fields-5'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>question_set</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>QuestionSet</code> your <code>Question</code> belongs to.  See section on <a href="#questionsets">QuestionSets</a> for more info.</td>
+</tr>
+<tr>
+<td>choices</td>
+<td>yes</td>
+<td>list of integers</td>
+<td>The title of your <code>QuestionSet</code>.</td>
+</tr>
+<tr>
+<td>questions</td>
+<td>yes</td>
+<td>list of dictionaries</td>
+<td>A list of dictionaries of the questions in this grid question.  The dictinoary should simply contain a <code>text</code> (string) key and a <code>rank</code> (float) key.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-questions-code'>Listing <code>Questions</code></h2>
+<p>The following endpoints will list all <code>Questions</code> that are owned by your Account. Typically, these endpoints are called with a <code>guide</code> filter such that it returns a list of <code>Questions</code> associated to a lone <code>Guide</code> object that is owned by you.  There is a dedicated endpoint for each type of <code>Question</code>.</p>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">sliding_scale_question_lists_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/sliding-scale-questions/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all sliding scale questions you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sliding_scale_question_lists_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rate the session on scale of 1 to 10"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scale_min_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scale_max_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scale_min_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poor"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"scale_max_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/free-response-questions/</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/sliding-scale-questions/</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/multiple-choice-questions/</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/grid-questions/</code></p>
+<h3 id='model-fields-6'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only fields</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>An unique identifier for your <code>Question</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time when this <code>Question</code> was created - UTC.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-by-code-guide-code-id'>Filtering By <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>Questions</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/free-response-questions?guide=47</code></p>
+<h2 id='retrieving-a-code-question-code'>Retrieving a <code>Question</code></h2>
+<p>In the following examples, we will assume that the id of the Multiple Choice <code>Question</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>Question</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/multiple-choice-questions/71/</code></p>
+<h2 id='updating-a-code-question-code'>Updating a <code>Question</code></h2>
+<p>To modify an existing <code>Question</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/multiple-choice-questions/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body.</p>
+<h2 id='deleting-a-code-question-code'>Deleting a <code>Question</code></h2>
+<p>To delete a particular <code>Question</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Question</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/multiple-choice-questions/71/</code></p>
 <h1 id='attendees'>Attendees</h1><h2 id='creating-an-code-attendee-code'>Creating an <code>Attendee</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">attendees_list_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/attendees/'</span>
