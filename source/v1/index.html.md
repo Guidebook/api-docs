@@ -40,6 +40,7 @@ includes:
   - surveys
   - question_sets
   - questions
+  - answersets
   - attendees
   - attendee_groups
   - guidebook_id

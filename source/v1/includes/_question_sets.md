@@ -10,9 +10,9 @@ question_sets_url =  'https://builder.guidebook.com/open-api/v1/question-sets/'
 api_key = 'API_KEY'
 post_data =
 {
-    "guide": 1,
-    "name": "Test Question Set",
-    "is_branch": false,
+  "guide": 1,
+  "is_branch": false,
+  "name": "Test Question Set"
 }
 response = request.post(question_sets_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
@@ -22,11 +22,12 @@ response = request.post(question_sets_url, data=post_data, headers={'Authorizati
 
 ```json
 {
-    "id": 123,
-    "guide": 1,
-    "name": "Test Question Set",
-    "is_branch": false,
-    "created_at": "2019-06-27T07:38:58.471042+0000",
+  "id": 2,
+  "created_at": "2019-06-24T02:28:28.088618+0000",
+  "last_updated": "2019-06-24T02:28:28.088638+0000",
+  "is_branch": false,
+  "guide": 1,
+  "name": "Test Question Set"
 }
 
 ```
@@ -72,18 +73,35 @@ response = request.get(question_sets_url, headers={'Authorization': 'JWT ' + api
 
 ```json
 {
-    "count": 1,
-    "next": null,
-    "previous": null,
-    "results": [
-        {
-            "id": 123,
-            "guide": 1,
-            "name": "Test Question Set",
-            "is_branch": false,
-            "created_at": "2019-06-27T07:38:58.471042+0000",
-        }
-    ]
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 2,
+      "created_at": "2019-06-24T02:26:54.616653+0000",
+      "last_updated": "2019-06-24T02:26:54.616670+0000",
+      "is_branch": false,
+      "guide": 2,
+      "name": "Question Set"
+    },
+    {
+      "id": 3,
+      "created_at": "2019-06-24T02:26:54.618841+0000",
+      "last_updated": "2019-06-24T02:26:54.618858+0000",
+      "is_branch": false,
+      "guide": 2,
+      "name": "Question Set"
+    },
+    {
+      "id": 4,
+      "created_at": "2019-06-24T02:26:54.620240+0000",
+      "last_updated": "2019-06-24T02:26:54.620257+0000",
+      "is_branch": true,
+      "guide": 2,
+      "name": "Question Set"
+    }
+  ]
 }
 ```
 

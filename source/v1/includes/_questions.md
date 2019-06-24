@@ -10,11 +10,11 @@ free_response_question_url =  'https://builder.guidebook.com/open-api/v1/free-re
 api_key = 'API_KEY'
 post_data =
 {
-    "question_set": 42,
-    "text": "What did you think of the event?",
-    "requires_answer": false,
-    "rank": 1.0,
-    "display_type": 2
+  "question_set": 42,
+  "display_type": "short-text",
+  "rank": 1,
+  "requires_answer": false,
+  "text": "What did you think of the event?"
 }
 response = request.post(free_response_question_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
@@ -24,13 +24,133 @@ response = request.post(free_response_question_url, data=post_data, headers={'Au
 
 ```json
 {
-	"id": 3,
-    "question_set": 42,
-    "text": "What did you think of the event?",
-    "requires_answer": false,
-    "rank": 1.0,
-    "display_type": 2,
-    "created_at": "2019-06-27T07:38:58.471042+0000",
+  "id": 1,
+  "question_type": "free-response",
+  "text": "What did you think of the event?",
+  "requires_answer": false,
+  "display_type": "short-text",
+  "question_set": {
+    "id": 1,
+    "created_at": "2019-06-24T04:13:51.215868+0000",
+    "last_updated": "2019-06-24T04:13:51.215888+0000",
+    "is_branch": false,
+    "guide": 1,
+    "name": "Question Set"
+  },
+  "rank": 1,
+  "uuid": "4e2e2d69-735c-482b-a902-6cf6793aa7fb"
+}
+
+```
+
+```python
+import requests
+
+grid_question_url =  'https://builder.guidebook.com/open-api/v1/grid-questions/'
+api_key = 'API_KEY'
+post_data =
+{
+  "question_set": 1479,
+  "rank": 1,
+  "text": "Test Grid Question",
+  "questions": [
+    {
+      "text": "question a",
+      "rank": 0
+    },
+    {
+      "text": "second question",
+      "rank": 1
+    },
+    {
+      "text": "last question",
+      "rank": 2
+    }
+  ],
+  "requires_answer": false
+}
+response = request.post(grid_question_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 364,
+  "question_type": "grid",
+  "text": "Test Grid Question",
+  "requires_answer": false,
+  "questions": [
+    {
+      "id": 1,
+      "text": "question a",
+      "rank": 0,
+      "uuid": "3d00fe34-478f-49de-a3a3-f77263996ad3"
+    },
+    {
+      "id": 2,
+      "text": "second question",
+      "rank": 1,
+      "uuid": "48a9b985-b1de-4adf-99a6-2f2a2c752eee"
+    },
+    {
+      "id": 3,
+      "text": "last question",
+      "rank": 2,
+      "uuid": "0d508d26-7892-4a7c-9623-e1f5b3beb8cb"
+    }
+  ],
+  "question_set": {
+    "id": 2,
+    "created_at": "2019-06-24T04:42:53.268110+0000",
+    "last_updated": "2019-06-24T04:42:53.268131+0000",
+    "is_branch": false,
+    "guide": 2,
+    "name": "Question Set"
+  },
+  "rank": 1,
+  "choices": [],
+  "uuid": "74c17df2-40f6-46e4-aa7d-449729641a52"
+}
+
+```
+
+
+```python
+import requests
+
+mc_question_choice_url =  'https://builder.guidebook.com/open-api/v1/multiple-choice-question-choices/'
+api_key = 'API_KEY'
+post_data =
+{
+  "rank": 1,
+  "text": "second choice",
+  "grid_choice_question": 364,
+  "multiple_choice_question": null
+}
+response = request.post(mc_question_choice_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+
+```
+
+> The above command returns JSON structured like this:
+
+```json
+{
+  "id": 1,
+  "text": "second choice",
+  "question_branch": null,
+  "rank": 1,
+  "multiple_choice_question": null,
+  "grid_choice_question": 2,
+  "question_set": {
+    "id": 3,
+    "created_at": "2019-06-24T05:00:22.759672+0000",
+    "last_updated": "2019-06-24T05:00:22.759687+0000",
+    "is_branch": false,
+    "guide": 3,
+    "name": "Question Set"
+  }
 }
 
 ```
@@ -56,7 +176,7 @@ question_set    | yes | integer  | The specific `QuestionSet` your `Question` be
 text            | yes | string   | The text of your `Question`.
 requires_answer | no  | boolean  | A booelan value that indicates if this `Question` requires an answer from the end-user.
 rank            | yes | float    | Controls the display order in the `QuestionSet`.  `Questions` are displayed in ascending order.
-display_type    | no  | integer  | Options are 1 for short text display and 2 for long text display.  Defaults to 1.
+display_type    | yes  | string  | Options are 'short-text' display or 'long-text' display.
 
 
 `POST https://builder.guidebook.com/open-api/v1/sliding-scale-questions/`
@@ -110,7 +230,7 @@ question_branch          | no        | integer | The id of the `QuestionSet` bra
 Parameter       | Required  | Type    | Description
 ---------       | --------  | ------- | -----------
 question_set    | yes       | integer  | The specific `QuestionSet` your `Question` belongs to.  See section on [QuestionSets](#questionsets) for more info.
-choices         | yes       | list of integers   | The title of your `QuestionSet`.
+choices         | yes       | list of integers   | The list of multiple question choices for the grid question.
 questions       | yes       | list of dictionaries  | A list of dictionaries of the questions in this grid question.  The dictinoary should simply contain a `text` (string) key and a `rank` (float) key.
 
 
@@ -133,25 +253,72 @@ response = request.get(sliding_scale_question_lists_url, headers={'Authorization
 
 ```json
 {
-    "count": 1,
-    "next": null,
-    "previous": null,
-    "results": [
-        {
-            "id": 42,
-            "question_set": 1,
-            "text": "Rate the session on scale of 1 to 10",
-            "requires_answer": true,
-            "rank": 1.0,
-            "scale_min_value": 1,
-            "scale_max_value": 10,
-            "scale_min_label": "Poor",
-            "scale_max_label": "Excellent",
-            "created_at": "2019-06-27T07:38:58.471042+0000",
-        }
-    ]
+  "count": 3,
+  "next": null,
+  "previous": null,
+  "results": [
+    {
+      "id": 1,
+      "question_type": "sliding-scale",
+      "text": "Rate this session on a scale of 1-10, 10 being the best.",
+      "requires_answer": false,
+      "scale_min_value": 0,
+      "scale_max_value": 10,
+      "question_set": {
+        "id": 2,
+        "created_at": "2019-06-24T04:08:41.778921+0000",
+        "last_updated": "2019-06-24T04:08:41.778945+0000",
+        "is_branch": false,
+        "guide": 2,
+        "name": "Question Set"
+      },
+      "rank": 1,
+      "scale_min_label": "",
+      "scale_max_label": "",
+      "uuid": "3827e773-c764-43eb-bd2f-c45a0374a9fe"
+    },
+    {
+      "id": 2,
+      "question_type": "sliding-scale",
+      "text": "Rate this session on a scale of 1-5, 5 being the best.",
+      "requires_answer": false,
+      "scale_min_value": 0,
+      "scale_max_value": 5,
+      "question_set": {
+        "id": 2,
+        "created_at": "2019-06-24T04:08:41.778921+0000",
+        "last_updated": "2019-06-24T04:08:41.778945+0000",
+        "is_branch": false,
+        "guide": 2,
+        "name": "Question Set"
+      },
+      "rank": 2,
+      "scale_min_label": "",
+      "scale_max_label": "",
+      "uuid": "482c23d4-618d-431e-8913-df17790c09aa"
+    },
+    {
+      "id": 3,
+      "question_type": "sliding-scale",
+      "text": "Rate this session on a scale of 3-7, 7 being the worst.",
+      "requires_answer": false,
+      "scale_min_value": 3,
+      "scale_max_value": 7,
+      "question_set": {
+        "id": 2,
+        "created_at": "2019-06-24T04:08:41.778921+0000",
+        "last_updated": "2019-06-24T04:08:41.778945+0000",
+        "is_branch": false,
+        "guide": 2,
+        "name": "Question Set"
+      },
+      "rank": 3,
+      "scale_min_label": "best",
+      "scale_max_label": "worst",
+      "uuid": "ae98389a-5e64-4421-b536-bc034309aa96"
+    }
+  ]
 }
-
 ```
 
 
@@ -172,7 +339,8 @@ Same as the fields used in creation with the addition of the following read-only
 
 Parameter       | Type    | Description
 ---------       | ------- | -----------
-id              | integer  | An unique identifier for your `Question`.
+id              | integer  | An unique identifier for your `Question`.  Note that this is not unique across question types.
+uuid			| uuid     | An unique identifier for your `Questio`.  Unique across question types.
 created_at      | datetime | Time when this `Question` was created - UTC.
 
 
