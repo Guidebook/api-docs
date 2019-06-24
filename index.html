@@ -706,6 +706,17 @@
               </ul>
           </li>
           <li>
+            <a href="#answersets" class="toc-h1 toc-link" data-title="AnswerSets">AnswerSets</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#listing-code-answersets-code" class="toc-h2 toc-link" data-title="AnswerSets">Listing <code>AnswerSets</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-specific-code-answerset-code" class="toc-h2 toc-link" data-title="AnswerSets">Retrieving a specific <code>AnswerSet</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#attendees" class="toc-h1 toc-link" data-title="Attendees">Attendees</a>
               <ul class="toc-list-h2">
                   <li>
@@ -4570,13 +4581,15 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 <span class="n">post_data</span> <span class="o">=</span>
 <span class="p">{</span>
-    <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
-    <span class="s">"submission_rule_type"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">"user_login_required"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s">"label"</span><span class="p">:</span> <span class="s">"Please Fill in this Form"</span><span class="p">,</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Event Feedback Survey"</span><span class="p">,</span>
-    <span class="s">"description"</span><span class="p">:</span> <span class="s">"Survey for gathering feedback about the event."</span><span class="p">,</span>
-    <span class="s">"is_collecting_responses"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s">"submission_rule_type"</span><span class="p">:</span> <span class="s">"multiple-submission"</span><span class="p">,</span>
+  <span class="s">"description"</span><span class="p">:</span> <span class="s">"Survey for gathering feedback about the event."</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"Event Feedback Survey"</span><span class="p">,</span>
+  <span class="s">"location_content_type"</span><span class="p">:</span> <span class="s">"schedule.session"</span><span class="p">,</span>
+  <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+  <span class="s">"user_login_required"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s">"is_collecting_responses"</span><span class="p">:</span> <span class="n">true</span><span class="p">,</span>
+  <span class="s">"location_object_id"</span><span class="p">:</span> <span class="mi">8765</span><span class="p">,</span>
+  <span class="s">"label"</span><span class="p">:</span> <span class="s">"Please Fill in this Form"</span>
 <span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">survey_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
@@ -4585,15 +4598,27 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">482</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please Fill in this Form"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Survey"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey for gathering feedback about the event."</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:08:42.952413+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:08:42.952434+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please Fill in this Form"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Survey"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey for gathering feedback about the event."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple-submission"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:08:42.901670+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:08:42.901691+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"location_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"location_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -4622,8 +4647,8 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <tr>
 <td>submission_rule_type</td>
 <td>yes</td>
-<td>integer</td>
-<td>Options are 1 for single submission, 2 is for revisions allowed, and 3 is for multiple submissions.  Defaults to 1.</td>
+<td>string</td>
+<td>Options are &#39;single-submission&#39;, &#39;revisions-allowed&#39;, &#39;multiple-submission&#39;</td>
 </tr>
 <tr>
 <td>user_login_required</td>
@@ -4655,6 +4680,24 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>boolean</td>
 <td>A booelan value that indicates if this <code>Survey</code> is collecting responses.</td>
 </tr>
+<tr>
+<td>location_content_type</td>
+<td>yes</td>
+<td>string</td>
+<td>Type of Object you want to link this survey to.  The options are: &quot;schedule.session&quot;, &quot;custom_list.customlistitem&quot;</td>
+</tr>
+<tr>
+<td>location_object_id</td>
+<td>yes</td>
+<td>integer</td>
+<td>Object ID of the object you want to associate this survey with.</td>
+</tr>
+<tr>
+<td>notification_emails</td>
+<td>no</td>
+<td>list of emails</td>
+<td>List of email addresses to notify when an answer is submmitted for this survey.</td>
+</tr>
 </tbody></table>
 <h2 id='listing-code-surveys-code'>Listing <code>Surveys</code></h2>
 <p>This endpoint will list all <code>Surveys</code> that are owned by your Account.</p>
@@ -4670,22 +4713,80 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">482</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">32</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please Fill in this Form"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Survey"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey for gathering feedback about the event."</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.966166+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.966182+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fill out this form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Survey"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this survey for this session."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple-submission"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.964328+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.964344+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"location_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.969125+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.969141+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fill out this form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Survey"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this survey for this session."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-submission"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.967454+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.967470+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"location_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.971788+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.971804+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fill out this form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Survey"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this survey for this session."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"revisions-allowed"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.970123+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.970140+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"location_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"location_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_collecting_responses"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://builder.guidebook.com/open-api/v1/surveys/</code></p>
@@ -4709,6 +4810,11 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>datetime</td>
 <td>Time when this <code>QuestionSet</code> was created - UTC.</td>
 </tr>
+<tr>
+<td>version_number</td>
+<td>integer</td>
+<td>Tracks what revision this survey is on.</td>
+</tr>
 </tbody></table>
 <h2 id='retrieving-a-code-survey-code'>Retrieving a <code>Survey</code></h2>
 <p>In the following examples, we will assume that the id of the <code>Survey</code> we&#39;d like to modify is 71.
@@ -4731,9 +4837,9 @@ To retrieve an individual <code>Survey</code> object issue a <code>GET</code> re
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 <span class="n">post_data</span> <span class="o">=</span>
 <span class="p">{</span>
-    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Question Set"</span><span class="p">,</span>
-    <span class="s">"is_branch"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">"is_branch"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Question Set"</span>
 <span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
@@ -4742,11 +4848,12 @@ To retrieve an individual <code>Survey</code> object issue a <code>GET</code> re
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Question Set"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:28:28.088618+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:28:28.088638+0000"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Question Set"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -4799,18 +4906,35 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">123</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Question Set"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:26:54.616653+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:26:54.616670+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:26:54.618841+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:26:54.618858+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:26:54.620240+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:26:54.620257+0000"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://builder.guidebook.com/open-api/v1/question-sets/</code></p>
@@ -4860,11 +4984,11 @@ To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</cod
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 <span class="n">post_data</span> <span class="o">=</span>
 <span class="p">{</span>
-    <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
-    <span class="s">"text"</span><span class="p">:</span> <span class="s">"What did you think of the event?"</span><span class="p">,</span>
-    <span class="s">"requires_answer"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
-    <span class="s">"rank"</span><span class="p">:</span> <span class="mf">1.0</span><span class="p">,</span>
-    <span class="s">"display_type"</span><span class="p">:</span> <span class="mi">2</span>
+  <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+  <span class="s">"display_type"</span><span class="p">:</span> <span class="s">"short-text"</span><span class="p">,</span>
+  <span class="s">"rank"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">"requires_answer"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+  <span class="s">"text"</span><span class="p">:</span> <span class="s">"What did you think of the event?"</span>
 <span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">free_response_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
@@ -4873,13 +4997,124 @@ To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</cod
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free-response"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What did you think of the event?"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"display_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"short-text"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:13:51.215868+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:13:51.215888+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e2e2d69-735c-482b-a902-6cf6793aa7fb"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">grid_question_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/grid-questions/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+  <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">1479</span><span class="p">,</span>
+  <span class="s">"rank"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">"text"</span><span class="p">:</span> <span class="s">"Test Grid Question"</span><span class="p">,</span>
+  <span class="s">"questions"</span><span class="p">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+      <span class="s">"text"</span><span class="p">:</span> <span class="s">"question a"</span><span class="p">,</span>
+      <span class="s">"rank"</span><span class="p">:</span> <span class="mi">0</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">"text"</span><span class="p">:</span> <span class="s">"second question"</span><span class="p">,</span>
+      <span class="s">"rank"</span><span class="p">:</span> <span class="mi">1</span>
+    <span class="p">},</span>
+    <span class="p">{</span>
+      <span class="s">"text"</span><span class="p">:</span> <span class="s">"last question"</span><span class="p">,</span>
+      <span class="s">"rank"</span><span class="p">:</span> <span class="mi">2</span>
+    <span class="p">}</span>
+  <span class="p">],</span>
+  <span class="s">"requires_answer"</span><span class="p">:</span> <span class="n">false</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">grid_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">364</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"grid"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Grid Question"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"questions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"question a"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3d00fe34-478f-49de-a3a3-f77263996ad3"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"second question"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"48a9b985-b1de-4adf-99a6-2f2a2c752eee"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"last question"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0d508d26-7892-4a7c-9623-e1f5b3beb8cb"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">],</span><span class="w">
+  </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:42:53.268110+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:42:53.268131+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"choices"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+  </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"74c17df2-40f6-46e4-aa7d-449729641a52"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">mc_question_choice_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/multiple-choice-question-choices/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+  <span class="s">"rank"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+  <span class="s">"text"</span><span class="p">:</span> <span class="s">"second choice"</span><span class="p">,</span>
+  <span class="s">"grid_choice_question"</span><span class="p">:</span> <span class="mi">364</span><span class="p">,</span>
+  <span class="s">"multiple_choice_question"</span><span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">mc_question_choice_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"second choice"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"question_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"multiple_choice_question"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"grid_choice_question"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"What did you think of the event?"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"display_type"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T05:00:22.759672+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T05:00:22.759687+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -4925,9 +5160,9 @@ You must be using a Guide that is configured to use the new Surveys feature that
 </tr>
 <tr>
 <td>display_type</td>
-<td>no</td>
-<td>integer</td>
-<td>Options are 1 for short text display and 2 for long text display.  Defaults to 1.</td>
+<td>yes</td>
+<td>string</td>
+<td>Options are &#39;short-text&#39; display or &#39;long-text&#39; display.</td>
 </tr>
 </tbody></table>
 
@@ -5113,7 +5348,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <td>choices</td>
 <td>yes</td>
 <td>list of integers</td>
-<td>The title of your <code>QuestionSet</code>.</td>
+<td>The list of multiple question choices for the grid question.</td>
 </tr>
 <tr>
 <td>questions</td>
@@ -5136,25 +5371,72 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rate the session on scale of 1 to 10"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"scale_min_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"scale_max_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"scale_min_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Poor"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"scale_max_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Excellent"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-27T07:38:58.471042+0000"</span><span class="p">,</span><span class="w">
-        </span><span class="p">}</span><span class="w">
-    </span><span class="p">]</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sliding-scale"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rate this session on a scale of 1-10, 10 being the best."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_min_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_max_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:08:41.778921+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:08:41.778945+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_min_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_max_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3827e773-c764-43eb-bd2f-c45a0374a9fe"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sliding-scale"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rate this session on a scale of 1-5, 5 being the best."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_min_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_max_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:08:41.778921+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:08:41.778945+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_min_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_max_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"482c23d4-618d-431e-8913-df17790c09aa"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sliding-scale"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Rate this session on a scale of 3-7, 7 being the worst."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"requires_answer"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_min_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_max_value"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"question_set"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:08:41.778921+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T04:08:41.778945+0000"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"is_branch"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Question Set"</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_min_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"best"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"scale_max_label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"worst"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ae98389a-5e64-4421-b536-bc034309aa96"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
-
 </span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://builder.guidebook.com/open-api/v1/free-response-questions/</code></p>
 
@@ -5176,7 +5458,12 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <tr>
 <td>id</td>
 <td>integer</td>
-<td>An unique identifier for your <code>Question</code>.</td>
+<td>An unique identifier for your <code>Question</code>.  Note that this is not unique across question types.</td>
+</tr>
+<tr>
+<td>uuid</td>
+<td>uuid</td>
+<td>An unique identifier for your <code>Questio</code>.  Unique across question types.</td>
 </tr>
 <tr>
 <td>created_at</td>
@@ -5199,7 +5486,141 @@ To retrieve an individual <code>Question</code> object issue a <code>GET</code> 
 <p>To delete a particular <code>Question</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Question</code> you&#39;d like deleted:</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/multiple-choice-questions/71/</code></p>
-<h1 id='attendees'>Attendees</h1><h2 id='creating-an-code-attendee-code'>Creating an <code>Attendee</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+<h1 id='answersets'>AnswerSets</h1><h2 id='listing-code-answersets-code'>Listing <code>AnswerSets</code></h2>
+<p>This endpoint will list all <code>AnswerSets</code> that are owned by your Account.</p>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">answer_set_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/answer-sets/?survey=23&amp;object_id=42939'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all answers for the given survey</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14253860</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">152</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc07a281f9cc1f3d47fc864e"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="s2">"2019-06-24T05:36:30.846778+0000"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14253860</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">153</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb7f8e68cc11ddf42a6"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="s2">"2019-06-24T05:36:30.846778+0000"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14253860</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"survey_version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i13cb7f313d2d229f"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="s2">"2019-06-24T05:36:30.846778+0000"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/answer-sets/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>An unique identifier for your <code>AnswerSet</code>.</td>
+</tr>
+<tr>
+<td>survey</td>
+<td>integer</td>
+<td>The Survey that this AnswerSet is for.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td>string</td>
+<td>The content type of the object this AnswerSet is for.</td>
+</tr>
+<tr>
+<td>object_id</td>
+<td>integer</td>
+<td>The object ID that this AnswerSet is for.</td>
+</tr>
+<tr>
+<td>device_id</td>
+<td>string</td>
+<td>Unique identifier for the device that submitted this AnswerSet.</td>
+</tr>
+<tr>
+<td>survey_version_number</td>
+<td>integer</td>
+<td>Tracks what revision this survey is on.</td>
+</tr>
+</tbody></table>
+<h2 id='retrieving-a-specific-code-answerset-code'>Retrieving a specific <code>AnswerSet</code></h2>
+<p>If you would like to see the details of a specific <code>AnswerSet</code> submitted, you can use the following detail URL to examine the detailed response data.
+To retrieve an individual <code>AnswerSet</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/</code></p>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">answer_set_detail_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all answers for the given survey</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_detail_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"72811ad9-dabe-4f17-824d-85d970e98f78"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sliding-scale"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"multi_choice_answer_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"c06e503b-03ca-494f-b470-759544571686"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free-response"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test answer"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"multi_choice_answer_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77d6398a-753f-4140-8fda-f83474f25e1e"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple-choice"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"multi_choice_answer_ids"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="mi">1</span><span class="p">,</span><span class="w">
+      </span><span class="mi">2</span><span class="p">,</span><span class="w">
+      </span><span class="mi">3</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre><h1 id='attendees'>Attendees</h1><h2 id='creating-an-code-attendee-code'>Creating an <code>Attendee</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">attendees_list_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/attendees/'</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
