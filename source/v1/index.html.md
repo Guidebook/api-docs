@@ -37,9 +37,6 @@ includes:
   - sponsors
   - inboxes
   - messages
-  - surveys
-  - question_sets
-  - questions
   - answersets
   - attendees
   - attendee_groups

@@ -1,8 +1,12 @@
-# AnswerSets
+# SurveyAnswerSets
 
-## Listing `AnswerSets`
+## Listing `SurveyAnswerSets`
 
-This endpoint will list all `AnswerSets` that are owned by your Account.
+This endpoint will list all `SurveyAnswerSets` that are owned by your Account.
+
+<aside class="notice">
+You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+</aside>
 
 
 ```python
@@ -24,8 +28,8 @@ response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_ke
   "previous": null,
   "results": [
     {
-      "object_id": 14253860,
-      "survey": 2,
+      "object_id": 42939,
+      "survey": 23,
       "user": null,
       "content_type": "schedule.session",
       "survey_version_number": 1,
@@ -34,8 +38,8 @@ response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_ke
       "completed_at":"2019-06-24T05:36:30.846778+0000"
     },
     {
-      "object_id": 14253860,
-      "survey": 2,
+      "object_id": 42939,
+      "survey": 23,
       "user": null,
       "content_type": "schedule.session",
       "survey_version_number": 1,
@@ -44,8 +48,8 @@ response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_ke
       "completed_at":"2019-06-24T05:36:30.846778+0000"
     },
     {
-      "object_id": 14253860,
-      "survey": 2,
+      "object_id": 42939,
+      "survey": 23,
       "user": 1,
       "content_type": "schedule.session",
       "survey_version_number": 1,
@@ -66,17 +70,17 @@ response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_ke
 
 Parameter       | Type    | Description
 ---------       | ------- | -----------
-id              | integer  | An unique identifier for your `AnswerSet`.
-survey          | integer | The Survey that this AnswerSet is for.
-content_type	| string  | The content type of the object this AnswerSet is for.
-object_id       | integer | The object ID that this AnswerSet is for.
-device_id	    | string  | Unique identifier for the device that submitted this AnswerSet.
+id              | integer  | An unique identifier for your `SurveyAnswerSets`.
+survey          | integer | The Survey that this `SurveyAnswerSets` is for.
+content_type	| string  | The content type of the object this `SurveyAnswerSets` is for.
+object_id       | integer | The object ID that this `SurveyAnswerSets` is for.
+device_id	    | string  | Unique identifier for the device that submitted this `SurveyAnswerSets`.
 survey_version_number  | integer  | Tracks what revision this survey is on.
 
 
 ## Retrieving a specific `AnswerSet`
-If you would like to see the details of a specific `AnswerSet` submitted, you can use the following detail URL to examine the detailed response data.
-To retrieve an individual `AnswerSet` object issue a `GET` request like:
+If you would like to see the details of a specific `SurveyAnswerSets` submitted, you can use the following detail URL to examine the detailed response data.  The example below is fetching `SurveyAnswerSets` 71.
+To retrieve an individual `SurveyAnswerSets` object issue a `GET` request like:
 
 `GET https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/`
 
@@ -96,29 +100,44 @@ response = request.get(answer_set_detail_url, headers={'Authorization': 'JWT ' +
 ```json
 [
   {
-    "id": 1,
-    "question_uuid": "72811ad9-dabe-4f17-824d-85d970e98f78",
+    "id": 13,
+    "question_uuid": "4e481586-85bc-4cc1-a33b-0c78b29a2366",
     "question_type": "sliding-scale",
+    "question_text": "test 1",
     "answer": "3",
-    "multi_choice_answer_ids": []
+    "multi_choice_answers": []
   },
   {
-    "id": 2,
-    "question_uuid": "c06e503b-03ca-494f-b470-759544571686",
+    "id": 14,
+    "question_uuid": "77cdabbc-d9d1-440c-9602-9574a062e7b4",
     "question_type": "free-response",
+    "question_text": "test 1",
     "answer": "test answer",
-    "multi_choice_answer_ids": []
+    "multi_choice_answers": []
   },
   {
-    "id": 3,
-    "question_uuid": "77d6398a-753f-4140-8fda-f83474f25e1e",
+    "id": 15,
+    "question_uuid": "315e41ca-ced4-4fce-8c35-1b98d680e472",
     "question_type": "multiple-choice",
+    "question_text": "test 1",
     "answer": "",
-    "multi_choice_answer_ids": [
-      1,
-      2,
-      3
+    "multi_choice_answers": [
+      "french fries",
+      "soda",
+      "hamburger"
     ]
   }
 ]
 ```
+
+
+### Model Fields
+
+Parameter       | Type    | Description
+---------       | ------- | -----------
+id              | integer  | An unique identifier for your `Answer`.
+question_uuid	| string  | The uuid of the Question this `Answer` is linked to.
+question_type   | string  | The type of the Question this `Answer` is linked to.
+question_text   | string  | The text of the Question this `Answer` is linked to.
+answer    	    | string  | The answer text that was submitted.
+multi_choice_answers  | list of strings  | Since multiple choice questions can have multiple answers.  They will appear as a list of strings here.
