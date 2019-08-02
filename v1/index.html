@@ -646,17 +646,6 @@
               </ul>
           </li>
           <li>
-            <a href="#surveyanswersets" class="toc-h1 toc-link" data-title="SurveyAnswerSets">SurveyAnswerSets</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#listing-code-surveyanswersets-code" class="toc-h2 toc-link" data-title="SurveyAnswerSets">Listing <code>SurveyAnswerSets</code></a>
-                  </li>
-                  <li>
-                    <a href="#retrieving-a-specific-code-answerset-code" class="toc-h2 toc-link" data-title="SurveyAnswerSets">Retrieving a specific <code>AnswerSet</code></a>
-                  </li>
-              </ul>
-          </li>
-          <li>
             <a href="#attendees" class="toc-h1 toc-link" data-title="Attendees">Attendees</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1019,6 +1008,7 @@ You must replace <code>API_KEY</code> with your personal API key.
             </span><span class="s2">"attendees_estimate"</span><span class="p">:</span><span class="w"> </span><span class="mi">1500</span><span class="p">,</span><span class="w">
             </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-22T21:00:00.000000+0000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-05-27T21:00:00.000000+0000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="mi">412</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"UTC"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T21:53:31.010760+0000"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -1030,6 +1020,7 @@ You must replace <code>API_KEY</code> with your personal API key.
             </span><span class="s2">"attendees_estimate"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="mi">412</span><span class="p">,</span><span class="w">
             </span><span class="s2">"timezone"</span><span class="p">:</span><span class="w"> </span><span class="s2">"US/Pacific"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-05-28T21:53:31.010760+0000"</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -1054,6 +1045,11 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>created_at</td>
 <td>datetime</td>
 <td>Time when <code>Guide</code> was created -- in UTC.</td>
+</tr>
+<tr>
+<td>owner</td>
+<td>int</td>
+<td>id of the <code>Account</code> User or Organization that owns the <code>Guide</code> object.</td>
 </tr>
 <tr>
 <td>name</td>
@@ -1091,6 +1087,10 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>The id of the <code>MenuItem</code> you want on the homescreen of your <code>Guide</code>.</td>
 </tr>
 </tbody></table>
+<h3 id='filtering-code-guides-code-by-code-owner-code-id'>Filtering <code>Guides</code> by <code>owner</code> id.</h3>
+<p>Including a query parameter <code>owner</code> allows you to filter for all <code>Guides</code> owned by a specific Account (<code>Account</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/guides/?owner=47</code></p>
 <h2 id='retrieving-a-code-guide-code'>Retrieving a <code>Guide</code></h2>
 <p>In the following examples, we will assume that the id of the <code>Guide</code> we&#39;d like to modify is 21.
 To retrieve an individual <code>Guide</code> object issue a <code>GET</code> request like:</p>
@@ -1131,12 +1131,14 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Space"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For all my conferences"</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For all my conferences"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="mi">413</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Other Space"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For all my other conferences"</span><span class="w">
+            </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"For all my other conferences"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"owner"</span><span class="p">:</span><span class="w"> </span><span class="mi">413</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1165,7 +1167,16 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
 <td>str</td>
 <td>A description of the <code>Space</code>.</td>
 </tr>
+<tr>
+<td>owner</td>
+<td>int</td>
+<td>id of the <code>Account</code> User or Organization that owns the <code>Space</code> object.</td>
+</tr>
 </tbody></table>
+<h3 id='filtering-code-space-code-by-code-owner-code-id'>Filtering <code>Space</code> by <code>owner</code> id.</h3>
+<p>Including a query parameter <code>owner</code> allows you to filter for all <code>Spaces</code> owned by a specific Account (<code>Account</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/spaces/?owner=47</code></p>
 <h1 id='spaceguideassociations'>SpaceGuideAssociations</h1>
 <p>A SpaceGuideAssociation is used to represent the relationship between a guide and a Space. A guide will only be searchable in a given space if there is a SpaceGuideAssociation that links the two together.</p>
 <h2 id='creating-a-code-spaceguideassociation-code'>Creating a <code>SpaceGuideAssociation</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -4515,186 +4526,6 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <p>To delete a particular <code>Message</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Message</code> you&#39;d like deleted.  Be very careful about deleting <code>Messages</code> that have been sent.  The delete operation only removes the <code>Message</code> on the Guidebook side, users will retain the <code>Messages</code> they have downloaded on their devices.</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/messages/71/</code></p>
-<h1 id='surveyanswersets'>SurveyAnswerSets</h1><h2 id='listing-code-surveyanswersets-code'>Listing <code>SurveyAnswerSets</code></h2>
-<p>This endpoint will list all <code>SurveyAnswerSets</code> that are owned by your Account.</p>
-
-<aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
-</aside>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">answer_set_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/answer-sets/?survey=23&amp;object_id=42939'</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
-
-<span class="c"># This will return all answers for the given survey</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42939</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"survey_version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">152</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"bc07a281f9cc1f3d47fc864e"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="s2">"2019-06-24T05:36:30.846778+0000"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42939</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"survey_version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">153</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"cb7f8e68cc11ddf42a6"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="s2">"2019-06-24T05:36:30.846778+0000"</span><span class="w">
-    </span><span class="p">},</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">42939</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"survey"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"survey_version_number"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"device_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"i13cb7f313d2d229f"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"completed_at"</span><span class="p">:</span><span class="s2">"2019-06-24T05:36:30.846778+0000"</span><span class="w">
-    </span><span class="p">}</span><span class="w">
-  </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='http-request'>HTTP Request</h3>
-<p><code>GET https://builder.guidebook.com/open-api/v1/answer-sets/</code></p>
-<h3 id='model-fields'>Model Fields</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>integer</td>
-<td>An unique identifier for your <code>SurveyAnswerSets</code>.</td>
-</tr>
-<tr>
-<td>survey</td>
-<td>integer</td>
-<td>The Survey that this <code>SurveyAnswerSets</code> is for.</td>
-</tr>
-<tr>
-<td>content_type</td>
-<td>string</td>
-<td>The content type of the object this <code>SurveyAnswerSets</code> is for.</td>
-</tr>
-<tr>
-<td>object_id</td>
-<td>integer</td>
-<td>The object ID that this <code>SurveyAnswerSets</code> is for.</td>
-</tr>
-<tr>
-<td>device_id</td>
-<td>string</td>
-<td>Unique identifier for the device that submitted this <code>SurveyAnswerSets</code>.</td>
-</tr>
-<tr>
-<td>survey_version_number</td>
-<td>integer</td>
-<td>Tracks what revision this survey is on.</td>
-</tr>
-</tbody></table>
-<h2 id='retrieving-a-specific-code-answerset-code'>Retrieving a specific <code>AnswerSet</code></h2>
-<p>If you would like to see the details of a specific <code>SurveyAnswerSets</code> submitted, you can use the following detail URL to examine the detailed response data.  The example below is fetching <code>SurveyAnswerSets</code> 71.
-To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET</code> request like:</p>
-
-<p><code>GET https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/</code></p>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
-
-<span class="n">answer_set_detail_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/'</span>
-<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
-
-<span class="c"># This will return all answers for the given survey</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_detail_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
-</code></pre>
-<blockquote>
-<p>The above command returns JSON structured like this:</p>
-</blockquote>
-<pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"4e481586-85bc-4cc1-a33b-0c78b29a2366"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"sliding-scale"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"3"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"multi_choice_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">14</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"77cdabbc-d9d1-440c-9602-9574a062e7b4"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"free-response"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test answer"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"multi_choice_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
-  </span><span class="p">},</span><span class="w">
-  </span><span class="p">{</span><span class="w">
-    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">15</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_uuid"</span><span class="p">:</span><span class="w"> </span><span class="s2">"315e41ca-ced4-4fce-8c35-1b98d680e472"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple-choice"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"question_text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test 1"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"answer"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"multi_choice_answers"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-      </span><span class="s2">"french fries"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"soda"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"hamburger"</span><span class="w">
-    </span><span class="p">]</span><span class="w">
-  </span><span class="p">}</span><span class="w">
-</span><span class="p">]</span><span class="w">
-</span></code></pre><h3 id='model-fields-2'>Model Fields</h3>
-<table><thead>
-<tr>
-<th>Parameter</th>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>id</td>
-<td>integer</td>
-<td>An unique identifier for your <code>Answer</code>.</td>
-</tr>
-<tr>
-<td>question_uuid</td>
-<td>string</td>
-<td>The uuid of the Question this <code>Answer</code> is linked to.</td>
-</tr>
-<tr>
-<td>question_type</td>
-<td>string</td>
-<td>The type of the Question this <code>Answer</code> is linked to.</td>
-</tr>
-<tr>
-<td>question_text</td>
-<td>string</td>
-<td>The text of the Question this <code>Answer</code> is linked to.</td>
-</tr>
-<tr>
-<td>answer</td>
-<td>string</td>
-<td>The answer text that was submitted.</td>
-</tr>
-<tr>
-<td>multi_choice_answers</td>
-<td>list of strings</td>
-<td>Since multiple choice questions can have multiple answers.  They will appear as a list of strings here.</td>
-</tr>
-</tbody></table>
 <h1 id='attendees'>Attendees</h1><h2 id='creating-an-code-attendee-code'>Creating an <code>Attendee</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">attendees_list_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/attendees/'</span>
@@ -5675,6 +5506,40 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 </tr>
 </tbody></table>
 
+<p><code>MobileApp-UserConnectionAccepted</code></p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>requesting_user_id</td>
+<td>The id of the user who requested the connection.</td>
+</tr>
+<tr>
+<td>requesting_user_first_name</td>
+<td>The first name of the requesting user.</td>
+</tr>
+<tr>
+<td>requesting_user_last_name</td>
+<td>The last name of the requesting user.</td>
+</tr>
+<tr>
+<td>requesting_user_company</td>
+<td>The company that the requesting user filled out on their profile. Can be null.</td>
+</tr>
+<tr>
+<td>requesting_user_position</td>
+<td>The position that the requesting user filled out on their profile. Can be null.</td>
+</tr>
+<tr>
+<td>requesting_user_email</td>
+<td>The email for the requesting user.</td>
+</tr>
+</tbody></table>
+
 <p><code>MobileApp-UserCheckedIn</code></p>
 
 <p>Standard fields. No additional fields.</p>
@@ -5686,40 +5551,6 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 <p><code>Builder-GuideCloned</code></p>
 
 <p>Standard fields. No additional fields.</p>
-
-<p><code>MobileApp-AnswerSetSubmitted</code></p>
-
-<table><thead>
-<tr>
-<th>Key</th>
-<th>Description</th>
-</tr>
-</thead><tbody>
-<tr>
-<td>answer_set_id</td>
-<td>The id of the <code>AnswerSet</code> that was just submitted. See section on <a href="#answersets">AnswerSets</a> for more info.</td>
-</tr>
-<tr>
-<td>device_id</td>
-<td>The unique identifier for the device that submitted this <code>AnswerSet</code>.</td>
-</tr>
-<tr>
-<td>content_type</td>
-<td>If this <code>AnswerSet</code> is related to an object, this is the type of that object.</td>
-</tr>
-<tr>
-<td>object_id</td>
-<td>If this <code>AnswerSet</code> is related to an object, this is the id of that object.</td>
-</tr>
-<tr>
-<td>survey_id</td>
-<td>The ID of the <code>Survey</code> object that this <code>AnswerSet</code> relates to.</td>
-</tr>
-<tr>
-<td>survey_version_number</td>
-<td>The version of the <code>Survey</code> that was answered.</td>
-</tr>
-</tbody></table>
 <h2 id='security'>Security</h2>
 <p>When implementing your Webhook URL, please make sure to confirm that the POST data being sent to your Webhook is coming from Guidebook!!  Each Webhook you set up on Guidebook will have an unique security token.  This token will be visible on your Webhooks setup screen.</p>
 
