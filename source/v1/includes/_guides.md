@@ -56,18 +56,18 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 
 ### Guide Properties
 
-Property           		| Type        | Description
----------          		| --------    | --------
-id                 		| int         | id of the `Guide` object.
-created_at         		| datetime    | Time when `Guide` was created -- in UTC.
+Property                | Type        | Description
+---------               | --------    | --------
+id                      | int         | id of the `Guide` object.
+created_at              | datetime    | Time when `Guide` was created -- in UTC.
 owner                   | int         | id of the `Account` User or Organization that owns the `Guide` object.
-name               		| str         | Name of the `Guide`.
-start_date         		| datetime    | The start date of the `Guide`. For consistency, all timestamps are converted to the UTC timezone.  Leave blank for ongoing `Guides`.
-end_date           		| datetime    | The end date of the Guide.  Leave blank for ongoing `Guides`.
-attendees_estimate 		| int         | Estimated attendance of the Guide. Must be filled to publish.
-description_html.  		| string      | A description of the `Guide`.  This field supports basic HTML.  See section on [html text](#html-text).
-timezone           		| timezone    | `Session` times in this `Guide` will be converted to this timezone.  Check [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for valid timezone strings.
-home_screen_menuitem 	| int 		  | The id of the `MenuItem` you want on the homescreen of your `Guide`.
+name                    | str         | Name of the `Guide`.
+start_date              | datetime    | The start date of the `Guide`. For consistency, all timestamps are converted to the UTC timezone.  Leave blank for ongoing `Guides`.
+end_date                | datetime    | The end date of the Guide.  Leave blank for ongoing `Guides`.
+attendees_estimate      | int         | Estimated attendance of the Guide. Must be filled to publish.
+description_html.       | string      | A description of the `Guide`.  This field supports basic HTML.  See section on [html text](#html-text).
+timezone                | timezone    | `Session` times in this `Guide` will be converted to this timezone.  Check [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for valid timezone strings.
+home_screen_menuitem    | int         | The id of the `MenuItem` you want on the homescreen of your `Guide`.
 
 
 ### Filtering `Guides` by `owner` id.
