@@ -23,12 +23,14 @@ response = requests.get(spaces_url, headers={'Authorization': 'JWT ' + api_key})
         {
             "id": 1,
             "name": "My Space",
-            "description": "For all my conferences"
+            "description": "For all my conferences",
+            "owner": 413
         },
         {
             "id": 2,
             "name": "My Other Space",
-            "description": "For all my other conferences"
+            "description": "For all my other conferences",
+            "owner": 413
         }
     ]
 }
@@ -45,3 +47,11 @@ Property           | Type        | Description
 id                 | int         | id of the `Space` object.
 name               | str         | Name of the `Space`.
 description        | str         | A description of the `Space`.
+owner              | int         | id of the `Account` User or Organization that owns the `Space` object.
+
+
+### Filtering `Space` by `owner` id.
+
+Including a query parameter `owner` allows you to filter for all `Spaces` owned by a specific Account (`Account` 47 in this example):
+
+`GET https://builder.guidebook.com/open-api/v1/spaces/?owner=47`

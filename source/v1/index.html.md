@@ -37,7 +37,6 @@ includes:
   - sponsors
   - inboxes
   - messages
-  - answersets
   - attendees
   - attendee_groups
   - guidebook_id

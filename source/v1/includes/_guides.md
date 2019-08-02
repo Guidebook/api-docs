@@ -30,6 +30,7 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 			"attendees_estimate": 1500,
 			"start_date": "2017-05-22T21:00:00.000000+0000",
 			"end_date": "2017-05-27T21:00:00.000000+0000",
+			"owner": 412,
 			"timezone": "UTC",
 			"created_at": "2018-05-28T21:53:31.010760+0000"
 		},
@@ -41,6 +42,7 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 			"attendees_estimate": null,
 			"start_date": null,
 			"end_date": null,
+			"owner": 412,
 			"timezone": "US/Pacific",
 			"created_at": "2018-05-28T21:53:31.010760+0000"
 		}
@@ -58,6 +60,7 @@ Property           		| Type        | Description
 ---------          		| --------    | --------
 id                 		| int         | id of the `Guide` object.
 created_at         		| datetime    | Time when `Guide` was created -- in UTC.
+owner                   | int         | id of the `Account` User or Organization that owns the `Guide` object.
 name               		| str         | Name of the `Guide`.
 start_date         		| datetime    | The start date of the `Guide`. For consistency, all timestamps are converted to the UTC timezone.  Leave blank for ongoing `Guides`.
 end_date           		| datetime    | The end date of the Guide.  Leave blank for ongoing `Guides`.
@@ -66,6 +69,12 @@ description_html.  		| string      | A description of the `Guide`.  This field s
 timezone           		| timezone    | `Session` times in this `Guide` will be converted to this timezone.  Check [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for valid timezone strings.
 home_screen_menuitem 	| int 		  | The id of the `MenuItem` you want on the homescreen of your `Guide`.
 
+
+### Filtering `Guides` by `owner` id.
+
+Including a query parameter `owner` allows you to filter for all `Guides` owned by a specific Account (`Account` 47 in this example):
+
+`GET https://builder.guidebook.com/open-api/v1/guides/?owner=47`
 
 ## Retrieving a `Guide`
 In the following examples, we will assume that the id of the `Guide` we'd like to modify is 21.
