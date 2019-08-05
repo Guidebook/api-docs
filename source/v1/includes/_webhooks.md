@@ -111,18 +111,6 @@ tagged_user_position   |  The position that the tagged user filled out on their 
 tagged_user_email      |  The email for the tagged user.
 
 
-`MobileApp-UserConnectionAccepted`
-
-Key             | Description
----------       |  -----------
-requesting_user_id     | The id of the user who requested the connection.
-requesting_user_first_name |  The first name of the requesting user.
-requesting_user_last_name  |  The last name of the requesting user.
-requesting_user_company    |  The company that the requesting user filled out on their profile. Can be null.
-requesting_user_position   |  The position that the requesting user filled out on their profile. Can be null.
-requesting_user_email      |  The email for the requesting user.
-
-
 `MobileApp-UserCheckedIn`
 
 Standard fields. No additional fields.
@@ -135,6 +123,18 @@ Standard fields. No additional fields.
 `Builder-GuideCloned`
 
 Standard fields. No additional fields.
+
+
+`MobileApp-AnswerSetSubmitted`
+
+Key             | Description
+---------       |  -----------
+answer_set_id   | The id of the `AnswerSet` that was just submitted. See section on [AnswerSets](#answersets) for more info.
+device_id       |  The unique identifier for the device that submitted this `AnswerSet`.
+content_type    |  If this `AnswerSet` is related to an object, this is the type of that object.
+object_id       |  If this `AnswerSet` is related to an object, this is the id of that object.
+survey_id       |  The ID of the `Survey` object that this `AnswerSet` relates to.
+survey_version_number      |  The version of the `Survey` that was answered.
 
 
 ## Security

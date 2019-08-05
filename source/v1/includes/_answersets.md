@@ -5,7 +5,7 @@
 This endpoint will list all `SurveyAnswerSets` that are owned by your Account.
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Surveys feature that launched June 2019. Legacy surveys are not supported for the Open API.
 </aside>
 
 
