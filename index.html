@@ -1978,7 +1978,8 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/locations/89/</code></p>
 <h2 id='the-main-venue-code-location-code'>The Main Venue <code>Location</code></h2>
 <p>The Main Venue is a special <code>Location</code> object for the <code>Guide</code> and represents the main location for your <code>Guide</code>.  There is only one Main Venue location allowed per guide and any attempts to create more than one Main Venue will result in validation errors.  This <code>Location</code> requires a JSON dictionary of the address and the longitude and latitude values of this address.</p>
-<pre class="highlight python tab-python"><code><span class="c"># First fetch the ID of the Main Venue object</span>
+<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">json</span>
+<span class="c"># First fetch the ID of the Main Venue object</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://builder.guidebook.com/open-api/v1/locations/?location_type=1&amp;guide_id=21'</span>
@@ -1991,15 +1992,16 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Moscone Center"</span><span class="p">,</span>
     <span class="s">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">122.401558</span><span class="p">,</span>
     <span class="s">"latitude"</span><span class="p">:</span> <span class="mf">37.784172</span><span class="p">,</span>
-    <span class="s">"address"</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s">"address"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
         <span class="s">"address"</span><span class="p">:</span> <span class="s">"Moscone Center"</span><span class="p">,</span>
         <span class="s">"city"</span><span class="p">:</span> <span class="s">"San Francisco"</span><span class="p">,</span>
         <span class="s">"state"</span><span class="p">:</span> <span class="s">"CA"</span><span class="p">,</span>
         <span class="s">"street"</span><span class="p">:</span> <span class="s">"747 Howard Street"</span><span class="p">,</span>
         <span class="s">"zipcode"</span><span class="p">:</span> <span class="s">"94103"</span><span class="p">,</span>
         <span class="s">"country"</span><span class="p">:</span> <span class="s">"U.S.A."</span>
-    <span class="p">}</span>
-<span class="p">}</span><span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">patch_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="p">})</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">patch_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre>
 <blockquote>
 <p>PATCH requests to update the Main Venue will return a JSON structure like this:</p>
