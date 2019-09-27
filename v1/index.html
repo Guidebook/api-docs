@@ -1097,6 +1097,31 @@ You must replace <code>API_KEY</code> with your personal API key.
 <td>int</td>
 <td>The id of the <code>MenuItem</code> you want on the homescreen of your <code>Guide</code>.</td>
 </tr>
+<tr>
+<td>private</td>
+<td>boolean</td>
+<td>Read only value indicating if this Guide requires a redeem code passphrase.</td>
+</tr>
+<tr>
+<td>login_required</td>
+<td>boolean</td>
+<td>Read only value indicating if this Guide requires a logged in user to access</td>
+</tr>
+<tr>
+<td>attendee_whitelist</td>
+<td>boolean</td>
+<td>Read only value indicating if this Guide is enforcing an invite-only attendee list</td>
+</tr>
+<tr>
+<td>privacy</td>
+<td>int</td>
+<td>Used for updating privacy options.  1 = Public Guide, 2 = Passphrase Guide, 3 = Invite Only Guide</td>
+</tr>
+<tr>
+<td>redeem_code</td>
+<td>str</td>
+<td>Optional paramater used when updating privacy options.  If you choose privacy option 2, you&#39;ll need to supply the desired passphrase in this field.  Note tha we only allow redeem_codes to be updated once per hour.</td>
+</tr>
 </tbody></table>
 <h3 id='filtering-code-guides-code-by-code-owner-code-id'>Filtering <code>Guides</code> by <code>owner</code> id.</h3>
 <p>Including a query parameter <code>owner</code> allows you to filter for all <code>Guides</code> owned by a specific Account (<code>Account</code> 47 in this example):</p>
@@ -1978,8 +2003,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/locations/89/</code></p>
 <h2 id='the-main-venue-code-location-code'>The Main Venue <code>Location</code></h2>
 <p>The Main Venue is a special <code>Location</code> object for the <code>Guide</code> and represents the main location for your <code>Guide</code>.  There is only one Main Venue location allowed per guide and any attempts to create more than one Main Venue will result in validation errors.  This <code>Location</code> requires a JSON dictionary of the address and the longitude and latitude values of this address.</p>
-<pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">json</span>
-<span class="c"># First fetch the ID of the Main Venue object</span>
+<pre class="highlight python tab-python"><code><span class="c"># First fetch the ID of the Main Venue object</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="n">url</span> <span class="o">=</span> <span class="s">'https://builder.guidebook.com/open-api/v1/locations/?location_type=1&amp;guide_id=21'</span>
@@ -1989,17 +2013,10 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
 <span class="n">update_url</span> <span class="o">=</span> <span class="s">'https://builder.guidebook.com/open-api/v1/locations/{}/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">main_venue_id</span><span class="p">)</span>
 <span class="n">patch_data</span> <span class="o">=</span>
 <span class="p">{</span>
-    <span class="s">"name"</span><span class="p">:</span> <span class="s">"Moscone Center"</span><span class="p">,</span>
-    <span class="s">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">122.401558</span><span class="p">,</span>
-    <span class="s">"latitude"</span><span class="p">:</span> <span class="mf">37.784172</span><span class="p">,</span>
-    <span class="s">"address"</span><span class="p">:</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
-        <span class="s">"address"</span><span class="p">:</span> <span class="s">"Moscone Center"</span><span class="p">,</span>
-        <span class="s">"city"</span><span class="p">:</span> <span class="s">"San Francisco"</span><span class="p">,</span>
-        <span class="s">"state"</span><span class="p">:</span> <span class="s">"CA"</span><span class="p">,</span>
-        <span class="s">"street"</span><span class="p">:</span> <span class="s">"747 Howard Street"</span><span class="p">,</span>
-        <span class="s">"zipcode"</span><span class="p">:</span> <span class="s">"94103"</span><span class="p">,</span>
-        <span class="s">"country"</span><span class="p">:</span> <span class="s">"U.S.A."</span>
-    <span class="p">})</span>
+  <span class="s">"latitude"</span><span class="p">:</span> <span class="mf">37.784172</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"Moscone Center"</span><span class="p">,</span>
+  <span class="s">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">122.401558</span><span class="p">,</span>
+  <span class="s">"address"</span><span class="p">:</span> <span class="s">"{</span><span class="se">\"</span><span class="s">city</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">San Francisco</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">country</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">U.S.A.</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">zipcode</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">94103</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">state</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">CA</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">street</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">747 Howard Street</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">address</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Moscone Center</span><span class="se">\"</span><span class="s">}"</span>
 <span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">patch</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">patch_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre>
@@ -2808,7 +2825,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 <td>The id number of the object you want a <code>MenuItem</code> for. If creating a <code>Map</code> menu item, this is not required.</td>
 </tr>
 <tr>
-<td>title</td>
+<td>name</td>
 <td>no</td>
 <td>string</td>
 <td>The title of the <code>MenuItem</code>. If not provided, a default is used.</td>
@@ -2904,9 +2921,9 @@ To retrieve an individual <code>MenuItem</code> object issue a <code>GET</code> 
 
 <p><code>PATCH https://builder.guidebook.com/open-api/v1/menu-items/71/</code></p>
 
-<p>You will only need to include the specific fields you are updating and not a full request body. Only <code>name</code>, <code>rank</code>, <code>object_id</code>, and <code>enabled</code> are updatable after creation. </p>
+<p>You will only need to include the specific fields you are updating and not a full request body. Only <code>name</code>, <code>rank</code>, <code>object_id</code>, and <code>enabled</code> are updatable after creation.</p>
 <h2 id='deleting-a-code-menuitem-code'>Deleting a <code>MenuItem</code></h2>
-<p><code>DELETE</code> requests are not supported for <code>MenuItem</code> objects. Instead, you can can issue a <code>PATCH</code> request to set the <code>enabled</code> status to <code>False</code>. This will hide the <code>MenuItem</code> from view. </p>
+<p><code>DELETE</code> requests are not supported for <code>MenuItem</code> objects. Instead, you can can issue a <code>PATCH</code> request to set the <code>enabled</code> status to <code>False</code>. This will hide the <code>MenuItem</code> from view.</p>
 <h1 id='pdfs'>PDFs</h1>
 <p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated with <code>PDFs</code> that you upload to your guide. To create a reference to a <code>PDF</code>, see the section on <a href="#links">Links</a>. A <code>PDF</code> name is derived from the <code>Link</code> <code>_title</code> field, and if not provided, will default to the name on the pdf file. </p>
 <h2 id='creating-a-code-pdf-code'>Creating a <code>PDF</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
