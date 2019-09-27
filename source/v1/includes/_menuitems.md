@@ -41,8 +41,8 @@ Parameter            | Required  | Type    | Description
 ---------            | --------  | ------- | -----------
 guide                | yes | integer  | The specific `Guide` your `MenuItem` belongs to.  See section on [Guides](#guides) for more info.
 content_type  		 | yes | string   | The content type of the object you want a `MenuItem` for. The allowed content types are `custom_list.customlist`, `custom_list.customlistitem`, `schedule.scheduletrack`, `menuitem_data_pointer.mapspointer`, and `photo.album`.
-object_id     		 | sometimes | integer  | The id number of the object you want a `MenuItem` for. If creating a `Map` menu item, this is not required. 
-title     			 | no | string   | The title of the `MenuItem`. If not provided, a default is used. 
+object_id     		 | sometimes | integer  | The id number of the object you want a `MenuItem` for. If creating a `Map` menu item, this is not required.
+name     			 | no | string   | The title of the `MenuItem`. If not provided, a default is used.
 rank                 | no  | integer  | The order the `MenuItem` will appear in the `MenuItem` section. If not provided, a default is used.
 enabled     		 | no | boolean  | The enabled status of the `MenuItem`. If not provided, this defaults to `True`.
 
@@ -130,10 +130,10 @@ To modify an existing `MenuItem` object, issue a `PATCH` request like:
 
 `PATCH https://builder.guidebook.com/open-api/v1/menu-items/71/`
 
-You will only need to include the specific fields you are updating and not a full request body. Only `name`, `rank`, `object_id`, and `enabled` are updatable after creation. 
+You will only need to include the specific fields you are updating and not a full request body. Only `name`, `rank`, `object_id`, and `enabled` are updatable after creation.
 
 
 ## Deleting a `MenuItem`
 
-`DELETE` requests are not supported for `MenuItem` objects. Instead, you can can issue a `PATCH` request to set the `enabled` status to `False`. This will hide the `MenuItem` from view. 
+`DELETE` requests are not supported for `MenuItem` objects. Instead, you can can issue a `PATCH` request to set the `enabled` status to `False`. This will hide the `MenuItem` from view.
 

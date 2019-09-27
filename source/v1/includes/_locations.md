@@ -200,7 +200,6 @@ To delete a particular `Location`, issue a `DELETE` request to the url that poin
 The Main Venue is a special `Location` object for the `Guide` and represents the main location for your `Guide`.  There is only one Main Venue location allowed per guide and any attempts to create more than one Main Venue will result in validation errors.  This `Location` requires a JSON dictionary of the address and the longitude and latitude values of this address.
 
 ```python
-import json
 # First fetch the ID of the Main Venue object
 api_key = 'API_KEY'
 
@@ -211,17 +210,10 @@ main_venue_id = response.json()['results'][0]['id']
 update_url = 'https://builder.guidebook.com/open-api/v1/locations/{}/'.format(main_venue_id)
 patch_data =
 {
-	"name": "Moscone Center",
-	"longitude": -122.401558,
-	"latitude": 37.784172,
-	"address": json.dumps({
-		"address": "Moscone Center",
-		"city": "San Francisco",
-		"state": "CA",
-		"street": "747 Howard Street",
-		"zipcode": "94103",
-		"country": "U.S.A."
-	})
+  "latitude": 37.784172,
+  "name": "Moscone Center",
+  "longitude": -122.401558,
+  "address": "{\"city\": \"San Francisco\", \"country\": \"U.S.A.\", \"zipcode\": \"94103\", \"state\": \"CA\", \"street\": \"747 Howard Street\", \"address\": \"Moscone Center\"}"
 }
 response = requests.patch(url, data=patch_data, headers={'Authorization': 'JWT ' + api_key}).json()
 ```
