@@ -5016,11 +5016,15 @@ You must publish your `Guide` via the Builder CMS before you can send out invite
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47</code></p>
 
-<p>You are also able to filter by the fields <code>revoked</code> and <code>status</code> if you want to fetch a list of <code>Attendees</code> fitting specific criteria.  See examples below for how to filter on to these fields and combining multiple filters:</p>
+<p>You are also able to filter by the fields <code>revoked</code>, <code>status</code>, <code>import_id</code>, and <code>account__email</code> if you want to fetch a list of <code>Attendees</code> fitting specific criteria.  See examples below for how to filter on to these fields and combining multiple filters:</p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&amp;status=3</code></p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&amp;revoked=True</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&amp;account__email=test@example.com</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&amp;import_id=test_import_id</code></p>
 <h3 id='sorting-returned-data'>Sorting Returned Data</h3>
 <p>When fetching a list of your <code>Attendees</code>, you&#39;re also able to control the order of the returned data if this is important for your needs.  The fields that you can sort by are <code>email</code>, <code>first_name</code>, <code>last_name</code>, <code>revoked</code>, and <code>status</code>. The following example will sort all <code>Attendees</code> from <code>Guide</code> 47 by <code>email</code> in alphabetical order:</p>
 
