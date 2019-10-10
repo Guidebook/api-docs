@@ -251,11 +251,13 @@ Including a query parameter `guide` allows you to filter for all `Sessions` rela
 
 `GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47`
 
-You are also able to filter by the fields `schedule_tracks` and `id` if you want to fetch a list of `Sessions` fitting specific criteria.  See example below for how to filter on to these fields and combining multiple filters:
+You are also able to filter by the fields `schedule_tracks`, `import_id`, and `id` if you want to fetch a list of `Sessions` fitting specific criteria.  See example below for how to filter on to these fields and combining multiple filters:
 
 `GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&schedule_tracks=3`
 
 `GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&id=8673`
+
+`GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&import_id=my_custom_id_a123`
 
 ### Sorting Returned Data
 
