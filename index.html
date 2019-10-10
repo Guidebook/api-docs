@@ -1595,11 +1595,13 @@ Remember — don't forget to include your API key in the `Authorization` header!
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47</code></p>
 
-<p>You are also able to filter by the fields <code>schedule_tracks</code> and <code>id</code> if you want to fetch a list of <code>Sessions</code> fitting specific criteria.  See example below for how to filter on to these fields and combining multiple filters:</p>
+<p>You are also able to filter by the fields <code>schedule_tracks</code>, <code>import_id</code>, and <code>id</code> if you want to fetch a list of <code>Sessions</code> fitting specific criteria.  See example below for how to filter on to these fields and combining multiple filters:</p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&amp;schedule_tracks=3</code></p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&amp;id=8673</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&amp;import_id=my_custom_id_a123</code></p>
 <h3 id='sorting-returned-data'>Sorting Returned Data</h3>
 <p>When fetching a list of your <code>Sessions</code>, you&#39;re also able to control the order of the returned data if this is important for your needs.  The fields that you can sort by are <code>id</code>, <code>start_time</code>, and <code>end_time</code>. The following example will sort all <code>Sessions</code> from <code>Guide</code> 47 by <code>start_time</code> in chronological order:</p>
 
@@ -2559,11 +2561,13 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47</code></p>
 
-<p>You are also able to filter by the fields <code>custom_lists</code> and <code>id</code> if you want to fetch a list of <code>CustomListItems</code> fitting specific criteria. See example below for how to filter on to these fields and combining multiple filters:</p>
+<p>You are also able to filter by the fields <code>custom_lists</code>, <code>import_id</code>, and <code>id</code> if you want to fetch a list of <code>CustomListItems</code> fitting specific criteria. See example below for how to filter on to these fields and combining multiple filters:</p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47&amp;custom_lists=12</code></p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47&amp;id=44859</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47&amp;import_id=my_custom_id_a123</code></p>
 <h3 id='sorting-returned-data'>Sorting Returned Data</h3>
 <p>When fetching a list of your <code>CustomListItems</code>, you&#39;re also able to control the order of the returned data if this is important for your needs.  The only field you can currently sort by is <code>id</code>. The following example will sort all <code>CustomListItems</code> from <code>Guide</code> 47 by <code>id</code> in numerical order:</p>
 
