@@ -1352,7 +1352,8 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
     </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span><span class="err">#</span><span class="w"> </span><span class="err">example</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">`ScheduleTracks`</span><span class="w">
@@ -1370,7 +1371,8 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
     </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">],</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -1389,7 +1391,8 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
     </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w"> </span><span class="mi">47</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">],</span><span class="w">
     </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
@@ -1477,6 +1480,12 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
 <td>image</td>
 <td>image will appear above the <code>Session</code> name, date, times, location, and description in Guidebook apps. The ideal size is 640px wide, 240 px tall. See section on <a href="#images">images</a>.</td>
 </tr>
+<tr>
+<td>rank</td>
+<td>no</td>
+<td>float</td>
+<td>The order the <code>Session</code> will appear.</td>
+</tr>
 </tbody></table>
 
 <aside class="success">
@@ -1512,7 +1521,8 @@ Remember — don't forget to include your API key in the `Authorization` header!
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="p">,</span><span class="w">
@@ -1528,7 +1538,8 @@ Remember — don't forget to include your API key in the `Authorization` header!
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">23</span><span class="p">,</span><span class="w">
@@ -1544,7 +1555,8 @@ Remember — don't forget to include your API key in the `Authorization` header!
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="p">,</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w">
@@ -1560,7 +1572,8 @@ Remember — don't forget to include your API key in the `Authorization` header!
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">43</span><span class="p">,</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"schedule_tracks"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
-            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2057,7 +2070,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyMap"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Map"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w"> 
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint will create a <code>Map</code> for your <code>Guide</code>.</p>
@@ -2099,7 +2112,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
 <tr>
 <td>rank</td>
 <td>no</td>
-<td>int</td>
+<td>float</td>
 <td>The order the <code>Map</code> will appear.</td>
 </tr>
 </tbody></table>
@@ -2125,7 +2138,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
             </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/WH2CMLWJhbizmXD83qEm0GsiclZejP3QqNlf.png"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"AMap"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
@@ -2133,7 +2146,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
             </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/fsJcNBuRlw0MtNcIoC6MFBLicp43bp1q3L1y.jpg"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"MyMap"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Map"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2822,7 +2835,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 <tr>
 <td>rank</td>
 <td>no</td>
-<td>integer</td>
+<td>float</td>
 <td>The order the <code>MenuItem</code> will appear in the <code>MenuItem</code> section. If not provided, a default is used.</td>
 </tr>
 <tr>
@@ -2854,7 +2867,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
             </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_list.customlist"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18T16:55:35.769347+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Custom List Menu Item"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">13</span><span class="w">
@@ -2864,7 +2877,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
             </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.scheduletrack"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-18T16:55:43.840032+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Schedule Track Menu Item"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
             </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">22</span><span class="w">
@@ -3108,7 +3121,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">31</span><span class="p">,</span><span class="w">
     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:30:11.015128+0000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test List Item 1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"en-US"</span><span class="p">:</span><span class="w"> </span><span class="s2">"testing overridden description"</span><span class="w">
@@ -3118,7 +3131,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Items"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Items"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:30:11.007205+0000"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">2.0</span><span class="p">,</span><span class="w">
         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="mi">33</span><span class="p">,</span><span class="w">
@@ -3172,7 +3185,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <tr>
 <td>rank</td>
 <td>no</td>
-<td>integer</td>
+<td>float</td>
 <td>The order the <code>Link</code> will appear in the <code>Links</code> section on the app.  <code>Links</code> are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.</td>
 </tr>
 <tr>
@@ -3218,7 +3231,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
             </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
             </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.300403+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session B"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:19:05.283843+00:00"</span><span class="p">,</span><span class="w">
@@ -3229,7 +3242,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.294694+0000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
@@ -3244,7 +3257,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
             </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
             </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.310453+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session A"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:19:05.281825+00:00"</span><span class="p">,</span><span class="w">
@@ -3255,7 +3268,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.304460+0000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w">
@@ -3270,7 +3283,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
             </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
             </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.319159+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session C"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:19:05.285326+00:00"</span><span class="p">,</span><span class="w">
@@ -3281,7 +3294,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
                 </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.294694+0000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">12</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"category"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
@@ -3380,7 +3393,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.678935+0000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session C"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:56:28.641592+00:00"</span><span class="p">,</span><span class="w">
@@ -3391,7 +3404,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.651231+0000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3405,7 +3418,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.659284+0000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session B"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:56:28.639726+00:00"</span><span class="p">,</span><span class="w">
@@ -3416,7 +3429,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.651231+0000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3424,7 +3437,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.651231+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3440,7 +3453,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.669642+0000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session A"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:56:28.637319+00:00"</span><span class="p">,</span><span class="w">
@@ -3451,7 +3464,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.663602+0000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3459,7 +3472,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.663602+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3475,7 +3488,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">9</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.692462+0000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session A"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:56:28.637319+00:00"</span><span class="p">,</span><span class="w">
@@ -3486,7 +3499,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.685621+0000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3494,7 +3507,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.685621+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3510,7 +3523,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.703571+0000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session E"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:56:28.645808+00:00"</span><span class="p">,</span><span class="w">
@@ -3521,7 +3534,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.697603+0000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3529,7 +3542,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.697603+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -3545,7 +3558,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                     </span><span class="s2">"source_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">11</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">10</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.714641+0000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"session D"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                         </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27 15:56:28.643482+00:00"</span><span class="p">,</span><span class="w">
@@ -3556,7 +3569,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                         </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"_name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Sessions"</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.707867+0000"</span><span class="p">,</span><span class="w">
-                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                        </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
                         </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
                     </span><span class="p">},</span><span class="w">
                     </span><span class="s2">"_title"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
@@ -3564,7 +3577,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
                 </span><span class="p">}</span><span class="w">
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:56:28.707867+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">6</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -3608,8 +3621,8 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
 </tr>
 <tr>
 <td>rank</td>
-<td>no</td>
-<td>integer</td>
+<td>float</td>
+<td>The order the <code>LinkCategory</code> will appear in the <code>Links</code> section on the app.  <code>LinkCategories</code> are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.</td>
 </tr>
 </tbody></table>
 
@@ -3661,7 +3674,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
     </span><span class="s2">"target_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_list.customlistitem"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:30:11.015128+0000"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Title 1"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Content 1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3712,7 +3725,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
 <tr>
 <td>rank</td>
 <td>no</td>
-<td>integer</td>
+<td>float</td>
 <td>The order the <code>QuickInfo</code> will appear in the <code>QuickInfo</code> section on the app. If no rank value is supplied on creation, a default is used.</td>
 </tr>
 </tbody></table>
@@ -3738,7 +3751,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
             </span><span class="s2">"target_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">38</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.300403+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Title 1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Content 1"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -3748,7 +3761,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
             </span><span class="s2">"target_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">37</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.310453+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Title 2"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Content 2"</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -3758,7 +3771,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
             </span><span class="s2">"target_content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"schedule.session"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"target_object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">39</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-06-27T15:19:05.319159+0000"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"rank"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0</span><span class="p">,</span><span class="w">
             </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Title 3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Content 3"</span><span class="w">
         </span><span class="p">}</span><span class="w">
