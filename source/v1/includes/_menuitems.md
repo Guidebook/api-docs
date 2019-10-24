@@ -43,7 +43,11 @@ guide                | yes | integer  | The specific `Guide` your `MenuItem` bel
 content_type  		 | yes | string   | The content type of the object you want a `MenuItem` for. The allowed content types are `custom_list.customlist`, `custom_list.customlistitem`, `schedule.scheduletrack`, `menuitem_data_pointer.mapspointer`, and `photo.album`.
 object_id     		 | sometimes | integer  | The id number of the object you want a `MenuItem` for. If creating a `Map` menu item, this is not required.
 name     			 | no | string   | The title of the `MenuItem`. If not provided, a default is used.
+<<<<<<< HEAD
 rank                 | no  | float  | The order the `MenuItem` will appear in the `MenuItem` section. If not provided, a default is used.
+=======
+rank                 | no  | integer  | The order the `MenuItem` will appear in the `MenuItem` section. If not provided, a default is used.
+>>>>>>> a3dd3f3a5781bd0585841be16d3a643883e7c8e5
 enabled     		 | no | boolean  | The enabled status of the `MenuItem`. If not provided, this defaults to `True`.
 
 
