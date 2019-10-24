@@ -36,7 +36,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 					"source_object_id": 7,
 					"target_object_id": 9,
 					"created_at": "2018-06-27T15:56:28.678935+0000",
-					"rank": 0,
+					"rank": 0.0,
 					"title": "session C",
 					"description": {
 						"start_time": "2018-06-27 15:56:28.641592+00:00",
@@ -47,7 +47,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 						"name": "Sessions",
 						"_name": "Sessions",
 						"created_at": "2018-06-27T15:56:28.651231+0000",
-						"rank": 1,
+						"rank": 1.0,
 						"guide": 5
 					},
 					"_title": null,
@@ -61,7 +61,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 					"source_object_id": 7,
 					"target_object_id": 8,
 					"created_at": "2018-06-27T15:56:28.659284+0000",
-					"rank": 0,
+					"rank": 0.0,
 					"title": "session B",
 					"description": {
 						"start_time": "2018-06-27 15:56:28.639726+00:00",
@@ -72,7 +72,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 						"name": "Sessions",
 						"_name": "Sessions",
 						"created_at": "2018-06-27T15:56:28.651231+0000",
-						"rank": 1,
+						"rank": 1.0,
 						"guide": 5
 					},
 					"_title": null,
@@ -80,7 +80,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 				}
 			],
 			"created_at": "2018-06-27T15:56:28.651231+0000",
-			"rank": 1,
+			"rank": 1.0,
 			"guide": 5
 		},
 		{
@@ -96,7 +96,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 					"source_object_id": 8,
 					"target_object_id": 7,
 					"created_at": "2018-06-27T15:56:28.669642+0000",
-					"rank": 0,
+					"rank": 0.0,
 					"title": "session A",
 					"description": {
 						"start_time": "2018-06-27 15:56:28.637319+00:00",
@@ -107,7 +107,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 						"name": "Sessions",
 						"_name": "Sessions",
 						"created_at": "2018-06-27T15:56:28.663602+0000",
-						"rank": 1,
+						"rank": 1.0,
 						"guide": 5
 					},
 					"_title": null,
@@ -115,7 +115,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 				}
 			],
 			"created_at": "2018-06-27T15:56:28.663602+0000",
-			"rank": 1,
+			"rank": 1.0,
 			"guide": 5
 		},
 		{
@@ -131,7 +131,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 					"source_object_id": 9,
 					"target_object_id": 7,
 					"created_at": "2018-06-27T15:56:28.692462+0000",
-					"rank": 0,
+					"rank": 0.0,
 					"title": "session A",
 					"description": {
 						"start_time": "2018-06-27 15:56:28.637319+00:00",
@@ -142,7 +142,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 						"name": "Sessions",
 						"_name": "Sessions",
 						"created_at": "2018-06-27T15:56:28.685621+0000",
-						"rank": 1,
+						"rank": 1.0,
 						"guide": 5
 					},
 					"_title": null,
@@ -150,7 +150,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 				}
 			],
 			"created_at": "2018-06-27T15:56:28.685621+0000",
-			"rank": 1,
+			"rank": 1.0,
 			"guide": 5
 		},
 		{
@@ -166,7 +166,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 					"source_object_id": 10,
 					"target_object_id": 11,
 					"created_at": "2018-06-27T15:56:28.703571+0000",
-					"rank": 0,
+					"rank": 0.0,
 					"title": "session E",
 					"description": {
 						"start_time": "2018-06-27 15:56:28.645808+00:00",
@@ -177,7 +177,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 						"name": "Sessions",
 						"_name": "Sessions",
 						"created_at": "2018-06-27T15:56:28.697603+0000",
-						"rank": 1,
+						"rank": 1.0,
 						"guide": 6
 					},
 					"_title": null,
@@ -185,7 +185,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 				}
 			],
 			"created_at": "2018-06-27T15:56:28.697603+0000",
-			"rank": 1,
+			"rank": 1.0,
 			"guide": 6
 		},
 		{
@@ -201,7 +201,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 					"source_object_id": 11,
 					"target_object_id": 10,
 					"created_at": "2018-06-27T15:56:28.714641+0000",
-					"rank": 0,
+					"rank": 0.0,
 					"title": "session D",
 					"description": {
 						"start_time": "2018-06-27 15:56:28.643482+00:00",
@@ -212,7 +212,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 						"name": "Sessions",
 						"_name": "Sessions",
 						"created_at": "2018-06-27T15:56:28.707867+0000",
-						"rank": 1,
+						"rank": 1.0,
 						"guide": 6
 					},
 					"_title": null,
@@ -220,7 +220,7 @@ response = request.get(link_category_url, headers={'Authorization': 'JWT ' + api
 				}
 			],
 			"created_at": "2018-06-27T15:56:28.707867+0000",
-			"rank": 1,
+			"rank": 1.0,
 			"guide": 6
 		}
 	]
@@ -243,7 +243,7 @@ created_at      | datetime | Time when this `LinkCategory` was created - UTC.
 name            | string   | Title that will be displayed in the app.  To change this, please use the _name field.
 _name           | string   |  Used to override default title.
 links           | list       | List of the `Link` objects displayed in this category
-rank            | no       | integer  | The order the `LinkCategory` will appear in the `Links` section on the app.  `LinkCategories` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
+rank            | float       | The order the `LinkCategory` will appear in the `Links` section on the app.  `LinkCategories` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
 
 
 Including a query parameter `guide` allows you to filter for all `LinkCategories` related to a `Guide` you have access to (`Guide` 47 in this example):

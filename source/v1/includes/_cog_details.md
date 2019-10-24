@@ -34,7 +34,7 @@ response = request.post(quick_info_url, data=post_data, headers={'Authorization'
 	"target_content_type": "custom_list.customlistitem",
 	"target_object_id": 1,
 	"created_at": "2018-06-27T15:30:11.015128+0000",
-	"rank": 0,
+	"rank": 0.0,
 	"title": "Test Title 1",
 	"content": "Test Content 1"
 }
@@ -57,7 +57,7 @@ target_content_type  | yes | string   | The content type of the target object.  
 target_object_id     | yes | integer  | The id number of the target object.  Not updatable after creation.
 title     			 | no | string   | The title of the `QuickInfo`. If not provided, this defaults to "Title".
 content 		     | no | string   | The content of the `QuickInfo`. If not provided, this defaults to "Content".
-rank                 | no  | integer  | The order the `QuickInfo` will appear in the `QuickInfo` section on the app. If no rank value is supplied on creation, a default is used.
+rank                 | no  | float  | The order the `QuickInfo` will appear in the `QuickInfo` section on the app. If no rank value is supplied on creation, a default is used.
 
 
 ## Listing `QuickInfo`
@@ -87,7 +87,7 @@ response = request.get(quick_info_url, headers={'Authorization': 'JWT ' + api_ke
 			"target_content_type": "schedule.session",
 			"target_object_id": 38,
 			"created_at": "2018-06-27T15:19:05.300403+0000",
-			"rank": 0,
+			"rank": 0.0,
 			"title": "Test Title 1",
 			"content": "Test Content 1"
 		},
@@ -97,7 +97,7 @@ response = request.get(quick_info_url, headers={'Authorization': 'JWT ' + api_ke
 			"target_content_type": "schedule.session",
 			"target_object_id": 37,
 			"created_at": "2018-06-27T15:19:05.310453+0000",
-			"rank": 0,
+			"rank": 0.0,
 			"title": "Test Title 2",
 			"content": "Test Content 2"
 		},
@@ -107,7 +107,7 @@ response = request.get(quick_info_url, headers={'Authorization': 'JWT ' + api_ke
 			"target_content_type": "schedule.session",
 			"target_object_id": 39,
 			"created_at": "2018-06-27T15:19:05.319159+0000",
-			"rank": 0,
+			"rank": 0.0,
 			"title": "Test Title 3",
 			"content": "Test Content 3"
 		}

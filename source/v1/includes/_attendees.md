@@ -242,11 +242,15 @@ Including a query parameter `guide` allows you to filter for all `Attendees` rel
 
 `GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47`
 
-You are also able to filter by the fields `revoked` and `status` if you want to fetch a list of `Attendees` fitting specific criteria.  See examples below for how to filter on to these fields and combining multiple filters:
+You are also able to filter by the fields `revoked`, `status`, `import_id`, and `account__email` if you want to fetch a list of `Attendees` fitting specific criteria.  See examples below for how to filter on to these fields and combining multiple filters:
 
 `GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&status=3`
 
 `GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&revoked=True`
+
+`GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&account__email=test@example.com`
+
+`GET https://builder.guidebook.com/open-api/v1/attendees/?guide=47&import_id=test_import_id`
 
 
 ### Sorting Returned Data

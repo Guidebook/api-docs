@@ -37,7 +37,7 @@ response = request.post(link_url, data=post_data, headers={'Authorization': 'JWT
 	"source_object_id": 31,
 	"target_object_id": 1,
 	"created_at": "2018-06-27T15:30:11.015128+0000",
-	"rank": 0,
+	"rank": 0.0,
 	"title": "Test List Item 1",
 	"description": {
 		"en-US": "testing overridden description"
@@ -47,7 +47,7 @@ response = request.post(link_url, data=post_data, headers={'Authorization': 'JWT
 		"name": "Items",
 		"_name": "Items",
 		"created_at": "2018-06-27T15:30:11.007205+0000",
-		"rank": 2,
+		"rank": 2.0,
 		"guide": 7
 	},
 	"category": 33,
@@ -73,7 +73,7 @@ source_content_type  | yes | string   | The content type of the source object.  
 source_object_id     | yes | integer  | The id number of the source object.  Not updatable after creation.
 target_content_type  | yes | string   | The content type of the target object.  The options are: "schedule.session", "custom_list.customlistitem", and "uri_resource.pdffile".
 target_object_id     | yes | integer  | The id number of the target object.  Not updatable after creation.
-rank                 | no  | integer  | The order the `Link` will appear in the `Links` section on the app.  `Links` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
+rank                 | no  | float  | The order the `Link` will appear in the `Links` section on the app.  `Links` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
 _title               | no  | string   | Use this field to override the default title of the `Link`.  The default behavior is to derive the title from the target object. Targets such as `PDFs` do not have their own title field, and depend on this to be given a custom name. 
 _description         | no  | string   | Use this field to override the default description of the `Link`.  The default behavior is to derive the description from the target object
 category             | no  | integer  | `LinkCategory` ID this `Link` will be displayed in.  Most of the logic regarding `LinkCategories` are automatically handled for you so you do not need to supply an category ID.   Use this field to update the category if needed.
@@ -108,7 +108,7 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			"source_object_id": 37,
 			"target_object_id": 38,
 			"created_at": "2018-06-27T15:19:05.300403+0000",
-			"rank": 0,
+			"rank": 0.0,
 			"title": "session B",
 			"description": {
 				"start_time": "2018-06-27 15:19:05.283843+00:00",
@@ -119,7 +119,7 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 				"name": "Sessions",
 				"_name": "Sessions",
 				"created_at": "2018-06-27T15:19:05.294694+0000",
-				"rank": 1,
+				"rank": 1.0,
 				"guide": 12
 			},
 			"category": 39,
@@ -134,7 +134,7 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			"source_object_id": 38,
 			"target_object_id": 37,
 			"created_at": "2018-06-27T15:19:05.310453+0000",
-			"rank": 0,
+			"rank": 0.0,
 			"title": "session A",
 			"description": {
 				"start_time": "2018-06-27 15:19:05.281825+00:00",
@@ -145,7 +145,7 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 				"name": "Sessions",
 				"_name": "Sessions",
 				"created_at": "2018-06-27T15:19:05.304460+0000",
-				"rank": 1,
+				"rank": 1.0,
 				"guide": 12
 			},
 			"category": 40,
@@ -160,7 +160,7 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			"source_object_id": 37,
 			"target_object_id": 39,
 			"created_at": "2018-06-27T15:19:05.319159+0000",
-			"rank": 0,
+			"rank": 0.0,
 			"title": "session C",
 			"description": {
 				"start_time": "2018-06-27 15:19:05.285326+00:00",
@@ -171,7 +171,7 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 				"name": "Sessions",
 				"_name": "Sessions",
 				"created_at": "2018-06-27T15:19:05.294694+0000",
-				"rank": 1,
+				"rank": 1.0,
 				"guide": 12
 			},
 			"category": 39,

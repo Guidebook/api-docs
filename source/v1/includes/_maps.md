@@ -32,7 +32,7 @@ with open('your_map.jpg', 'rb') as map_image:
     "name": "MyMap",
     "description": "Event Map",
     "id": 7,
-    "rank": 0 
+    "rank": 0.0
 }
 ```
 
@@ -51,7 +51,7 @@ guide                | yes | integer  | The specific `Guide` your `Map` belongs 
 image		 		 | yes | file  | Your image file. It must be either JPG or PNG, and between 1000x1000 and 2000x2000 pixels.
 name 				 | yes | string  | Name of the `Map`.
 description 		 | no | string  | Description that will be displayed in the app.
-rank 			 	 | no | int  | The order the `Map` will appear.
+rank 			 	 | no | float  | The order the `Map` will appear.
 
 
 ## Listing `Maps`
@@ -81,7 +81,7 @@ response = request.get(map_url, headers={'Authorization': 'JWT ' + api_key})
             "image": "http://s3.amazonaws.com/media.guidebook.com/upload/1/WH2CMLWJhbizmXD83qEm0GsiclZejP3QqNlf.png",
             "name": "AMap",
             "description": null,
-            "rank": 0
+            "rank": 0.0
         },
         {
             "id": 7,
@@ -89,7 +89,7 @@ response = request.get(map_url, headers={'Authorization': 'JWT ' + api_key})
             "image": "http://s3.amazonaws.com/media.guidebook.com/upload/1/fsJcNBuRlw0MtNcIoC6MFBLicp43bp1q3L1y.jpg",
             "name": "MyMap",
             "description": "Event Map",
-            "rank": 0
+            "rank": 0.0
         }
     ]
 }

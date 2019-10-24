@@ -68,6 +68,8 @@ attendees_estimate      | int         | Estimated attendance of the Guide. Must 
 description_html.       | string      | A description of the `Guide`.  This field supports basic HTML.  See section on [html text](#html-text).
 timezone                | timezone    | `Session` times in this `Guide` will be converted to this timezone.  Check [this list](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List) for valid timezone strings.
 home_screen_menuitem    | int         | The id of the `MenuItem` you want on the homescreen of your `Guide`.
+privacy                 | int         | Used for updating privacy options.  1 = Public Guide, 2 = Passphrase Guide, 3 = Invite Only Guide
+redeem_code             | str         | Optional paramater used when updating privacy options.  If you choose privacy option 2, you'll need to supply the desired passphrase in this field.  Note tha we only allow redeem_codes to be updated once per hour.
 
 
 ### Filtering `Guides` by `owner` id.

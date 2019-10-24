@@ -177,11 +177,13 @@ Including a query parameter `guide` allows you to filter for all `CustomListItem
 
 `GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47`
 
-You are also able to filter by the fields `custom_lists` and `id` if you want to fetch a list of `CustomListItems` fitting specific criteria. See example below for how to filter on to these fields and combining multiple filters:
+You are also able to filter by the fields `custom_lists`, `import_id`, and `id` if you want to fetch a list of `CustomListItems` fitting specific criteria. See example below for how to filter on to these fields and combining multiple filters:
 
 `GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47&custom_lists=12`
 
 `GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47&id=44859`
+
+`GET https://builder.guidebook.com/open-api/v1/custom-list-items/?guide=47&import_id=my_custom_id_a123`
 
 ### Sorting Returned Data
 

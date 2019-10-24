@@ -210,18 +210,12 @@ main_venue_id = response.json()['results'][0]['id']
 update_url = 'https://builder.guidebook.com/open-api/v1/locations/{}/'.format(main_venue_id)
 patch_data =
 {
-	"name": "Moscone Center",
-	"longitude": -122.401558,
-	"latitude": 37.784172,
-	"address": {
-		"address": "Moscone Center",
-		"city": "San Francisco",
-		"state": "CA",
-		"street": "747 Howard Street",
-		"zipcode": "94103",
-		"country": "U.S.A."
-	}
-}response = requests.patch(url, data=patch_data, headers={'Authorization': 'JWT ' + api_key}).json()
+  "latitude": 37.784172,
+  "name": "Moscone Center",
+  "longitude": -122.401558,
+  "address": "{\"city\": \"San Francisco\", \"country\": \"U.S.A.\", \"zipcode\": \"94103\", \"state\": \"CA\", \"street\": \"747 Howard Street\", \"address\": \"Moscone Center\"}"
+}
+response = requests.patch(url, data=patch_data, headers={'Authorization': 'JWT ' + api_key}).json()
 ```
 
 > PATCH requests to update the Main Venue will return a JSON structure like this:

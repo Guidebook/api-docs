@@ -66,7 +66,8 @@ response_3 = request.post(session_url, data=post_data, headers={'Authorization':
 	"guide": 1,
 	"locations": [],
 	"schedule_tracks": [],
-	"image": null
+	"image": null,
+	"rank": 0.0
 }
 
 # example with `ScheduleTracks`
@@ -84,7 +85,8 @@ response_3 = request.post(session_url, data=post_data, headers={'Authorization':
 	"guide": 1,
 	"locations": [],
 	"schedule_tracks": [3, 42, 47, 101],
-	"image": null
+	"image": null,
+	"rank": 0.0
 }
 
 
@@ -103,7 +105,8 @@ response_3 = request.post(session_url, data=post_data, headers={'Authorization':
 	"guide": 1,
 	"locations": [3, 42, 47, 101],
 	"schedule_tracks": [],
-	"image": null
+	"image": null,
+	"rank": 0.0
 }
 
 ```
@@ -131,6 +134,7 @@ import_id       | no  | string     | A string field you can use to input your ow
 locations       | no  | array of integers | Array of IDs of `Locations` this `Session` should belong to.  See section on [Locations](#locations).
 schedule_tracks | no  | array of integers | Array of IDs of `ScheduleTracks` this `Session` should belong to.  See section on [ScheduleTracks](#scheduletracks).
 image           | no  | image    |  image will appear above the `Session` name, date, times, location, and description in Guidebook apps. The ideal size is 640px wide, 240 px tall. See section on [images](#images).
+rank 			| no | float  | The order the `Session` will appear.
 
 
 <aside class="success">
@@ -173,7 +177,8 @@ response = request.get(session_url, headers={'Authorization': 'JWT ' + api_key})
 			"guide": 42,
 			"locations": [],
 			"schedule_tracks": [],
-			"image": null
+			"image": null,
+			"rank": 0.0
 		},
 		{
 			"id": 22,
@@ -189,7 +194,8 @@ response = request.get(session_url, headers={'Authorization': 'JWT ' + api_key})
 			"guide": 42,
 			"locations": [],
 			"schedule_tracks": [],
-			"image": null
+			"image": null,
+			"rank": 0.0
 		},
 		{
 			"id": 23,
@@ -205,7 +211,8 @@ response = request.get(session_url, headers={'Authorization': 'JWT ' + api_key})
 			"guide": 42,
 			"locations": [],
 			"schedule_tracks": [],
-			"image": null
+			"image": null,
+			"rank": 0.0
 		},
 		{
 			"id": 24,
@@ -221,7 +228,8 @@ response = request.get(session_url, headers={'Authorization': 'JWT ' + api_key})
 			"guide": 43,
 			"locations": [],
 			"schedule_tracks": [],
-			"image": null
+			"image": null,
+			"rank": 0.0
 		}
 	]
 }
@@ -251,11 +259,13 @@ Including a query parameter `guide` allows you to filter for all `Sessions` rela
 
 `GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47`
 
-You are also able to filter by the fields `schedule_tracks` and `id` if you want to fetch a list of `Sessions` fitting specific criteria.  See example below for how to filter on to these fields and combining multiple filters:
+You are also able to filter by the fields `schedule_tracks`, `import_id`, and `id` if you want to fetch a list of `Sessions` fitting specific criteria.  See example below for how to filter on to these fields and combining multiple filters:
 
 `GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&schedule_tracks=3`
 
 `GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&id=8673`
+
+`GET https://builder.guidebook.com/open-api/v1/sessions/?guide=47&import_id=my_custom_id_a123`
 
 ### Sorting Returned Data
 
