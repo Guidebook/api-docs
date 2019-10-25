@@ -1661,7 +1661,8 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
     </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Schedule Track Created via the Open API"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="s2">"#000080"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-21T21:28:35.432366+0000"</span><span class="w">
+    </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-21T21:28:35.432366+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 
 
@@ -1696,6 +1697,12 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
 <td>string</td>
 <td>Hex value of the color you want this track to be. Used for highlighting sessions in the app. Example: &quot;#000080&quot; for blue.</td>
 </tr>
+<tr>
+<td>import_id</td>
+<td>no</td>
+<td>string</td>
+<td>A string field you can use to input your own identifier.  This is for when you have your own IDs for <code>ScheduleTracks</code> in your data store.</td>
+</tr>
 </tbody></table>
 <h2 id='listing-code-scheduletracks-code'>Listing <code>ScheduleTracks</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -1718,6 +1725,7 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">308</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Track 1"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-10T21:28:35.432366+0000"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1731,6 +1739,7 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">308</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Track 3"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-11T21:28:35.432366+0000"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
@@ -1738,6 +1747,7 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">309</span><span class="p">,</span><span class="w">
             </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test Track 4, Different Guide"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"color"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"import_id"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-12T21:28:35.432366+0000"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
@@ -1768,10 +1778,16 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
 <td>Time when this <code>ScheduleTrack</code> was created - UTC.</td>
 </tr>
 </tbody></table>
-<h3 id='filtering-by-guide-id'>Filtering By Guide id</h3>
+<h3 id='filtering-by-guide-id-and-other-fields'>Filtering By Guide id and other fields</h3>
 <p>Including a query parameter <code>guide</code> allows you to filter for all <code>ScheduleTracks</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example):</p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/schedule-tracks/?guide=47</code></p>
+
+<p>You are also able to filter by the fields <code>import_id</code> and <code>id</code> if you want to fetch a list of <code>ScheduleTracks</code> fitting specific criteria. See the examples below for how to filter on these fields:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/schedule-tracks/?guide=47&amp;id=8673</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/schedule-tracks/?guide=47&amp;import_id=my_custom_id_a123</code></p>
 <h2 id='retrieving-a-code-scheduletrack-code'>Retrieving a <code>ScheduleTrack</code></h2>
 <p>In the following examples, we will assume that the id of the <code>ScheduleTrack</code> we&#39;d like to modify is 71.
 To retrieve an individual <code>ScheduleTrack</code> object issue a <code>GET</code> request like:</p>
