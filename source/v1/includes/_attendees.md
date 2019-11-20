@@ -328,3 +328,13 @@ function onGuidebookLoad(){
 ```
 
 To test the example, add a `Web View` feature to your guide in Builder, then upload the example HTML snippet.  Login to the app on your mobile device, download the guide, then open the `Web View` you just created.
+
+## Publishing a `PersonalizedSchedule` for an `Attendee`
+
+To publish a `PersonalizedSchedule` for a specific `Attendee` object, issue a `POST` request like:
+
+`POST https://builder.guidebook.com/open-api/v1/attendees/21/publish-personalized-schedules/`
+
+A successful request to this endpoint will return a status code of `202 ACCEPTED`
+
+To successfully publish a personalized schedule for an attendee, the attendee's guide must be on a Premium service level and must already be published.

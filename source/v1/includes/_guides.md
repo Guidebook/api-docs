@@ -106,3 +106,13 @@ To publish an existing `Guide` object, issue a `POST` request like:
 A successful request to this endpoint will return a status code of `202 ACCEPTED`
 
 To be successfully published, the guide must currently be on a paid plan and cannot be archived. Note that the act of publishing a Guide does not guarantee that it will appear in your space. Please see the documentation on `Spaces` and `SpaceGuideAssociations` for more information.
+
+## Publishing `PersonalizedSchedules` for a `Guide`
+
+To publish all `PersonalizedSchedules` on a `Guide` object, issue a `POST` request like:
+
+`POST https://builder.guidebook.com/open-api/v1/guides/21/publish-personalized-schedules/`
+
+A successful request to this endpoint will return a status code of `202 ACCEPTED`
+
+To successfully publish personalized schedules for a guide, the guide must be on a Premium service level and must already be published.

@@ -51,7 +51,7 @@ response = request.post(personalized_schedule_url, data=post_data, headers={'Aut
 ```
 
 
-This endpoint will create a `PersonalizedSchedule` for your guide.  `PersonalizedSchedules` have an email invite component that is not exposed via the Open API. To publish these schedules to the end-users and send out email notifications, please sign in to Builder and use the UI there to publish and send out emails.
+This endpoint will create a `PersonalizedSchedule` for your guide.
 
 ### HTTP Request
 
@@ -165,3 +165,6 @@ The only fields you will be able to update are `sessions` and `attendees`.  Note
 To delete a particular `PersonalizedSchedule`, issue a `DELETE` request to the url that points to the specific `PersonalizedSchedule` you'd like deleted:
 
 `DELETE https://builder.guidebook.com/open-api/v1/personalized-schedules/71/`
+
+## Publishing `PersonalizedSchedules`
+`PersonalizedSchedules` can be published for an entire guide, or for a specific attendee. To publish all schedules for a guide, see [Publishing Personalized Schedules for a Guide](#publishing-code-personalizedschedules-code-for-a-code-guide-code). To publish a schedule for a specific attendee, see [Publishing Personalized Schedules for Attendees](#publishing-a-code-personalizedschedule-code-for-an-code-attendee-code).
