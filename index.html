@@ -284,6 +284,9 @@
                   <li>
                     <a href="#publishing-a-code-guide-code" class="toc-h2 toc-link" data-title="Guides">Publishing a <code>Guide</code></a>
                   </li>
+                  <li>
+                    <a href="#publishing-code-personalizedschedules-code-for-a-code-guide-code" class="toc-h2 toc-link" data-title="Guides">Publishing <code>PersonalizedSchedules</code> for a <code>Guide</code></a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -680,6 +683,9 @@
                   <li>
                     <a href="#retrieving-an-attendee-in-a-web-view" class="toc-h2 toc-link" data-title="Attendees">Retrieving an Attendee In a Web View</a>
                   </li>
+                  <li>
+                    <a href="#publishing-a-code-personalizedschedule-code-for-an-code-attendee-code" class="toc-h2 toc-link" data-title="Attendees">Publishing a <code>PersonalizedSchedule</code> for an <code>Attendee</code></a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -739,6 +745,9 @@
                   </li>
                   <li>
                     <a href="#deleting-a-code-personalizedschedule-code" class="toc-h2 toc-link" data-title="PersonalizedSchedules">Deleting a <code>PersonalizedSchedule</code></a>
+                  </li>
+                  <li>
+                    <a href="#publishing-code-personalizedschedules-code" class="toc-h2 toc-link" data-title="PersonalizedSchedules">Publishing <code>PersonalizedSchedules</code></a>
                   </li>
               </ul>
           </li>
@@ -1133,6 +1142,14 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
 <p>A successful request to this endpoint will return a status code of <code>202 ACCEPTED</code></p>
 
 <p>To be successfully published, the guide must currently be on a paid plan and cannot be archived. Note that the act of publishing a Guide does not guarantee that it will appear in your space. Please see the documentation on <code>Spaces</code> and <code>SpaceGuideAssociations</code> for more information.</p>
+<h2 id='publishing-code-personalizedschedules-code-for-a-code-guide-code'>Publishing <code>PersonalizedSchedules</code> for a <code>Guide</code></h2>
+<p>To publish all <code>PersonalizedSchedules</code> on a <code>Guide</code> object, issue a <code>POST</code> request like:</p>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/guides/21/publish-personalized-schedules/</code></p>
+
+<p>A successful request to this endpoint will return a status code of <code>202 ACCEPTED</code></p>
+
+<p>To successfully publish personalized schedules for a guide, the guide must be on a Premium service level and must already be published.</p>
 <h1 id='spaces'>Spaces</h1>
 <p>A Space is a branded &quot;container&quot; for a customer&#39;s guides. A Space lives within a single custom MobileApp and/or one or more Guidebook flagship apps.</p>
 <h2 id='listing-code-spaces-code'>Listing <code>Spaces</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -5116,6 +5133,14 @@ Be very cautious with updating <code>import_ids</code>!  If your integration req
 <span class="nt">&lt;/html&gt;</span>
 </code></pre>
 <p>To test the example, add a <code>Web View</code> feature to your guide in Builder, then upload the example HTML snippet.  Login to the app on your mobile device, download the guide, then open the <code>Web View</code> you just created.</p>
+<h2 id='publishing-a-code-personalizedschedule-code-for-an-code-attendee-code'>Publishing a <code>PersonalizedSchedule</code> for an <code>Attendee</code></h2>
+<p>To publish a <code>PersonalizedSchedule</code> for a specific <code>Attendee</code> object, issue a <code>POST</code> request like:</p>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/attendees/21/publish-personalized-schedules/</code></p>
+
+<p>A successful request to this endpoint will return a status code of <code>202 ACCEPTED</code></p>
+
+<p>To successfully publish a personalized schedule for an attendee, the attendee&#39;s guide must be on a Premium service level and must already be published.</p>
 <h1 id='attendeegroups'>AttendeeGroups</h1>
 <p><code>AttendeeGroups</code> allow you to collect 1 or more <code>Attendee</code> objects into a group.</p>
 <h2 id='creating-an-code-attendeegroup-code'>Creating an <code>AttendeeGroup</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -5383,7 +5408,7 @@ HTTP 400 - <code>qr_badge</code> is not in the request data.</p>
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p>This endpoint will create a <code>PersonalizedSchedule</code> for your guide.  <code>PersonalizedSchedules</code> have an email invite component that is not exposed via the Open API. To publish these schedules to the end-users and send out email notifications, please sign in to Builder and use the UI there to publish and send out emails.</p>
+<p>This endpoint will create a <code>PersonalizedSchedule</code> for your guide.</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://builder.guidebook.com/open-api/v1/personalized-schedules/</code></p>
 <h3 id='model-fields'>Model Fields</h3>
@@ -5512,6 +5537,8 @@ To retrieve an individual <code>PersonalizedSchedule</code> object issue a <code
 <p>To delete a particular <code>PersonalizedSchedule</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>PersonalizedSchedule</code> you&#39;d like deleted:</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/personalized-schedules/71/</code></p>
+<h2 id='publishing-code-personalizedschedules-code'>Publishing <code>PersonalizedSchedules</code></h2>
+<p><code>PersonalizedSchedules</code> can be published for an entire guide, or for a specific attendee. To publish all schedules for a guide, see <a href="#publishing-code-personalizedschedules-code-for-a-code-guide-code">Publishing Personalized Schedules for a Guide</a>. To publish a schedule for a specific attendee, see <a href="#publishing-a-code-personalizedschedule-code-for-an-code-attendee-code">Publishing Personalized Schedules for Attendees</a>.</p>
 <h1 id='webhooks'>Webhooks</h1>
 <blockquote>
 <p>Whenever a metrics event fires.  A POST request is made to your URL with data similar to the example below</p>
