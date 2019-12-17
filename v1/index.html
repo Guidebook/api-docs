@@ -501,6 +501,26 @@
               </ul>
           </li>
           <li>
+            <a href="#webviews" class="toc-h1 toc-link" data-title="WebViews">WebViews</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-webview-code" class="toc-h2 toc-link" data-title="WebViews">Creating a <code>WebView</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-webviews-code" class="toc-h2 toc-link" data-title="WebViews">Listing <code>WebViews</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-webview-code" class="toc-h2 toc-link" data-title="WebViews">Retrieving a <code>WebView</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-webview-code" class="toc-h2 toc-link" data-title="WebViews">Updating a <code>WebView</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-webview-code" class="toc-h2 toc-link" data-title="WebViews">Deleting a <code>WebView</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#links" class="toc-h1 toc-link" data-title="Links">Links</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2851,7 +2871,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 <td>content_type</td>
 <td>yes</td>
 <td>string</td>
-<td>The content type of the object you want a <code>MenuItem</code> for. The allowed content types are <code>custom_list.customlist</code>, <code>custom_list.customlistitem</code>, <code>schedule.scheduletrack</code>, <code>menuitem_data_pointer.mapspointer</code>, and <code>photo.album</code>.</td>
+<td>The content type of the object you want a <code>MenuItem</code> for. The allowed content types are <code>custom_list.customlist</code>, <code>custom_list.customlistitem</code>, <code>schedule.scheduletrack</code>, <code>menuitem_data_pointer.mapspointer</code>, <code>photo.album</code>, and <code>uri_resource.webview</code>.</td>
 </tr>
 <tr>
 <td>object_id</td>
@@ -3122,6 +3142,161 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <p>To delete a particular <code>PDF</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>PDF</code> you&#39;d like deleted:</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/pdfs/71/</code></p>
+<h1 id='webviews'>WebViews</h1>
+<p>You can create a <code>WebView</code> in your guide that displays an html page or external url. To view your <code>WebView</code> in a guide, you must either create a <a href="#menu-items">MenuItem</a> for it, or reference it in a <a href="#links">Link</a>.</p>
+<h2 id='creating-a-code-webview-code'>Creating a <code>WebView</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">webview_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/webviews/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># Example with webview url</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"webview_type"</span><span class="p">:</span> <span class="s">"url"</span><span class="p">,</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"url"</span><span class="p">:</span> <span class="s">"http://www.google.com"</span>
+<span class="p">}</span>
+<span class="n">response_1</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+<span class="c"># Example with webview html file</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"webview_type"</span><span class="p">:</span> <span class="s">"html"</span><span class="p">,</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"html_file"</span><span class="p">:</span> <span class="s">"html_file"</span>
+<span class="p">}</span>
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'your_file.html'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">html_file</span><span class="p">:</span>
+    <span class="n">response_2</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="err">#</span><span class="w"> </span><span class="err">Example</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">webview</span><span class="w"> </span><span class="err">url</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span><span class="err">#</span><span class="w"> </span><span class="err">Example</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">webview</span><span class="w"> </span><span class="err">html</span><span class="w"> </span><span class="err">file</span><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"html"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will create a <code>WebView</code> for your <code>Guide</code>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/webviews/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>WebView</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+<tr>
+<td>webview_type</td>
+<td>yes</td>
+<td>string</td>
+<td>This field is used to indicate the type of <code>WebView</code> you want to create. The options are <code>url</code> and <code>html</code>.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>no</td>
+<td>string</td>
+<td>URL for your <code>WebView</code>, if <code>webview_type</code> is set to URL.</td>
+</tr>
+<tr>
+<td>html_file</td>
+<td>no</td>
+<td>file</td>
+<td>HTML file for your <code>WebView</code>, if <code>webview_type</code> is set to html.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-webviews-code'>Listing <code>WebViews</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">webview_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/webviews/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `WebViews` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"html"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can also be used to read data on <code>WebViews</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/webviews/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only field.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>WebView</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>WebViews</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/webviews/?guide=47</code></p>
+<h2 id='retrieving-a-code-webview-code'>Retrieving a <code>WebView</code></h2>
+<p>In the following examples, we will assume that the id of the <code>WebView</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>WebView</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/webviews/71/</code></p>
+<h2 id='updating-a-code-webview-code'>Updating a <code>WebView</code></h2>
+<p>To modify an existing <code>WebView</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/webviews/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body.</p>
+<h2 id='deleting-a-code-webview-code'>Deleting a <code>WebView</code></h2>
+<p>To delete a particular <code>WebView</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>WebView</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/webviews/71/</code></p>
 <h1 id='links'>Links</h1>
 <p>The <code>Link</code> resource is an object that is displayed at the bottom section of either a <code>Session</code> object or <code>CustomListItem</code> in the Guidebook mobile app.  These objects represent special in-app links that will navigate the app user to the corresponding object in the mobile app.  A common use case of this feature would be a speaker linking to all the panels that the speaker is participating in.</p>
 
@@ -3195,7 +3370,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <td>source_content_type</td>
 <td>yes</td>
 <td>string</td>
-<td>The content type of the source object.  The options are: &quot;schedule.session&quot;, &quot;custom_list.customlistitem&quot;</td>
+<td>The content type of the source object.  The options are: <code>schedule.session</code>, <code>custom_list.customlistitem</code></td>
 </tr>
 <tr>
 <td>source_object_id</td>
@@ -3207,7 +3382,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <td>target_content_type</td>
 <td>yes</td>
 <td>string</td>
-<td>The content type of the target object.  The options are: &quot;schedule.session&quot;, &quot;custom_list.customlistitem&quot;, and &quot;uri_resource.pdffile&quot;.</td>
+<td>The content type of the target object.  The options are: <code>schedule.session</code>, <code>custom_list.customlistitem</code>, <code>uri_resource.pdffile</code>, and <code>uri_resource.webview</code>.</td>
 </tr>
 <tr>
 <td>target_object_id</td>
