@@ -481,6 +481,26 @@
               </ul>
           </li>
           <li>
+            <a href="#folders" class="toc-h1 toc-link" data-title="Folders">Folders</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-folder-code" class="toc-h2 toc-link" data-title="Folders">Creating a <code>Folder</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-folders-code" class="toc-h2 toc-link" data-title="Folders">Listing <code>Folders</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-folder-code" class="toc-h2 toc-link" data-title="Folders">Retrieving a <code>Folder</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-folder-code" class="toc-h2 toc-link" data-title="Folders">Updating a <code>Folder</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-folder-code" class="toc-h2 toc-link" data-title="Folders">Deleting a <code>Folder</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#pdfs" class="toc-h1 toc-link" data-title="PDFs">PDFs</a>
               <ul class="toc-list-h2">
                   <li>
@@ -2990,6 +3010,128 @@ To retrieve an individual <code>MenuItem</code> object issue a <code>GET</code> 
 <p>You will only need to include the specific fields you are updating and not a full request body. Only <code>name</code>, <code>rank</code>, <code>object_id</code>, and <code>enabled</code> are updatable after creation.</p>
 <h2 id='deleting-a-code-menuitem-code'>Deleting a <code>MenuItem</code></h2>
 <p><code>DELETE</code> requests are not supported for <code>MenuItem</code> objects. Instead, you can can issue a <code>PATCH</code> request to set the <code>enabled</code> status to <code>False</code>. This will hide the <code>MenuItem</code> from view.</p>
+<h1 id='folders'>Folders</h1>
+<p>A <code>Folder</code> is a container for <code>MenuItems</code> in your <code>Guide</code>. To view your <code>Folder</code> in your <code>Guide</code>, you must create a <a href="#menu-items">MenuItem</a> for it. To add <code>MenuItems</code> to your <code>Folder</code>, you must update the <code>folder</code> field on the <code>MenuItem</code> object. </p>
+<h2 id='creating-a-code-folder-code'>Creating a <code>Folder</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">folder_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/folders/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">7</span>
+<span class="p">}</span>
+<span class="n">response_1</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">folder_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"menuitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will create a <code>Folder</code> for your <code>Guide</code>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/folders/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>Folder</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-folders-code'>Listing <code>Folders</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">folder_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/folders/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `Folders` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">folder_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"menuitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">18</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"menuitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"menuitems"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">20</span><span class="p">,</span><span class="w">
+                </span><span class="mi">7</span><span class="p">,</span><span class="w">
+                </span><span class="mi">2</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can also be used to read data on <code>Folders</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/folders/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only fields.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>Folder</code>.</td>
+</tr>
+<tr>
+<td>menuitems</td>
+<td>array of integers</td>
+<td>A list of ids of <code>MenuItems</code> in the <code>Folder</code></td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>Folders</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/folders/?guide=47</code></p>
+<h2 id='retrieving-a-code-folder-code'>Retrieving a <code>Folder</code></h2>
+<p>In the following examples, we will assume that the id of the <code>Folders</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>Folder</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/folders/71/</code></p>
+<h2 id='updating-a-code-folder-code'>Updating a <code>Folder</code></h2>
+<p>The <code>Folder</code> object does not have any updatable fields. To add a <code>MenuItem</code> to a <code>Folder</code>, see the section on <a href="#menu-items">MenuItems</a></p>
+<h2 id='deleting-a-code-folder-code'>Deleting a <code>Folder</code></h2>
+<p>To delete a particular <code>Folder</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Folder</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/folders/71/</code></p>
+
+<p>This will not delete the <code>MenuItems</code> inside the folder, only the <code>Folder</code> itself. Any <code>MenuItems</code> that were in the <code>Folder</code> will appear on the home screen. Note that their ranks will remain unchanged from being in the <code>Folder</code>, so they may need to be updated to be in the correct order.</p>
 <h1 id='pdfs'>PDFs</h1>
 <p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated with <code>PDFs</code> that you upload to your guide. To create a reference to a <code>PDF</code>, see the section on <a href="#links">Links</a>. A <code>PDF</code> name is derived from the <code>Link</code> <code>_title</code> field, and if not provided, will default to the name on the pdf file. </p>
 <h2 id='creating-a-code-pdf-code'>Creating a <code>PDF</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
