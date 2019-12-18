@@ -1,6 +1,6 @@
 # WebViews
 
-You can create a `WebView` in your guide that displays an html page or external url. To view your `WebView` in a guide, you must either create a [MenuItem] (#menu-items) for it, or reference it in a [Link](#links).
+You can create a `WebView` in your guide that displays an html page or external url. To view your `WebView` in a guide, you must either create a [MenuItem](#menuitems) for it, or reference it in a [Link](#links).
 
 ## Creating a `WebView`
 

@@ -2,6 +2,8 @@
 
 A `MenuItem` is an object that controls how a feature appears on builder and the mobile app. A `MenuItem` points to a specific object within a guide, such as a custom list, map, or schedule. They are used to navigate to different parts of a guide.
 
+You can group multiple `MenuItems` together by creating a `Folder` menu item. See the section on [Folders] (#folders).
+
 ## Creating a `MenuItem`
 
 ```python
@@ -24,7 +26,8 @@ response = request.post(menu_item_url, data=post_data, headers={'Authorization':
     "enabled": true,
     "object_id": 13,
     "id": 256,
-    "created_at": "2019-01-18T20:22:44.804038Z"
+    "created_at": "2019-01-18T20:22:44.804038Z",
+    "folder": null
 }
 
 ```
@@ -40,10 +43,11 @@ This endpoint will create a `MenuItem` for the object related to the `object_id`
 Parameter            | Required  | Type    | Description
 ---------            | --------  | ------- | -----------
 guide                | yes | integer  | The specific `Guide` your `MenuItem` belongs to.  See section on [Guides](#guides) for more info.
-content_type  		 | yes | string   | The content type of the object you want a `MenuItem` for. The allowed content types are `custom_list.customlist`, `custom_list.customlistitem`, `schedule.scheduletrack`, `menuitem_data_pointer.mapspointer`, `photo.album`, and `uri_resource.webview`.
+content_type  		 | yes | string   | The content type of the object you want a `MenuItem` for. The allowed content types are `custom_list.customlist`, `custom_list.customlistitem`, `schedule.scheduletrack`, `menuitem_data_pointer.mapspointer`, `photo.album`, `folder.folder`, and `uri_resource.webview`.
 object_id     		 | sometimes | integer  | The id number of the object you want a `MenuItem` for. If creating a `Map` menu item, this is not required.
 name     			 | no | string   | The title of the `MenuItem`. If not provided, a default is used.
 rank                 | no  | float  | The order the `MenuItem` will appear in the `MenuItem` section. If not provided, a default is used.
+folder				 | no | integer | The `id` of the `Folder` you want this `MenuItem` to be in.
 enabled     		 | no | boolean  | The enabled status of the `MenuItem`. If not provided, this defaults to `True`.
 
 
@@ -77,7 +81,8 @@ response = request.post(menu_item_url, headers={'Authorization': 'JWT ' + api_ke
             "rank": 0.0,
             "name": "Custom List Menu Item",
             "enabled": true,
-            "object_id": 13
+            "object_id": 13,
+            "folder": null
         },
         {
             "id": 160,
@@ -87,7 +92,8 @@ response = request.post(menu_item_url, headers={'Authorization': 'JWT ' + api_ke
             "rank": 0.0,
             "name": "Schedule Track Menu Item",
             "enabled": true,
-            "object_id": 22
+            "object_id": 22,
+            "folder": null
         }
 	]
 }
