@@ -3307,7 +3307,8 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <span class="p">{</span>
     <span class="s">"webview_type"</span><span class="p">:</span> <span class="s">"url"</span><span class="p">,</span>
     <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">"url"</span><span class="p">:</span> <span class="s">"http://www.google.com"</span>
+    <span class="s">"url"</span><span class="p">:</span> <span class="s">"http://www.google.com"</span><span class="p">,</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"My Other Webview"</span>
 <span class="p">}</span>
 <span class="n">response_1</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
@@ -3316,7 +3317,8 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <span class="p">{</span>
     <span class="s">"webview_type"</span><span class="p">:</span> <span class="s">"html"</span><span class="p">,</span>
     <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
-    <span class="s">"html_file"</span><span class="p">:</span> <span class="s">"html_file"</span>
+    <span class="s">"html_file"</span><span class="p">:</span> <span class="s">"html_file"</span><span class="p">,</span>
+    <span class="s">"name"</span><span class="p">:</span> <span class="s">"My Webview"</span>
 <span class="p">}</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'your_file.html'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">html_file</span><span class="p">:</span>
     <span class="n">response_2</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
@@ -3331,7 +3333,8 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
     </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://www.google.com"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+    </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Other Webview"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span><span class="err">#</span><span class="w"> </span><span class="err">Example</span><span class="w"> </span><span class="err">with</span><span class="w"> </span><span class="err">webview</span><span class="w"> </span><span class="err">html</span><span class="w"> </span><span class="err">file</span><span class="w">
 </span><span class="p">{</span><span class="w">
@@ -3339,7 +3342,8 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
     </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"html"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
     </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"</span><span class="w">
+    </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Webview"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <p>This endpoint will create a <code>WebView</code> for your <code>Guide</code>.</p>
@@ -3354,6 +3358,12 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <th>Description</th>
 </tr>
 </thead><tbody>
+<tr>
+<td>name</td>
+<td>no</td>
+<td>string</td>
+<td>The name for your <code>Webview</code> object.</td>
+</tr>
 <tr>
 <td>guide</td>
 <td>yes</td>
@@ -3400,14 +3410,16 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
             </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"url"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.google.com"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
+            </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Other Webview"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
             </span><span class="s2">"webview_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"html"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"</span><span class="w">
+            </span><span class="s2">"html_file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Webview"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
