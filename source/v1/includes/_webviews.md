@@ -16,7 +16,8 @@ post_data =
 {
     "webview_type": "url",
     "guide": 1,
-    "url": "http://www.google.com"
+    "url": "http://www.google.com",
+    "name": "My Other Webview"
 }
 response_1 = request.post(webview_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
@@ -25,7 +26,8 @@ post_data =
 {
     "webview_type": "html",
     "guide": 1,
-    "html_file": "html_file"
+    "html_file": "html_file",
+    "name": "My Webview"
 }
 with open('your_file.html', 'rb') as html_file:
 	response_2 = request.post(webview_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
@@ -41,7 +43,8 @@ with open('your_file.html', 'rb') as html_file:
     "webview_type": "url",
     "guide": 1,
     "url": "http://www.google.com",
-    "html_file": null
+    "html_file": null,
+    "name": "My Other Webview"
 }
 # Example with webview html file
 {
@@ -49,7 +52,8 @@ with open('your_file.html', 'rb') as html_file:
     "webview_type": "html",
     "guide": 1,
     "url": null,
-    "html_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"
+    "html_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html",
+    "name": "My Webview"
 }
 ```
 
@@ -64,6 +68,7 @@ This endpoint will create a `WebView` for your `Guide`.
 
 Parameter            | Required  | Type    | Description
 ---------            | --------  | ------- | -----------
+name 				 | no | string | The name for your `Webview` object.
 guide                | yes | integer  | The specific `Guide` your `WebView` belongs to.  See section on [Guides](#guides) for more info.
 webview_type		 | yes | string  | This field is used to indicate the type of `WebView` you want to create. The options are `url` and `html`.
 url 				 | no | string  | URL for your `WebView`, if `webview_type` is set to URL.
@@ -96,14 +101,16 @@ response = request.get(webview_url, headers={'Authorization': 'JWT ' + api_key})
             "webview_type": "url",
             "guide": 1,
             "url": "https://www.google.com",
-            "html_file": null
+            "html_file": null,
+            "name": "My Other Webview"
         },
         {
             "id": 8,
             "webview_type": "html",
             "guide": 1,
             "url": null,
-            "html_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html"
+            "html_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/xB9v4xZMKeFpXfQsCe6LAVLkJS8WJ3UKlOcf.html",
+            "name": "My Webview"
         }
     ]
 }
