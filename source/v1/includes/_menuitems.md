@@ -11,8 +11,12 @@ import requests
 
 menu_item_url = 'https://builder.guidebook.com/open-api/v1/menu-items/'
 api_key = 'API_KEY'
-post_data = !INCLUDE "json/menu_item_create_request.json"
-
+post_data = 
+{
+	"object_id": 13,
+	"guide": 7,
+	"content_type": "custom_list.customlist"
+}
 response = request.post(menu_item_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
