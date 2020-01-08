@@ -2853,8 +2853,12 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 
 <span class="n">menu_item_url</span> <span class="o">=</span> <span class="s">'https://builder.guidebook.com/open-api/v1/menu-items/'</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
-<span class="n">post_data</span> <span class="o">=</span> <span class="err">!</span><span class="n">INCLUDE</span> <span class="s">"json/menu_item_create_request.json"</span>
-
+<span class="n">post_data</span> <span class="o">=</span> 
+<span class="p">{</span>
+    <span class="s">"object_id"</span><span class="p">:</span> <span class="mi">13</span><span class="p">,</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s">"content_type"</span><span class="p">:</span> <span class="s">"custom_list.customlist"</span>
+<span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">menu_item_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 </code></pre>
