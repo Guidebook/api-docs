@@ -1,6 +1,6 @@
 # Folders
 
-A `Folder` is a container for `MenuItems` in your `Guide`. To view your `Folder` in your `Guide`, you must create a [MenuItem] (#menu-items) for it. To add `MenuItems` to your `Folder`, you must update the `folder` field on the `MenuItem` object. 
+A `Folder` is a container for `MenuItems` in your `Guide`. To view your `Folder` in your `Guide`, you must create a [MenuItem] (#menuitems) for it. To add `MenuItems` to your `Folder`, you must update the `folder` field on the `MenuItem` object. 
 
 ## Creating a `Folder`
 
@@ -120,7 +120,7 @@ To retrieve an individual `Folder` object issue a `GET` request like:
 
 ## Updating a `Folder`
 
-The `Folder` object does not have any updatable fields. To add a `MenuItem` to a `Folder`, see the section on [MenuItems] (#menu-items)
+The `Folder` object does not have any updatable fields. To add a `MenuItem` to a `Folder`, see the section on [MenuItems] (#menuitems)
 
 ## Deleting a `Folder`
 

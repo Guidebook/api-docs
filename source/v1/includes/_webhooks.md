@@ -27,6 +27,8 @@ Guidebook offers a [Webhook API](https://en.wikipedia.org/wiki/Webhook) to allow
 
 Whenever a metrics event that you are monitoring occurs, we will immediately make a POST request to your Webhook with details of the metrics event.
 
+Make sure that if you are using both the open api and webhooks that you take note of `open_api_version` in order to differentiate events caused by open api actions vs. other sources.
+
 
 ## Event Dictionaries
 
@@ -55,6 +57,7 @@ last_name       | The last name of the user who performed the action,
 company      | The company that the user filled out on their profile. Can be null.
 position      | The company that the user filled out on their profile. Can be null.
 email      | The email of the user.
+open_api_version | String of the open api version used that caused the event. Can be null.
 
 
 <aside class="notice">
@@ -135,6 +138,35 @@ content_type    |  If this `AnswerSet` is related to an object, this is the type
 object_id       |  If this `AnswerSet` is related to an object, this is the id of that object.
 survey_id       |  The ID of the `Survey` object that this `AnswerSet` relates to.
 survey_version_number      |  The version of the `Survey` that was answered.
+
+`Builder-SessionCreated`
+
+Key             | Description
+---------       |  -----------
+session_id      | The id of the session.
+session_name    | The name of the session.
+
+`Builder-SessionUpdated`
+
+Key             | Description
+---------       |  -----------
+session_id      | The id of the session.
+session_name    | The name of the session.
+
+`Builder-SessionDeleted`
+
+Key             | Description
+---------       |  -----------
+session_id      | The id of the session.
+session_name    | The name of the session.
+
+`Builder-AllSessionsInGuideDeleted`
+
+Standard fields, No additional fields.
+
+`Builder-ScheduleCSVImport`
+
+Standard fields, No additional fields.
 
 
 ## Security

@@ -17,7 +17,7 @@ post_data =
 	"guide": 7,
 	"content_type": "custom_list.customlist"
 }
-response = request.post(menu_item_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+response = requests.post(menu_item_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
 
@@ -140,7 +140,7 @@ To modify an existing `MenuItem` object, issue a `PATCH` request like:
 
 `PATCH https://builder.guidebook.com/open-api/v1/menu-items/71/`
 
-You will only need to include the specific fields you are updating and not a full request body. Only `name`, `rank`, `object_id`, and `enabled` are updatable after creation.
+You will only need to include the specific fields you are updating and not a full request body. Only `name`, `rank`, `object_id`, `folder`,and `enabled` are updatable after creation.
 
 
 ## Deleting a `MenuItem`
