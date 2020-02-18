@@ -900,7 +900,7 @@
 <p>Note that the sample python code sample in this documentation uses the python <code>requests</code> package. Installation instructions for <code>requests</code> can be found <a href="http://docs.python-requests.org/en/master/">here</a>; alternatively, for the more eager, you can run <code>pip install requests</code>.</p>
 </blockquote>
 
-<p>To access Guidebook&#39;s Open API, you&#39;ll need to include an API Key with your requests. You can manage your API Keys in the <a href="https://builder.guidebook.com/#/account/api/">API Page</a> of the Guidebook Builder CMS. Your API Keys grant significant access to resources related to your account, so keep them secret! Do not share your API Keys with anyone, and do not place API Keys in publicly accessible areas like GitHub or client-side code.</p>
+<p>To access Guidebook&#39;s Open API, you&#39;ll need to include an API Key with your requests. You can manage your API Keys in the <a href="https://builder.guidebook.com/#/account/api/">API Page</a> of the Guidebook Builder CMS. Your API Keys grant significant access to resources related to your account, so keep them secret! Do not share your API Keys with anyone, and do not place API Keys in publicly accessible areas like GitHub or client-side code. You can check out this <a href="https://support.guidebook.com/hc/en-us/articles/360003676094">support article</a> to learn more about generating an API key.</p>
 
 <p>All requests to the Guidebook Open API need to have an API Key included in a header that looks something like:</p>
 
@@ -2859,7 +2859,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
     <span class="s">"guide"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
     <span class="s">"content_type"</span><span class="p">:</span> <span class="s">"custom_list.customlist"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">menu_item_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">menu_item_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 </code></pre>
 <blockquote>
@@ -3011,11 +3011,11 @@ To retrieve an individual <code>MenuItem</code> object issue a <code>GET</code> 
 
 <p><code>PATCH https://builder.guidebook.com/open-api/v1/menu-items/71/</code></p>
 
-<p>You will only need to include the specific fields you are updating and not a full request body. Only <code>name</code>, <code>rank</code>, <code>object_id</code>, and <code>enabled</code> are updatable after creation.</p>
+<p>You will only need to include the specific fields you are updating and not a full request body. Only <code>name</code>, <code>rank</code>, <code>object_id</code>, <code>folder</code>,and <code>enabled</code> are updatable after creation.</p>
 <h2 id='deleting-a-code-menuitem-code'>Deleting a <code>MenuItem</code></h2>
 <p><code>DELETE</code> requests are not supported for <code>MenuItem</code> objects. Instead, you can can issue a <code>PATCH</code> request to set the <code>enabled</code> status to <code>False</code>. This will hide the <code>MenuItem</code> from view.</p>
 <h1 id='folders'>Folders</h1>
-<p>A <code>Folder</code> is a container for <code>MenuItems</code> in your <code>Guide</code>. To view your <code>Folder</code> in your <code>Guide</code>, you must create a <a href="#menu-items">MenuItem</a> for it. To add <code>MenuItems</code> to your <code>Folder</code>, you must update the <code>folder</code> field on the <code>MenuItem</code> object. </p>
+<p>A <code>Folder</code> is a container for <code>MenuItems</code> in your <code>Guide</code>. To view your <code>Folder</code> in your <code>Guide</code>, you must create a <a href="#menuitems">MenuItem</a> for it. To add <code>MenuItems</code> to your <code>Folder</code>, you must update the <code>folder</code> field on the <code>MenuItem</code> object. </p>
 <h2 id='creating-a-code-folder-code'>Creating a <code>Folder</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">folder_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/folders/'</span>
@@ -3129,7 +3129,7 @@ To retrieve an individual <code>Folder</code> object issue a <code>GET</code> re
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/folders/71/</code></p>
 <h2 id='updating-a-code-folder-code'>Updating a <code>Folder</code></h2>
-<p>The <code>Folder</code> object does not have any updatable fields. To add a <code>MenuItem</code> to a <code>Folder</code>, see the section on <a href="#menu-items">MenuItems</a></p>
+<p>The <code>Folder</code> object does not have any updatable fields. To add a <code>MenuItem</code> to a <code>Folder</code>, see the section on <a href="#menuitems">MenuItems</a></p>
 <h2 id='deleting-a-code-folder-code'>Deleting a <code>Folder</code></h2>
 <p>To delete a particular <code>Folder</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Folder</code> you&#39;d like deleted:</p>
 
@@ -5909,6 +5909,8 @@ To retrieve an individual <code>PersonalizedSchedule</code> object issue a <code
 <p>Guidebook offers a <a href="https://en.wikipedia.org/wiki/Webhook">Webhook API</a> to allow customers to monitor and process metrics events in their guide.  Customers can get started by setting up their own Webhook URLs that will consume events.  Once their Webhook URL is live, they can go into <a href="https://builder.guidebook.com">Guidebook Builder</a> and supply the Webhook URL and configure the metrics events they want that URL to be notified of.</p>
 
 <p>Whenever a metrics event that you are monitoring occurs, we will immediately make a POST request to your Webhook with details of the metrics event.</p>
+
+<p>Make sure that if you are using both the open api and webhooks that you take note of <code>open_api_version</code> in order to differentiate events caused by open api actions vs. other sources.</p>
 <h2 id='event-dictionaries'>Event Dictionaries</h2>
 <p>There are a variety of possible events that can fire.  Each one will contain the following:</p>
 
@@ -5986,6 +5988,10 @@ To retrieve an individual <code>PersonalizedSchedule</code> object issue a <code
 <tr>
 <td>email</td>
 <td>The email of the user.</td>
+</tr>
+<tr>
+<td>open_api_version</td>
+<td>String of the open api version used that caused the event. Can be null.</td>
 </tr>
 </tbody></table>
 
@@ -6154,6 +6160,68 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 <td>The version of the <code>Survey</code> that was answered.</td>
 </tr>
 </tbody></table>
+
+<p><code>Builder-SessionCreated</code></p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The id of the session.</td>
+</tr>
+<tr>
+<td>session_name</td>
+<td>The name of the session.</td>
+</tr>
+</tbody></table>
+
+<p><code>Builder-SessionUpdated</code></p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The id of the session.</td>
+</tr>
+<tr>
+<td>session_name</td>
+<td>The name of the session.</td>
+</tr>
+</tbody></table>
+
+<p><code>Builder-SessionDeleted</code></p>
+
+<table><thead>
+<tr>
+<th>Key</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>session_id</td>
+<td>The id of the session.</td>
+</tr>
+<tr>
+<td>session_name</td>
+<td>The name of the session.</td>
+</tr>
+</tbody></table>
+
+<p><code>Builder-AllSessionsInGuideDeleted</code></p>
+
+<p>Standard fields, No additional fields.</p>
+
+<p><code>Builder-ScheduleCSVImport</code></p>
+
+<p>Standard fields, No additional fields.</p>
 <h2 id='security'>Security</h2>
 <p>When implementing your Webhook URL, please make sure to confirm that the POST data being sent to your Webhook is coming from Guidebook!!  Each Webhook you set up on Guidebook will have an unique security token.  This token will be visible on your Webhooks setup screen.</p>
 
