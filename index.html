@@ -964,7 +964,7 @@ You must replace <code>API_KEY</code> with your personal API key.
 <h2 id='display-in-guidebook-39-s-mobile-apps'>Display in Guidebook&#39;s Mobile Apps</h2>
 <p>When datetimes (like <code>Session.start_time</code> and <code>Session.end_time</code>) are displayed to users in Guidebook&#39;s Android + iOS mobile apps, they are converted from UTC to the timezone of the <code>Guide</code> object they belong to. As of now, <code>Guide</code> timezone management is available in the <a href="https://builder.guidebook.com">Guidebook Builder CMS</a> (and not via the Open API).</p>
 <h1 id='images'>Images</h1>
-<p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated to images that will be displayed in Guidebook apps. To upload images, you can submit a multipart request. A code example accompanies this section that <a href="http://docs.python-requests.org/en/v2.9.1/user/quickstart/#post-a-multipart-encoded-file">uploads an image to a <code>Session</code> using the python <code>requests</code> package</a>.</p>
+<p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated to images that will be displayed in Guidebook apps. To upload images, you can submit a multipart request. A code example accompanies this section that <a href="https://requests.readthedocs.io/en/master/user/quickstart/#post-a-multipart-encoded-file">uploads an image to a <code>Session</code> using the python <code>requests</code> package</a>.</p>
 
 <blockquote>
 <p>Example request that changes the name <em>and</em> image of an existing <code>Session</code></p>
