@@ -1,6 +1,6 @@
 # Images
 
-Some resources (like `Sessions` and `CustomListItems`) can be associated to images that will be displayed in Guidebook apps. To upload images, you can submit a multipart request. A code example accompanies this section that [uploads an image to a `Session` using the python `requests` package](http://docs.python-requests.org/en/v2.9.1/user/quickstart/#post-a-multipart-encoded-file).
+Some resources (like `Sessions` and `CustomListItems`) can be associated to images that will be displayed in Guidebook apps. To upload images, you can submit a multipart request. A code example accompanies this section that [uploads an image to a `Session` using the python `requests` package](https://requests.readthedocs.io/en/master/user/quickstart/#post-a-multipart-encoded-file).
 
 
 > Example request that changes the name *and* image of an existing `Session`
