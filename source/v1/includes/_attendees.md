@@ -39,6 +39,7 @@ response = request.post(attendees_list_url, data=post_data, headers={'Authorizat
 		"contact_email": ""
 	},
 	"revoked": false,
+	"email_opt_out": false,
 	"status": 0,
 	"last_email_send": null
 }
@@ -104,6 +105,7 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 				"contact_email": ""
 			},
 			"revoked": false,
+			"email_opt_out": false,
 			"status": 1,
 			"last_email_send": null
 		},
@@ -124,6 +126,7 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 				"contact_email": ""
 			},
 			"revoked": false,
+			"email_opt_out": false,
 			"status": 1,
 			"last_email_send": null
 		},
@@ -144,6 +147,7 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 				"contact_email": ""
 			},
 			"revoked": false,
+			"email_opt_out": false,
 			"status": 1,
 			"last_email_send": null
 		},
@@ -164,6 +168,7 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 				"contact_email": ""
 			},
 			"revoked": false,
+			"email_opt_out": false,
 			"status": 1,
 			"last_email_send": null
 		}
@@ -196,6 +201,7 @@ avatar          | string   | URL to the avatar image for this `Attendee`.
 cover           | string   | URL to the cover (background) image for the `Attendee`.
 app_profile     | dictionary of strings | Contains profile information filed out by the `Attendee`.  Possible keys include `company`, `position`, `contact_email`, `website`.  Note that these keys can change at anytime!
 revoked         | boolean  | Indicates if this `Attendee` still has access to this guide.  This field is only relevant if your `Guide` is using the `invite-only` security option.
+email_opt_out   | boolean  | Indicates if this `Attendee` should receive emails for this `Guide`.
 status          | integer  |  Integer status code.  0 - Attendee Created, 1 - New Account Created, Email Invite Sent, 2 - Existing Account matched, Email Invite Sent, 3 - Email Invite Accepted/Attendee Logged In.
 
 
@@ -232,7 +238,7 @@ Once your attendees are created in Builder, you can send them an invite email to
 The example here will attempt to send invite emails to `Attendees` 1 through 5 on `Guide` 47.  If you supply `Attendee` Ids that do not match the `Guide`, you will receive an error response.  Additionally, this response is limited to a list of 500 Ids per request.  If emails are successfully sent to the the Attendees, they will appear in the success response under the successful_emails key.  Emails are rate limited to once per 24 hours.  This limit is enforce based on the `last_email_send` field for each `Attendee`.  In the code sample here, `Attendees` 4 & 5 had already been sent invite emails in the past 24 hours so they were not sent emails and therefore not in the successful_emails response list.
 
 <aside class="notice">
-You must publish your `Guide` via the Builder CMS before you can send out invite emails to download your `Guide`.
+You must publish your `Guide` via the Builder CMS before you can send out invite emails to download your `Guide`.  Additionally, if the `Attendee` has opted out of emails, they will not be sent any invite emails.
 </aside>
 
 
@@ -277,7 +283,7 @@ The above request will fetch data for the `Attendee` with the id 71.
 
 The `Attendee` object defines the relationship between an individual and a given `Guide`.  Fields such as `status` can not be manipulated via the Open API. Additionally we do not allow you to manipulate the profile information of the individual accounts.  These are controlled by the end-user themselves.
 
-There are two fields we allow you to update - `revoked` and `import_id`.  Updating the `revoked` field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The `import_id `field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.
+There are three fields we allow you to update - `revoked`, `email_opt_out`, and `import_id`.  Updating the `revoked` field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The `import_id `field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.
 
 <aside class="notice">
 Be very cautious with updating <code>import_ids</code>!  If your integration requires the use of the `import_id` of an Attendee, please fill this field on creation.  If this is not possible, please attempt to fill in the `import_id` ASAP.  The Guidebook Mobile Clients will cache Attendee `id` and `import_id` information when an individual signs in and first accesses a guide.  If you change the `import_id` via the Open API, you will still need to have the updated users logout and log back in to update their cached Ids.
