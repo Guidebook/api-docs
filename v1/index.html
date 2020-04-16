@@ -966,6 +966,10 @@ You must replace <code>API_KEY</code> with your personal API key.
 <h1 id='images'>Images</h1>
 <p>Some resources (like <code>Sessions</code> and <code>CustomListItems</code>) can be associated to images that will be displayed in Guidebook apps. To upload images, you can submit a multipart request. A code example accompanies this section that <a href="https://requests.readthedocs.io/en/master/user/quickstart/#post-a-multipart-encoded-file">uploads an image to a <code>Session</code> using the python <code>requests</code> package</a>.</p>
 
+<aside class="notice">
+The Open API only supports PNG and JPEG image files.
+</aside>
+
 <blockquote>
 <p>Example request that changes the name <em>and</em> image of an existing <code>Session</code></p>
 </blockquote>
@@ -3390,7 +3394,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <td>html_file</td>
 <td>no</td>
 <td>file</td>
-<td>HTML file for your <code>WebView</code>, if <code>webview_type</code> is set to html.</td>
+<td>HTML file for your <code>WebView</code>, if <code>webview_type</code> is set to html. The maximum file name is 90 characters long, including the file extension.</td>
 </tr>
 </tbody></table>
 <h2 id='listing-code-webviews-code'>Listing <code>WebViews</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -5149,6 +5153,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
         </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
     </span><span class="p">},</span><span class="w">
     </span><span class="s2">"revoked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email_opt_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="p">,</span><span class="w">
     </span><span class="s2">"last_email_send"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -5232,6 +5237,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
                 </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"revoked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_opt_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_email_send"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -5252,6 +5258,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
                 </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"revoked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_opt_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_email_send"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -5272,6 +5279,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
                 </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"revoked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_opt_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_email_send"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -5292,6 +5300,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
                 </span><span class="s2">"contact_email"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="s2">"revoked"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"email_opt_out"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
             </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
             </span><span class="s2">"last_email_send"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -5372,6 +5381,11 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
 <td>Indicates if this <code>Attendee</code> still has access to this guide.  This field is only relevant if your <code>Guide</code> is using the <code>invite-only</code> security option.</td>
 </tr>
 <tr>
+<td>email_opt_out</td>
+<td>boolean</td>
+<td>Indicates if this <code>Attendee</code> should receive emails for this <code>Guide</code>.</td>
+</tr>
+<tr>
 <td>status</td>
 <td>integer</td>
 <td>Integer status code.  0 - Attendee Created, 1 - New Account Created, Email Invite Sent, 2 - Existing Account matched, Email Invite Sent, 3 - Email Invite Accepted/Attendee Logged In.</td>
@@ -5403,7 +5417,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
 <p>The example here will attempt to send invite emails to <code>Attendees</code> 1 through 5 on <code>Guide</code> 47.  If you supply <code>Attendee</code> Ids that do not match the <code>Guide</code>, you will receive an error response.  Additionally, this response is limited to a list of 500 Ids per request.  If emails are successfully sent to the the Attendees, they will appear in the success response under the successful_emails key.  Emails are rate limited to once per 24 hours.  This limit is enforce based on the <code>last_email_send</code> field for each <code>Attendee</code>.  In the code sample here, <code>Attendees</code> 4 &amp; 5 had already been sent invite emails in the past 24 hours so they were not sent emails and therefore not in the successful_emails response list.</p>
 
 <aside class="notice">
-You must publish your `Guide` via the Builder CMS before you can send out invite emails to download your `Guide`.
+You must publish your `Guide` via the Builder CMS before you can send out invite emails to download your `Guide`.  Additionally, if the `Attendee` has opted out of emails, they will not be sent any invite emails.
 </aside>
 <h3 id='filtering-data-by-code-guide-code-id-and-other-fields'>Filtering data by <code>Guide</code> id and other fields</h3>
 <p>Including a query parameter <code>guide</code> allows you to filter for all <code>Attendees</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example):</p>
@@ -5436,7 +5450,7 @@ You must publish your `Guide` via the Builder CMS before you can send out invite
 <h2 id='updating-code-attendee-code-info'>Updating <code>Attendee</code> info</h2>
 <p>The <code>Attendee</code> object defines the relationship between an individual and a given <code>Guide</code>.  Fields such as <code>status</code> can not be manipulated via the Open API. Additionally we do not allow you to manipulate the profile information of the individual accounts.  These are controlled by the end-user themselves.</p>
 
-<p>There are two fields we allow you to update - <code>revoked</code> and <code>import_id</code>.  Updating the <code>revoked</code> field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The <code>import_id</code>field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.</p>
+<p>There are three fields we allow you to update - <code>revoked</code>, <code>email_opt_out</code>, and <code>import_id</code>.  Updating the <code>revoked</code> field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The <code>import_id</code>field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.</p>
 
 <aside class="notice">
 Be very cautious with updating <code>import_ids</code>!  If your integration requires the use of the `import_id` of an Attendee, please fill this field on creation.  If this is not possible, please attempt to fill in the `import_id` ASAP.  The Guidebook Mobile Clients will cache Attendee `id` and `import_id` information when an individual signs in and first accesses a guide.  If you change the `import_id` via the Open API, you will still need to have the updated users logout and log back in to update their cached Ids.
