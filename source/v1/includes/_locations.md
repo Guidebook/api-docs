@@ -197,7 +197,7 @@ To delete a particular `Location`, issue a `DELETE` request to the url that poin
 
 ## The Main Venue `Location`
 
-The Main Venue is a special `Location` object for the `Guide` and represents the main location for your `Guide`.  There is only one Main Venue location allowed per guide and any attempts to create more than one Main Venue will result in validation errors.  This `Location` requires a JSON dictionary of the address and the longitude and latitude values of this address.
+The Main Venue is a special `Location` object for the `Guide` and represents the main location for your `Guide`.  There is only one Main Venue location allowed per guide and any attempts to create more than one Main Venue will result in validation errors.  This `Location` requires a JSON dictionary of the address and the longitude and latitude values of this address.  If you do not have the longitude and latitude for the venue, you can submit just the address dictionary and we will attempt to geocode the address to the closest longitude and latitude we can find.
 
 ```python
 # First fetch the ID of the Main Venue object
