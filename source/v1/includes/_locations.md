@@ -51,9 +51,9 @@ guide             | yes         | integer     | id of the `Guide` this `Location
 name              | yes         | string      | Name of this `Location`.
 import_id         | no          | string      | A string field you can used to input your own identifier. This is for when you have your own IDs for `Locations` in your data store.
 location_type     | yes         | integer     | Either 1, 2 or 3. 1 is the special Main Venue location. 2 is a Placeholder location.  3 is a "Google Maps Location"
-latitude          | sometimes   | float       | Latitude of this `Location` - only required if this `Location` is of type ("Google Maps `Location`") or ("Main Venue" `Location`).
-longitude         | sometimes   | float       | Longitude of this `Location` - only required if this `Location` is of type ("Google Maps `Location`") or ("Main Venue" `Location`).
-address           | sometimes   | json        | Address of the [Main Venue](#the-main-venue-code-location-code).  JSON dictionary with the keys ['address', city', 'country', 'state', 'street', 'zipcode']
+latitude          | no          | float       | Latitude of this `Location` - only required if this `Location` is of type ("Google Maps `Location`").
+longitude         | no          | float       | Longitude of this `Location` - only required if this `Location` is of type ("Google Maps `Location`").
+address           | no          | json        | Address of the [Main Venue](#the-main-venue-code-location-code).  JSON dictionary with the keys ['address', city', 'country', 'state', 'street', 'zipcode']
 
 ## Listing `Locations`
 

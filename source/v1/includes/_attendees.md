@@ -199,7 +199,7 @@ last_name       | string   | Last name of the `Attendee`.
 email           | string   | Email address of the `Attendee`.
 avatar          | string   | URL to the avatar image for this `Attendee`.
 cover           | string   | URL to the cover (background) image for the `Attendee`.
-app_profile     | dictionary of strings | Contains profile information filed out by the `Attendee`.  Possible keys include `company`, `position`, `contact_email`, `website`.  Note that these keys can change at anytime!
+app_profile     | dictionary of strings | Contains profile information filed out by the `Attendee`.  Possible keys include `company`, `position`, `contact_email`, `website`.  Note that these keys can change at anytime! For newly created `Attendees` over the API, you can submit data for `company` and `profile`.  If there is existing app_profile data for an `Attendee`, then this field is read-only.
 revoked         | boolean  | Indicates if this `Attendee` still has access to this guide.  This field is only relevant if your `Guide` is using the `invite-only` security option.
 email_opt_out   | boolean  | Indicates if this `Attendee` should receive emails for this `Guide`.
 status          | integer  |  Integer status code.  0 - Attendee Created, 1 - New Account Created, Email Invite Sent, 2 - Existing Account matched, Email Invite Sent, 3 - Email Invite Accepted/Attendee Logged In.
