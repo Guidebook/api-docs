@@ -1933,19 +1933,19 @@ To retrieve an individual <code>ScheduleTrack</code> object issue a <code>GET</c
 </tr>
 <tr>
 <td>latitude</td>
-<td>sometimes</td>
+<td>no</td>
 <td>float</td>
-<td>Latitude of this <code>Location</code> - only required if this <code>Location</code> is of type (&quot;Google Maps <code>Location</code>&quot;) or (&quot;Main Venue&quot; <code>Location</code>).</td>
+<td>Latitude of this <code>Location</code> - only required if this <code>Location</code> is of type (&quot;Google Maps <code>Location</code>&quot;).</td>
 </tr>
 <tr>
 <td>longitude</td>
-<td>sometimes</td>
+<td>no</td>
 <td>float</td>
-<td>Longitude of this <code>Location</code> - only required if this <code>Location</code> is of type (&quot;Google Maps <code>Location</code>&quot;) or (&quot;Main Venue&quot; <code>Location</code>).</td>
+<td>Longitude of this <code>Location</code> - only required if this <code>Location</code> is of type (&quot;Google Maps <code>Location</code>&quot;).</td>
 </tr>
 <tr>
 <td>address</td>
-<td>sometimes</td>
+<td>no</td>
 <td>json</td>
 <td>Address of the <a href="#the-main-venue-code-location-code">Main Venue</a>.  JSON dictionary with the keys [&#39;address&#39;, city&#39;, &#39;country&#39;, &#39;state&#39;, &#39;street&#39;, &#39;zipcode&#39;]</td>
 </tr>
@@ -5373,7 +5373,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
 <tr>
 <td>app_profile</td>
 <td>dictionary of strings</td>
-<td>Contains profile information filed out by the <code>Attendee</code>.  Possible keys include <code>company</code>, <code>position</code>, <code>contact_email</code>, <code>website</code>.  Note that these keys can change at anytime!</td>
+<td>Contains profile information filed out by the <code>Attendee</code>.  Possible keys include <code>company</code>, <code>position</code>, <code>contact_email</code>, <code>website</code>.  Note that these keys can change at anytime! For newly created <code>Attendees</code> over the API, you can submit data for <code>company</code> and <code>profile</code>.  If there is existing app_profile data for an <code>Attendee</code>, then this field is read-only.</td>
 </tr>
 <tr>
 <td>revoked</td>
