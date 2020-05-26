@@ -2,6 +2,9 @@
 
 Some resources (like `Sessions` and `CustomListItems`) can be associated to images that will be displayed in Guidebook apps. To upload images, you can submit a multipart request. A code example accompanies this section that [uploads an image to a `Session` using the python `requests` package](https://requests.readthedocs.io/en/master/user/quickstart/#post-a-multipart-encoded-file).
 
+<aside class="notice">
+The Open API only supports PNG and JPEG image files.
+</aside>
 
 > Example request that changes the name *and* image of an existing `Session`
 

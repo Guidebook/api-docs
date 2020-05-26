@@ -72,7 +72,7 @@ name 				 | no | string | The name for your `Webview` object.
 guide                | yes | integer  | The specific `Guide` your `WebView` belongs to.  See section on [Guides](#guides) for more info.
 webview_type		 | yes | string  | This field is used to indicate the type of `WebView` you want to create. The options are `url` and `html`.
 url 				 | no | string  | URL for your `WebView`, if `webview_type` is set to URL.
-html_file 			 | no | file  | HTML file for your `WebView`, if `webview_type` is set to html.
+html_file 			 | no | file  | HTML file for your `WebView`, if `webview_type` is set to html. The maximum file name is 90 characters long, including the file extension.
 
 
 ## Listing `WebViews`
