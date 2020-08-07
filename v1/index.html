@@ -541,6 +541,29 @@
               </ul>
           </li>
           <li>
+            <a href="#videos" class="toc-h1 toc-link" data-title="Videos">Videos</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-video-code" class="toc-h2 toc-link" data-title="Videos">Creating a <code>Video</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-videos-code" class="toc-h2 toc-link" data-title="Videos">Listing <code>Videos</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-video-code" class="toc-h2 toc-link" data-title="Videos">Retrieving a <code>Video</code></a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-video-code" class="toc-h2 toc-link" data-title="Videos">Updating a <code>Video</code></a>
+                  </li>
+                  <li>
+                    <a href="#refreshing-code-video-code-metadata" class="toc-h2 toc-link" data-title="Videos">Refreshing <code>Video</code> Metadata</a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-video-code" class="toc-h2 toc-link" data-title="Videos">Deleting a <code>Video</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#links" class="toc-h1 toc-link" data-title="Links">Links</a>
               <ul class="toc-list-h2">
                   <li>
@@ -3480,6 +3503,200 @@ To retrieve an individual <code>WebView</code> object issue a <code>GET</code> r
 <p>To delete a particular <code>WebView</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>WebView</code> you&#39;d like deleted:</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/webviews/71/</code></p>
+<h1 id='videos'>Videos</h1>
+<p><code>Sessions</code> can be associated with <code>Videos</code> that you add to your guide. To create a reference to a <code>Video</code>, see the section on <a href="#links">Links</a>. Videos are created by providing the link to the video. Only Youtube, Vimeo, and Twitch videos are supported.</p>
+<h2 id='creating-a-code-video-code'>Creating a <code>Video</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">video_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/videos/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s">"url"</span><span class="p">:</span> <span class="s">"https://www.youtube.com/watch?v=1111"</span>
+<span class="p">}</span>
+<span class="n">response_1</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">video_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">
+</span><span class="p">{</span><span class="w">
+    </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Youtube"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.ytimg.com/vi/ZS9dYbjC6i8/maxresdefault_live.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My First Video"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"video_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=1111"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"video_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ondemand"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.ytimg.com/vi/ZS9dYbjC6i8/sddefault_live.jpg"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint will create a <code>Video</code> for your <code>Guide</code>. </p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/videos/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>Video</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+<tr>
+<td>url</td>
+<td>yes</td>
+<td>string</td>
+<td>URL of your <code>Video</code> on Youtube, Vimeo, or Twitch.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-videos-code'>Listing <code>Videos</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">video_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/videos/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `Videos` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">video_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Youtube"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.ytimg.com/vi/ZS9dYbjC6i8/maxresdefault_live.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My First Video"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1111"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=1111"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ondemand"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.ytimg.com/vi/ZS9dYbjC6i8/sddefault_live.jpg"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"platform"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Vimeo"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"start_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"end_time"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"banner_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.vimeocdn.com/video/45635537_1280x960.jpg?r=pad"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Second Video"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video_id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2222"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://www.youtube.com/watch?v=2222"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"video_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"ondemand"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"thumbnail_url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://i.vimeocdn.com/video/45635537_640x360.jpg?r=pad"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">8</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"duration"</span><span class="p">:</span><span class="w"> </span><span class="mi">237</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can also be used to read data on <code>Videos</code>. A <code>Video</code> object has a lot more metadata than just the url and guide you set on creation. Most of this is determined by the
+platform that hosts the video.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/videos/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>Video</code>.</td>
+</tr>
+<tr>
+<td>platform</td>
+<td>string</td>
+<td>The platform that your <code>Video</code> is hosted on. The options are <code>Youtube</code>, <code>Vimeo</code>, or <code>Twitch</code>.</td>
+</tr>
+<tr>
+<td>video_id</td>
+<td>string</td>
+<td>The id of your <code>Video</code> on its hosting platform.</td>
+</tr>
+<tr>
+<td>video_type</td>
+<td>string</td>
+<td>Indicates if the <code>Video</code> is <code>live</code> or <code>ondemand</code>.</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>The title of your <code>Video</code> on its hosting platform.</td>
+</tr>
+<tr>
+<td>duration</td>
+<td>float</td>
+<td>The duration of your <code>Video</code> in seconds, if is is on demand.</td>
+</tr>
+<tr>
+<td>start_time</td>
+<td>datetime</td>
+<td>The scheduled start time of your <code>Video</code>, if it is live.</td>
+</tr>
+<tr>
+<td>end_time</td>
+<td>datetime</td>
+<td>The scheduled end time of your <code>Video</code>, if it is live.</td>
+</tr>
+<tr>
+<td>thumbnail_url</td>
+<td>url</td>
+<td>The url for the thumbnail image of your <code>Video</code>.</td>
+</tr>
+<tr>
+<td>banner_url</td>
+<td>url</td>
+<td>The url for the banner image of your <code>Video</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>Video</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/videos/?guide=47</code></p>
+<h2 id='retrieving-a-code-video-code'>Retrieving a <code>Video</code></h2>
+<p>In the following examples, we will assume that the id of the <code>Video</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>Video</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/videos/71/</code></p>
+<h2 id='updating-a-code-video-code'>Updating a <code>Video</code></h2>
+<p>To modify an existing <code>Video</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/videos/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a full request body. The fields that are allowed to be updated include: <code>title</code>, <code>duration</code>, <code>start_time</code>, <code>end_time</code>, <code>thumbnail_url</code>, and <code>banner_url</code>.</p>
+<h2 id='refreshing-code-video-code-metadata'>Refreshing <code>Video</code> Metadata</h2>
+<p>To request a video to be synced with the data on its respective platform, you may send a request to refresh a <code>Video&#39;s</code> metadata. This will automatically update any fields that have been changed on Youtube, Twitch, or Vimeo. To refresh the metadata of a <code>Video</code>, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/videos/71/refresh-metadata/</code></p>
+
+<p>No fields are required for this request. This endpoint has a rate limit of 3 requests per hour.</p>
+<h2 id='deleting-a-code-video-code'>Deleting a <code>Video</code></h2>
+<p>To delete a particular <code>Video</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Video</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/videos/71/</code></p>
 <h1 id='links'>Links</h1>
 <p>The <code>Link</code> resource is an object that is displayed at the bottom section of either a <code>Session</code> object or <code>CustomListItem</code> in the Guidebook mobile app.  These objects represent special in-app links that will navigate the app user to the corresponding object in the mobile app.  A common use case of this feature would be a speaker linking to all the panels that the speaker is participating in.</p>
 
