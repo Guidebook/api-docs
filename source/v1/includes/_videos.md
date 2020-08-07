@@ -12,7 +12,10 @@ video_url =  'https://builder.guidebook.com/open-api/v1/videos/'
 api_key = 'API_KEY'
 
 post_data =
-
+{
+    "guide": 1,
+    "url": "https://www.youtube.com/watch?v=1111"
+}
 response_1 = request.post(video_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
@@ -21,7 +24,20 @@ response_1 = request.post(video_url, data=post_data, headers={'Authorization': '
 
 ```json
 
-
+{
+    "platform": "Youtube",
+    "start_time": null,
+    "end_time": null,
+    "banner_url": "https://i.ytimg.com/vi/ZS9dYbjC6i8/maxresdefault_live.jpg",
+    "title": "My First Video",
+    "video_id": "1111",
+    "url": "https://www.youtube.com/watch?v=1111",
+    "video_type": "ondemand",
+    "thumbnail_url": "https://i.ytimg.com/vi/ZS9dYbjC6i8/sddefault_live.jpg",
+    "id": 7,
+    "duration": 60,
+    "guide": 1
+}
 ```
 
 

@@ -31,6 +31,7 @@ includes:
   - folders
   - pdfs
   - webviews
+  - videos
   - links
   - link_categories
   - cog_details
