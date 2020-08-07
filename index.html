@@ -1873,11 +1873,11 @@ To retrieve an individual <code>ScheduleTrack</code> object issue a <code>GET</c
 <span class="p">{</span>
   <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
   <span class="s">"name"</span><span class="p">:</span> <span class="s">"Stadium"</span><span class="p">,</span>
-  <span class="s">"description"</span><span class="p">:</span> <span class="n">null</span><span class="p">,</span>
+  <span class="s">"description"</span><span class="p">:</span> <span class="s">"None"</span><span class="p">,</span>
   <span class="s">"location_type"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span>
   <span class="s">"latitude"</span><span class="p">:</span> <span class="mf">37.3327</span><span class="p">,</span>
   <span class="s">"longitude"</span><span class="p">:</span> <span class="o">-</span><span class="mf">121.901236</span><span class="p">,</span>
-  <span class="s">"import_id"</span><span class="p">:</span> <span class="n">null</span>
+  <span class="s">"import_id"</span><span class="p">:</span> <span class="s">"None"</span>
 <span class="p">}</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre>
@@ -2460,6 +2460,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
     </span><span class="s2">"custom_lists"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
     </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:19:08.544919+0000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:19:08.544919+0000"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
     </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -2562,6 +2563,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.183229+0000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.183229+0000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -2578,6 +2580,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.189964+0000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.189964+0000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -2594,6 +2597,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.195613+0000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.195613+0000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">},</span><span class="w">
@@ -2610,6 +2614,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
             </span><span class="p">],</span><span class="w">
             </span><span class="s2">"locations"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
             </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.200571+0000"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-09-27T08:11:40.200571+0000"</span><span class="p">,</span><span class="w">
             </span><span class="s2">"image"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
             </span><span class="s2">"thumbnail"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
         </span><span class="p">}</span><span class="w">
@@ -2639,6 +2644,11 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
 <td>created_at</td>
 <td>datetime</td>
 <td>Time when this <code>CustomListItem</code> was created - UTC.</td>
+</tr>
+<tr>
+<td>last_updated</td>
+<td>datetime</td>
+<td>Time when this <code>CustomListItem</code> was last updated - UTC.</td>
 </tr>
 <tr>
 <td>custom_list</td>
