@@ -34,6 +34,7 @@ response = request.post(custom_list_item_url, data=post_data, headers={'Authoriz
 	"custom_lists": [],
 	"locations": [],
 	"created_at": "2017-09-27T08:19:08.544919+0000",
+	"last_updated": "2017-09-27T08:19:08.544919+0000",
 	"image": null,
 	"thumbnail": null
 }
@@ -97,6 +98,7 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			],
 			"locations": [],
 			"created_at": "2017-09-27T08:11:40.183229+0000",
+			"last_updated": "2017-09-27T08:11:40.183229+0000",
 			"image": null,
 			"thumbnail": null
 		},
@@ -113,6 +115,7 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			],
 			"locations": [],
 			"created_at": "2017-09-27T08:11:40.189964+0000",
+			"last_updated": "2017-09-27T08:11:40.189964+0000",
 			"image": null,
 			"thumbnail": null
 		},
@@ -129,6 +132,7 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			],
 			"locations": [],
 			"created_at": "2017-09-27T08:11:40.195613+0000",
+			"last_updated": "2017-09-27T08:11:40.195613+0000",
 			"image": null,
 			"thumbnail": null
 		},
@@ -145,6 +149,7 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			],
 			"locations": [],
 			"created_at": "2017-09-27T08:11:40.200571+0000",
+			"last_updated": "2017-09-27T08:11:40.200571+0000",
 			"image": null,
 			"thumbnail": null
 		}
@@ -168,6 +173,7 @@ Parameter       | Type    | Description
 ---------       | ------- | -----------
 id              | integer  | An unique identifier for your `CustomListItem`.
 created_at      | datetime | Time when this `CustomListItem` was created - UTC.
+last_updated    | datetime | Time when this `CustomListItem` was last updated - UTC.
 custom_list     | list of integers | A list of the `CustomList` IDs that this `CustomListItem` is related to.
 
 
