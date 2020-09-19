@@ -3701,6 +3701,10 @@ To retrieve an individual <code>Video</code> object issue a <code>GET</code> req
 <p>The <code>Link</code> resource is an object that is displayed at the bottom section of either a <code>Session</code> object or <code>CustomListItem</code> in the Guidebook mobile app.  These objects represent special in-app links that will navigate the app user to the corresponding object in the mobile app.  A common use case of this feature would be a speaker linking to all the panels that the speaker is participating in.</p>
 
 <p><code>Link</code> objects will always contain a source and a target. In the example with speakers, the source would be the speaker <code>CustomListItem</code> and the target object would be a <code>Session</code> we want to link to.</p>
+
+<aside class="notice">
+Links will only show up on the `source` object. If you want to have a `Session` link to a `CustomListItem` and for the `CustomListItem` to link back, you'll need to create two Link objects with the `source` and `target` swapped for each one.
+</aside>
 <h2 id='creating-a-code-link-code'>Creating a <code>Link</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">link_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/links/'</span>
