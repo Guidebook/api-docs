@@ -4,6 +4,11 @@ The `Link` resource is an object that is displayed at the bottom section of eith
 
 `Link` objects will always contain a source and a target. In the example with speakers, the source would be the speaker `CustomListItem` and the target object would be a `Session` we want to link to.
 
+<aside class="notice">
+Links will only show up on the `source` object. If you want to have a `Session` link to a `CustomListItem` and for the `CustomListItem` to link back, you'll need to create two Link objects with the `source` and `target` swapped for each one.
+</aside>
+
+
 ## Creating a `Link`
 
 
@@ -74,7 +79,7 @@ source_object_id     | yes | integer  | The id number of the source object.  Not
 target_content_type  | yes | string   | The content type of the target object.  The options are: `schedule.session`, `custom_list.customlistitem`, `uri_resource.pdffile`, and `uri_resource.webview`.
 target_object_id     | yes | integer  | The id number of the target object.  Not updatable after creation.
 rank                 | no  | float  | The order the `Link` will appear in the `Links` section on the app.  `Links` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
-_title               | no  | string   | Use this field to override the default title of the `Link`.  The default behavior is to derive the title from the target object. Targets such as `PDFs` do not have their own title field, and depend on this to be given a custom name. 
+_title               | no  | string   | Use this field to override the default title of the `Link`.  The default behavior is to derive the title from the target object. Targets such as `PDFs` do not have their own title field, and depend on this to be given a custom name.
 _description         | no  | string   | Use this field to override the default description of the `Link`.  The default behavior is to derive the description from the target object
 category             | no  | integer  | `LinkCategory` ID this `Link` will be displayed in.  Most of the logic regarding `LinkCategories` are automatically handled for you so you do not need to supply an category ID.   Use this field to update the category if needed.
 

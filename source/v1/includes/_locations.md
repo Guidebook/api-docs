@@ -13,11 +13,11 @@ post_data =
 {
   "guide": 1,
   "name": "Stadium",
-  "description": null,
+  "description": "None",
   "location_type": 3,
   "latitude": 37.3327,
   "longitude": -121.901236,
-  "import_id": null
+  "import_id": "None"
 }
 response = requests.post(url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 ```
