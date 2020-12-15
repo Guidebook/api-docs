@@ -103,7 +103,7 @@ To publish an existing `Guide` object, issue a `POST` request like:
 
 `POST https://builder.guidebook.com/open-api/v1/guides/21/publish/`
 
-A successful request to this endpoint will return a status code of `202 ACCEPTED`
+A successful request to this endpoint will return a status code of `202 ACCEPTED`. This endpoint has a rate limit of 2 requests per minute.
 
 To be successfully published, the guide must currently be on a paid plan and cannot be archived. Note that the act of publishing a Guide does not guarantee that it will appear in your space. Please see the documentation on `Spaces` and `SpaceGuideAssociations` for more information.
 
