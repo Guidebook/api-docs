@@ -1206,7 +1206,7 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
 
 <p><code>POST https://builder.guidebook.com/open-api/v1/guides/21/publish/</code></p>
 
-<p>A successful request to this endpoint will return a status code of <code>202 ACCEPTED</code></p>
+<p>A successful request to this endpoint will return a status code of <code>202 ACCEPTED</code>. This endpoint has a rate limit of 2 requests per minute.</p>
 
 <p>To be successfully published, the guide must currently be on a paid plan and cannot be archived. Note that the act of publishing a Guide does not guarantee that it will appear in your space. Please see the documentation on <code>Spaces</code> and <code>SpaceGuideAssociations</code> for more information.</p>
 <h2 id='publishing-code-personalizedschedules-code-for-a-code-guide-code'>Publishing <code>PersonalizedSchedules</code> for a <code>Guide</code></h2>
