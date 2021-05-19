@@ -36,7 +36,8 @@ response = request.post(custom_list_item_url, data=post_data, headers={'Authoriz
 	"created_at": "2017-09-27T08:19:08.544919+0000",
 	"last_updated": "2017-09-27T08:19:08.544919+0000",
 	"image": null,
-	"thumbnail": null
+	"thumbnail": null,
+	"contact_email": null
 }
 
 
@@ -62,6 +63,7 @@ import_id       | no  | string     | A string field you can use to input your ow
 locations       | no  | array of integers | Array of IDs of `Locations` this `Session` should belong to.  See section on [Locations](#locations).
 image           | no  | image    |  image will appear with the `CustomListItem` in Guidebook apps. The ideal size is 640px wide, 240 px tall. See section on [images](#images).
 thumbnail       | no  | thumbnail  |  thumbnail will appear with the `CustomListItem` in Guidebook apps. The ideal size is 240px wide, 240 px tall. See section on [images](#images).
+contact_email   | no  | string   | An email for the item that users will be able to contact directly from the app or Guidebook Web.
 
 
 ## Listing `CustomListItems`
@@ -100,7 +102,8 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			"created_at": "2017-09-27T08:11:40.183229+0000",
 			"last_updated": "2017-09-27T08:11:40.183229+0000",
 			"image": null,
-			"thumbnail": null
+			"thumbnail": null,
+			"contact_email": null
 		},
 		{
 			"id": 2,
@@ -117,7 +120,8 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			"created_at": "2017-09-27T08:11:40.189964+0000",
 			"last_updated": "2017-09-27T08:11:40.189964+0000",
 			"image": null,
-			"thumbnail": null
+			"thumbnail": null,
+			"contact_email": null
 		},
 		{
 			"id": 3,
@@ -134,7 +138,8 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			"created_at": "2017-09-27T08:11:40.195613+0000",
 			"last_updated": "2017-09-27T08:11:40.195613+0000",
 			"image": null,
-			"thumbnail": null
+			"thumbnail": null,
+			"contact_email": null
 		},
 		{
 			"id": 4,
@@ -151,7 +156,8 @@ response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + 
 			"created_at": "2017-09-27T08:11:40.200571+0000",
 			"last_updated": "2017-09-27T08:11:40.200571+0000",
 			"image": null,
-			"thumbnail": null
+			"thumbnail": null,
+			"contact_email": null
 		}
 	]
 }

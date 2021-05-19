@@ -11,11 +11,11 @@ api_key = 'API_KEY'
 post_data =
 {
 	"guide": 1,
-	"email": "open_api@example.com",
-	"first_name": "Open API",
-	"last_name": "Example User"
+	"inbox": 42,
+	"title": "Title of Message",
+	"message": "Message created from the Open API"
 }
-response = request.post(attendees_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = request.post(messages_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
