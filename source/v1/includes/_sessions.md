@@ -296,3 +296,8 @@ You will only need to include the specific fields you are updating and not a ful
 To delete a particular `Session`, issue a `DELETE` request to the url that points to the specific `Session` you'd like deleted:
 
 `DELETE https://builder.guidebook.com/open-api/v1/sessions/71/`
+
+
+## Listing `Sessions` without an API Key
+
+If you're building a client side calendar application that needs read access to your `Sessions`, there are additional endpoint options available that allow you to list sessions without the need for an API Key.  This option is only available for public events.  Please contact Guidebook Support for additional details.
