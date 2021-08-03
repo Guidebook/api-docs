@@ -32,7 +32,8 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 			"end_date": "2017-05-27T21:00:00.000000+0000",
 			"owner": 412,
 			"timezone": "UTC",
-			"created_at": "2018-05-28T21:53:31.010760+0000"
+			"created_at": "2018-05-28T21:53:31.010760+0000",
+			"short_name": "summit2017"
 		},
 		{
 			"id": 22,
@@ -44,7 +45,8 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 			"end_date": null,
 			"owner": 412,
 			"timezone": "US/Pacific",
-			"created_at": "2018-05-28T21:53:31.010760+0000"
+			"created_at": "2018-05-28T21:53:31.010760+0000",
+			"short_name": "summit2018"
 		}
 	]
 }
@@ -70,6 +72,7 @@ timezone                | timezone    | `Session` times in this `Guide` will be 
 home_screen_menuitem    | int         | The id of the `MenuItem` you want on the homescreen of your `Guide`.
 privacy                 | int         | Used for updating privacy options.  1 = Public Guide, 2 = Passphrase Guide, 3 = Invite Only Guide
 redeem_code             | str         | Optional paramater used when updating privacy options.  If you choose privacy option 2, you'll need to supply the desired passphrase in this field.  Note tha we only allow redeem_codes to be updated once per hour.
+short_name				| str 		  | The name used to construct the URL where people view your guide.
 
 
 ### Filtering `Guides` by `owner` id.
