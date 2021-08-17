@@ -168,6 +168,13 @@ Standard fields, No additional fields.
 
 Standard fields, No additional fields.
 
+`Builder-AttendeeVerificationCreated`
+Key             | Description
+---------       |  -----------
+session_id      | The id of the session.
+session_name    | The name of the session.
+attendee_id	    | The id of the attendee.
+attendance_manager_id  | The account id of the attendance manager.
 
 ## Security
 

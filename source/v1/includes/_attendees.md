@@ -41,7 +41,8 @@ response = request.post(attendees_list_url, data=post_data, headers={'Authorizat
 	"revoked": false,
 	"email_opt_out": false,
 	"status": 0,
-	"last_email_send": null
+	"last_email_send": null,
+	"qr_badge": "f=Open+API&l=Example+User&i=1&ii=&s=e9dfa0c529c4a6f4880f4d324a12723d5475b3d9"
 }
 
 ```
@@ -107,7 +108,8 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 			"revoked": false,
 			"email_opt_out": false,
 			"status": 1,
-			"last_email_send": null
+			"last_email_send": null,
+			"qr_badge": "f=&l=&i=2&ii=&s=e9dfa0c529c4a6f4880f4d324a12723d5475b3d9"
 		},
 		{
 			"id": 3,
@@ -128,7 +130,8 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 			"revoked": false,
 			"email_opt_out": false,
 			"status": 1,
-			"last_email_send": null
+			"last_email_send": null,
+			"qr_badge": "f=&l=&i=3&ii=&s=bw7lsa87leh9wql8nuiwutykgi5d5gig1o0czl08"
 		},
 		{
 			"id": 4,
@@ -149,7 +152,8 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 			"revoked": false,
 			"email_opt_out": false,
 			"status": 1,
-			"last_email_send": null
+			"last_email_send": null,
+			"qr_badge": "f=&l=&i=4&ii=&s=7vexvjq13lthpz1690u69ksawt3v65ff73b9hxao"
 		},
 		{
 			"id": 5,
@@ -170,7 +174,8 @@ response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key
 			"revoked": false,
 			"email_opt_out": false,
 			"status": 1,
-			"last_email_send": null
+			"last_email_send": null,
+			"qr_badge": "f=&l=&i=5&ii=&s=bla4e60zq1d19pzg85x1j9jh9fskukmqpw2p4dl7"
 		}
 	]
 }
@@ -203,6 +208,7 @@ app_profile     | dictionary of strings | Contains profile information filed out
 revoked         | boolean  | Indicates if this `Attendee` still has access to this guide.  This field is only relevant if your `Guide` is using the `invite-only` security option.
 email_opt_out   | boolean  | Indicates if this `Attendee` should receive emails for this `Guide`.
 status          | integer  |  Integer status code.  0 - Attendee Created, 1 - New Account Created, Email Invite Sent, 2 - Existing Account matched, Email Invite Sent, 3 - Email Invite Accepted/Attendee Logged In.
+qr_badge		| string   | String that is used to create an attendee's QR code.
 
 
 ## Sending Invite Emails to Attendees

@@ -7,3 +7,10 @@ Our [Eventbrite Integration](https://github.com/Guidebook/guidebook-eventbrite-i
 
 ## Icalendar Integration
 Icalendar is a popular format for representing schedules.  The [Icalendar Integration](https://github.com/Guidebook/guidebook-ical-integration) example we provide shows how you can import session data into Guidebook from an ical source.  Icalendar feeds can be incredibly complicated and if your ical feed incorporates non standard properties (X-prefixed properties), you can customize our ical integration to fit your needs.
+
+## Zenefits Integration
+Our [Zenefits Integration](https://github.com/Guidebook/guidebook-zenefits-integration) example shows how you can import custom list item data into Guidebook from a Zenefits HR account. Zenefits holds a lot of information about a company and its employees, and you can customize this integration
+to import information relevant to your custom list and Guide.
+
+## Google Drive Integration
+Our [Google Drive Integration](https://github.com/Guidebook/guidebook-googledrive-integration) example shows how you can sync PDFs between Google Drive and Guidebook in real time.  This integration watches a specified folder in Google Drive to track changes and create, update, or delete the related PDFs in Guidebook linked to custom list items.
