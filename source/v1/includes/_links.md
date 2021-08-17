@@ -76,7 +76,7 @@ Parameter            | Required  | Type    | Description
 guide                | yes | integer  | The specific `Guide` your `Link` belongs to.  See section on [Guides](#guides) for more info.
 source_content_type  | yes | string   | The content type of the source object.  The options are: `schedule.session`, `custom_list.customlistitem`
 source_object_id     | yes | integer  | The id number of the source object.  Not updatable after creation.
-target_content_type  | yes | string   | The content type of the target object.  The options are: `schedule.session`, `custom_list.customlistitem`, `uri_resource.pdffile`, and `uri_resource.webview`.
+target_content_type  | yes | string   | The content type of the target object.  The options are: `schedule.session`, `custom_list.customlistitem`, `uri_resource.pdffile`, `uri_resource.webview`, and `uri_resource.video`.
 target_object_id     | yes | integer  | The id number of the target object.  Not updatable after creation.
 rank                 | no  | float  | The order the `Link` will appear in the `Links` section on the app.  `Links` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
 _title               | no  | string   | Use this field to override the default title of the `Link`.  The default behavior is to derive the title from the target object. Targets such as `PDFs` do not have their own title field, and depend on this to be given a custom name.
