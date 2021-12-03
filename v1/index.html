@@ -5632,18 +5632,13 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
 </tr>
 <tr>
 <td>avatar</td>
-<td>string</td>
-<td>URL to the avatar image for this <code>Attendee</code>.</td>
+<td>image</td>
+<td>Avatar image for this <code>Attendee</code>. For newly invited <code>Attendees</code>, you can update this field.  If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only. See section on <a href="#images">images</a> to update.</td>
 </tr>
 <tr>
 <td>cover</td>
-<td>string</td>
-<td>URL to the cover (background) image for the <code>Attendee</code>.</td>
-</tr>
-<tr>
-<td>app_profile</td>
-<td>dictionary of strings</td>
-<td>Contains profile information filed out by the <code>Attendee</code>.  Possible keys include <code>company</code>, <code>position</code>, <code>contact_email</code>, <code>website</code>.  Note that these keys can change at anytime! For newly created <code>Attendees</code> over the API, you can submit data for <code>company</code> and <code>profile</code>.  If there is existing app_profile data for an <code>Attendee</code>, then this field is read-only.</td>
+<td>image</td>
+<td>Cover (background) image for the <code>Attendee</code>. For newly invited <code>Attendees</code>, you can update this field.  If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only. See section on <a href="#images">images</a> to update.app_profile</td>
 </tr>
 <tr>
 <td>revoked</td>
