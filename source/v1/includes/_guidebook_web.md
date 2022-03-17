@@ -1,5 +1,7 @@
 # Guidebook Web
 
+Guidebook Web is the website representation of your guide, and its settings can be controlled by the Guidebook Web `Metadata` resource.
+
 ## Listing Guidebook Web `Metadata` objects
 
 This endpoint will list all Guidebook Web `Metadata` objects that are owned by your Account. Typically, this endpoint is called with a `guide_id` filter such that it returns the Guidebook Web `Metadata` object associated to a lone `Guide` object that is owned by you.
@@ -30,7 +32,8 @@ response = request.get(guidebook_web_metadata_url, headers={'Authorization': 'JW
             "enabled": true
         }
 	]
-}```
+}
+```
 
 ### HTTP Request
 
