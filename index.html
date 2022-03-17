@@ -843,6 +843,12 @@
                   <li>
                     <a href="#listing-guidebook-web-code-metadata-code-objects" class="toc-h2 toc-link" data-title="Guidebook Web">Listing Guidebook Web <code>Metadata</code> objects</a>
                   </li>
+                  <li>
+                    <a href="#retrieving-a-guidebook-web-code-metadata-code-object" class="toc-h2 toc-link" data-title="Guidebook Web">Retrieving a Guidebook Web <code>Metadata</code> object</a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-guidebook-web-code-metadata-code-object" class="toc-h2 toc-link" data-title="Guidebook Web">Updating a Guidebook Web <code>Metadata</code> object</a>
+                  </li>
               </ul>
           </li>
       </div>
@@ -6551,7 +6557,9 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 <p>This token will be included in ALL webhook POST requests from guidebook in the header.  The header will be <code>GB_WEBHOOK_SECURITY_TOKEN</code>.  Please verify that the token matches before processing the event data.</p>
 <h2 id='webhook-examples'>Webhook Examples</h2>
 <p>Guidebook&#39;s Salesforce integration was built on top of our Webhook API.  For some example code on how you can customize your own Salesforce integration with our Webhook API, you can visit our <a href="https://github.com/Guidebook/guidebook-sfdc-integration">github repo</a>.</p>
-<h1 id='guidebook-web'>Guidebook Web</h1><h2 id='listing-guidebook-web-code-metadata-code-objects'>Listing Guidebook Web <code>Metadata</code> objects</h2>
+<h1 id='guidebook-web'>Guidebook Web</h1>
+<p>Guidebook Web is the website representation of your guide, and its settings can be controlled by the Guidebook Web <code>Metadata</code> resource.</p>
+<h2 id='listing-guidebook-web-code-metadata-code-objects'>Listing Guidebook Web <code>Metadata</code> objects</h2>
 <p>This endpoint will list all Guidebook Web <code>Metadata</code> objects that are owned by your Account. Typically, this endpoint is called with a <code>guide_id</code> filter such that it returns the Guidebook Web <code>Metadata</code> object associated to a lone <code>Guide</code> object that is owned by you.</p>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -6577,48 +6585,74 @@ Note that there is a 5 second delay between Account creation and our metrics ind
             </span><span class="s2">"enabled"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
-</span><span class="p">}</span><span class="err">```</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/guidebook-web-metadata/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>An unique identifier for your Guidebook Web <code>Metadata</code> object.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time when this Guidebook Web <code>Metadata</code> object was created - UTC.</td>
+</tr>
+<tr>
+<td>guide</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your Guidebook Web <code>Metadata</code> object belongs to.</td>
+</tr>
+<tr>
+<td>space</td>
+<td>integer</td>
+<td>The specific <code>Space</code> your Guidebook Web <code>Metadata</code> object belongs to.</td>
+</tr>
+<tr>
+<td>enabled</td>
+<td>boolean</td>
+<td>Whether the specific <code>Guides</code> Guidebook Web page is accessible.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-by-code-guide-code-id'>Filtering by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for the Guidebook Web <code>Metadata</code> object related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example)</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">HTTP</span><span class="w"> </span><span class="err">Request</span><span class="w">
+<p><code>GET https://builder.guidebook.com/open-api/v1/guidebook-web-metadata/?guide=47</code></p>
+<h2 id='retrieving-a-guidebook-web-code-metadata-code-object'>Retrieving a Guidebook Web <code>Metadata</code> object</h2>
+<p>In the following examples, we will assume that the id of the Guidebook Web <code>Metadata</code> object we&#39;d like to modify is 71. To retrieve an individual Guidebook Web <code>Metadata</code> object issue a <code>GET</code> request like:</p>
 
-</span><span class="err">`GET</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//builder.guidebook.com/open-api/v</span><span class="mi">1</span><span class="err">/guidebook-web-metadata/`</span><span class="w">
+<p><code>GET https://builder.guidebook.com/open-api/v1/guidebook-web-metadata/71/</code></p>
+<h2 id='updating-a-guidebook-web-code-metadata-code-object'>Updating a Guidebook Web <code>Metadata</code> object</h2>
+<p>To modify an existing Guidebook Web <code>Metadata</code> object, issue a <code>PATCH</code> request
+like:</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Model</span><span class="w"> </span><span class="err">Fields</span><span class="w">
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/guidebook-web-metadata/71/</code></p>
 
-</span><span class="err">Parameter</span><span class="w">       </span><span class="err">|</span><span class="w"> </span><span class="err">Type</span><span class="w">    </span><span class="err">|</span><span class="w"> </span><span class="err">Description</span><span class="w">
-</span><span class="err">---------</span><span class="w">       </span><span class="err">|</span><span class="w"> </span><span class="err">-------</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">-----------</span><span class="w">
-</span><span class="err">id</span><span class="w">              </span><span class="err">|</span><span class="w"> </span><span class="err">integer</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">An</span><span class="w"> </span><span class="err">unique</span><span class="w"> </span><span class="err">identifier</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object.</span><span class="w">
-</span><span class="err">created_at</span><span class="w">      </span><span class="err">|</span><span class="w"> </span><span class="err">datetime</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Time</span><span class="w"> </span><span class="err">when</span><span class="w"> </span><span class="err">this</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">was</span><span class="w"> </span><span class="err">created</span><span class="w"> </span><span class="err">-</span><span class="w"> </span><span class="err">UTC.</span><span class="w">
-</span><span class="err">guide</span><span class="w">           </span><span class="err">|</span><span class="w"> </span><span class="err">integer</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">`Guide`</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">belongs</span><span class="w"> </span><span class="err">to.</span><span class="w">
-</span><span class="err">space</span><span class="w">           </span><span class="err">|</span><span class="w"> </span><span class="err">integer</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">`Space`</span><span class="w"> </span><span class="err">your</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">belongs</span><span class="w"> </span><span class="err">to.</span><span class="w">
-</span><span class="err">enabled</span><span class="w">         </span><span class="err">|</span><span class="w"> </span><span class="err">boolean</span><span class="w">  </span><span class="err">|</span><span class="w"> </span><span class="err">Whether</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">`Guides`</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">page</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">accessible.</span><span class="w">
+<p>You will only need to include the specific fields you are updating and not a
+full request body. The following fields are updatable:</p>
 
-</span><span class="err">###</span><span class="w"> </span><span class="err">Filtering</span><span class="w"> </span><span class="err">by</span><span class="w"> </span><span class="err">`Guide`</span><span class="w"> </span><span class="err">id</span><span class="w">
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>enabled</td>
+<td>boolean</td>
+<td>Whether the specific <code>Guides</code> Guidebook Web page is accessible.</td>
+</tr>
+</tbody></table>
 
-</span><span class="err">Including</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">query</span><span class="w"> </span><span class="err">parameter</span><span class="w"> </span><span class="err">`guide`</span><span class="w"> </span><span class="err">allows</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">filter</span><span class="w"> </span><span class="err">for</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">related</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">`Guide`</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">have</span><span class="w"> </span><span class="err">access</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">(`Guide`</span><span class="w"> </span><span class="mi">47</span><span class="w"> </span><span class="err">in</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">example)</span><span class="w">
-
-</span><span class="err">`GET</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//builder.guidebook.com/open-api/v</span><span class="mi">1</span><span class="err">/guidebook-web-metadata/?guide=</span><span class="mi">47</span><span class="err">`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Retrieving</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w">
-
-</span><span class="err">In</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">examples</span><span class="p">,</span><span class="w"> </span><span class="err">we</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">assume</span><span class="w"> </span><span class="err">that</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">id</span><span class="w"> </span><span class="err">of</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">we'd</span><span class="w"> </span><span class="err">like</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">modify</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="mi">71</span><span class="err">.</span><span class="w"> </span><span class="err">To</span><span class="w"> </span><span class="err">retrieve</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">individual</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w"> </span><span class="err">issue</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">`GET`</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">like</span><span class="p">:</span><span class="w">
-
-</span><span class="err">`GET</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//builder.guidebook.com/open-api/v</span><span class="mi">1</span><span class="err">/guidebook-web-metadata/</span><span class="mi">71</span><span class="err">/`</span><span class="w">
-
-</span><span class="err">##</span><span class="w"> </span><span class="err">Updating</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="w">
-
-</span><span class="err">To</span><span class="w"> </span><span class="err">modify</span><span class="w"> </span><span class="err">an</span><span class="w"> </span><span class="err">existing</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">`Metadata`</span><span class="w"> </span><span class="err">object</span><span class="p">,</span><span class="w"> </span><span class="err">issue</span><span class="w"> </span><span class="err">a</span><span class="w"> </span><span class="err">`PATCH`</span><span class="w"> </span><span class="err">request</span><span class="w">
-</span><span class="err">like</span><span class="p">:</span><span class="w">
-
-</span><span class="err">`PATCH</span><span class="w"> </span><span class="err">https</span><span class="p">:</span><span class="err">//builder.guidebook.com/open-api/v</span><span class="mi">1</span><span class="err">/guidebook-web-metadata/</span><span class="mi">71</span><span class="err">/`</span><span class="w">
-
-</span><span class="err">You</span><span class="w"> </span><span class="err">will</span><span class="w"> </span><span class="err">only</span><span class="w"> </span><span class="err">need</span><span class="w"> </span><span class="err">to</span><span class="w"> </span><span class="err">include</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">fields</span><span class="w"> </span><span class="err">you</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">updating</span><span class="w"> </span><span class="err">and</span><span class="w"> </span><span class="err">not</span><span class="w"> </span><span class="err">a</span><span class="w">
-</span><span class="err">full</span><span class="w"> </span><span class="err">request</span><span class="w"> </span><span class="err">body.</span><span class="w"> </span><span class="err">The</span><span class="w"> </span><span class="err">following</span><span class="w"> </span><span class="err">fields</span><span class="w"> </span><span class="err">are</span><span class="w"> </span><span class="err">updatable</span><span class="p">:</span><span class="w">
-
-</span><span class="err">Parameter</span><span class="w">       </span><span class="err">|</span><span class="w"> </span><span class="err">Type</span><span class="w">    </span><span class="err">|</span><span class="w"> </span><span class="err">Description</span><span class="w">
-</span><span class="err">---------</span><span class="w">       </span><span class="err">|</span><span class="w"> </span><span class="err">-------</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">-----------</span><span class="w">
-</span><span class="err">enabled</span><span class="w">         </span><span class="err">|</span><span class="w"> </span><span class="err">boolean</span><span class="w"> </span><span class="err">|</span><span class="w"> </span><span class="err">Whether</span><span class="w"> </span><span class="err">the</span><span class="w"> </span><span class="err">specific</span><span class="w"> </span><span class="err">`Guides`</span><span class="w"> </span><span class="err">Guidebook</span><span class="w"> </span><span class="err">Web</span><span class="w"> </span><span class="err">page</span><span class="w"> </span><span class="err">is</span><span class="w"> </span><span class="err">accessible.</span><span class="w">
-</span></code></pre>
       </div>
       <div class="dark-box">
           <div class="lang-selector">
