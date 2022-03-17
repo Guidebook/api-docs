@@ -46,6 +46,7 @@ includes:
   - guidebook_id
   - personalized_schedules
   - webhooks
+  - guidebook_web
 
 search: true
 ---
