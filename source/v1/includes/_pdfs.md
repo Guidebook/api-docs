@@ -42,7 +42,8 @@ with open('your_pdf.pdf', 'rb') as pdf_file:
     "pdf_view_type": "url",
     "guide": 1,
     "url": "http://dropbox.com/mypdf.pdf",
-    "pdf_file": null
+    "pdf_file": null,
+    "last_updated": "2018-06-27T15:30:11.015128+0000"
 }
 # Example with pdf file
 {
@@ -50,7 +51,8 @@ with open('your_pdf.pdf', 'rb') as pdf_file:
     "pdf_view_type": "pdf",
     "guide": 1,
     "url": null,
-    "pdf_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/ZzpZyJOHxr8hkTAz9yC7h7zz5BWQ2URwjbtW.pdf"
+    "pdf_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/ZzpZyJOHxr8hkTAz9yC7h7zz5BWQ2URwjbtW.pdf",
+    "last_updated": "2018-06-27T15:30:11.015128+0000"
 }
 
 ```
@@ -98,14 +100,16 @@ response = request.get(pdf_url, headers={'Authorization': 'JWT ' + api_key})
             "pdf_view_type": "url",
             "guide": 1,
             "url": "http://dropbox.com/mypdf.pdf",
-            "pdf_file": null
+            "pdf_file": null,
+            "last_updated": "2018-06-27T15:30:11.015128+0000"
         },
         {
             "id": 8,
             "pdf_view_type": "pdf",
             "guide": 1,
             "url": null,
-            "pdf_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/0Ezkq41pl591ayQEQTETToV2ml5mhTQn3V5l.pdf"
+            "pdf_file": "http://s3.amazonaws.com/media.guidebook.com/upload/1/0Ezkq41pl591ayQEQTETToV2ml5mhTQn3V5l.pdf",
+            "last_updated": "2018-06-27T15:30:11.015128+0000"
         }
     ]
 }
@@ -125,6 +129,7 @@ Same as the fields used in creation with the addition of the following read-only
 Parameter       | Type    | Description
 ---------       | ------- | -----------
 id              | integer  | A unique identifier for your `PDF`.
+last_updated    | datetime	| Time when this `PDF` was last updated - UTC.
 
 
 ### Filtering data by `Guide` id

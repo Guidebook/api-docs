@@ -169,6 +169,7 @@ Standard fields, No additional fields.
 Standard fields, No additional fields.
 
 `Builder-AttendeeVerificationCreated`
+
 Key             | Description
 ---------       |  -----------
 session_id      | The id of the session.

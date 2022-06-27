@@ -57,7 +57,8 @@ response = request.post(link_url, data=post_data, headers={'Authorization': 'JWT
 	},
 	"category": 33,
 	"_title": null,
-	"_description": "testing overridden description"
+	"_description": "testing overridden description",
+	"last_updated": "2018-06-27T15:30:11.015128+0000"
 }
 
 ```
@@ -129,7 +130,8 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			},
 			"category": 39,
 			"_title": null,
-			"_description": null
+			"_description": null,
+			"last_updated": "2018-06-27T15:30:11.015128+0000"
 		},
 		{
 			"id": 40,
@@ -155,7 +157,8 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			},
 			"category": 40,
 			"_title": null,
-			"_description": null
+			"_description": null,
+			"last_updated": "2018-06-27T15:30:11.015128+0000"
 		},
 		{
 			"id": 41,
@@ -181,7 +184,8 @@ response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			},
 			"category": 39,
 			"_title": null,
-			"_description": null
+			"_description": null,
+			"last_updated": "2018-06-27T15:30:11.015128+0000"
 		}
 	]
 }
@@ -205,6 +209,7 @@ created_at      | datetime | Time when this `Link` was created - UTC.
 title           | string   | Title that will be displayed in the app.  To change this, please use the _title field.
 description     | string/dictionary    | Description that will be displayed in the app.  To change this, please use the _description field.
 category_detail | dictionary | Extra metadata on the `LinkCategory` of this `Link`
+last_updated    | datetime	| Time when this `Link` was last updated - UTC.
 
 
 ### Filtering data by `Guide` id
