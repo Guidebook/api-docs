@@ -1,11 +1,11 @@
-# SurveyAnswerSets
+# FormAnswerSets
 
-## Listing `SurveyAnswerSets`
+## Listing `FormAnswerSets`
 
-This endpoint will list all `SurveyAnswerSets` that are owned by your Account.
+This endpoint will list all `FormAnswerSets` that are owned by your Account.
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019. Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Forms feature that launched June 2019. Legacy forms are not supported for the Open API.
 </aside>
 
 
@@ -15,7 +15,7 @@ import requests
 answer_set_url =  'https://builder.guidebook.com/open-api/v1/answer-sets/?survey=23&object_id=42939'
 api_key = 'API_KEY'
 
-# This will return all answers for the given survey
+# This will return all answers for the given form
 response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
@@ -70,17 +70,17 @@ response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_ke
 
 Parameter       | Type    | Description
 ---------       | ------- | -----------
-id              | integer  | An unique identifier for your `SurveyAnswerSets`.
-survey          | integer | The Survey that this `SurveyAnswerSets` is for.
-content_type	| string  | The content type of the object this `SurveyAnswerSets` is for.
-object_id       | integer | The object ID that this `SurveyAnswerSets` is for.
-device_id	    | string  | Unique identifier for the device that submitted this `SurveyAnswerSets`.
-survey_version_number  | integer  | Tracks what revision this survey is on.
+id              | integer  | An unique identifier for your `FormAnswerSets`.
+survey          | integer | The Form that this `FormAnswerSets` is for.
+content_type	| string  | The content type of the object this `FormAnswerSets` is for.
+object_id       | integer | The object ID that this `FormAnswerSets` is for.
+device_id	    | string  | Unique identifier for the device that submitted this `FormAnswerSets`.
+survey_version_number  | integer  | Tracks what revision this form is on.
 
 
 ## Retrieving a specific `AnswerSet`
-If you would like to see the details of a specific `SurveyAnswerSets` submitted, you can use the following detail URL to examine the detailed response data.  The example below is fetching `SurveyAnswerSets` 71.
-To retrieve an individual `SurveyAnswerSets` object issue a `GET` request like:
+If you would like to see the details of a specific `FormAnswerSets` submitted, you can use the following detail URL to examine the detailed response data.  The example below is fetching `FormAnswerSets` 71.
+To retrieve an individual `FormAnswerSets` object issue a `GET` request like:
 
 `GET https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/`
 
@@ -91,7 +91,7 @@ import requests
 answer_set_detail_url =  'https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/'
 api_key = 'API_KEY'
 
-# This will return all answers for the given survey
+# This will return all answers for the given form
 response = request.get(answer_set_detail_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
