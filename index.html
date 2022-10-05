@@ -721,13 +721,13 @@
               </ul>
           </li>
           <li>
-            <a href="#surveyanswersets" class="toc-h1 toc-link" data-title="SurveyAnswerSets">SurveyAnswerSets</a>
+            <a href="#formanswersets" class="toc-h1 toc-link" data-title="FormAnswerSets">FormAnswerSets</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#listing-code-surveyanswersets-code" class="toc-h2 toc-link" data-title="SurveyAnswerSets">Listing <code>SurveyAnswerSets</code></a>
+                    <a href="#listing-code-formanswersets-code" class="toc-h2 toc-link" data-title="FormAnswerSets">Listing <code>FormAnswerSets</code></a>
                   </li>
                   <li>
-                    <a href="#retrieving-a-specific-code-answerset-code" class="toc-h2 toc-link" data-title="SurveyAnswerSets">Retrieving a specific <code>AnswerSet</code></a>
+                    <a href="#retrieving-a-specific-code-answerset-code" class="toc-h2 toc-link" data-title="FormAnswerSets">Retrieving a specific <code>AnswerSet</code></a>
                   </li>
               </ul>
           </li>
@@ -5285,18 +5285,18 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <p>To delete a particular <code>Message</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>Message</code> you&#39;d like deleted.  Be very careful about deleting <code>Messages</code> that have been sent.  The delete operation only removes the <code>Message</code> on the Guidebook side, users will retain the <code>Messages</code> they have downloaded on their devices.</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/messages/71/</code></p>
-<h1 id='surveyanswersets'>SurveyAnswerSets</h1><h2 id='listing-code-surveyanswersets-code'>Listing <code>SurveyAnswerSets</code></h2>
-<p>This endpoint will list all <code>SurveyAnswerSets</code> that are owned by your Account.</p>
+<h1 id='formanswersets'>FormAnswerSets</h1><h2 id='listing-code-formanswersets-code'>Listing <code>FormAnswerSets</code></h2>
+<p>This endpoint will list all <code>FormAnswerSets</code> that are owned by your Account.</p>
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019. Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Forms feature that launched June 2019. Legacy forms are not supported for the Open API.
 </aside>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
 <span class="n">answer_set_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/answer-sets/?survey=23&amp;object_id=42939'</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
-<span class="c"># This will return all answers for the given survey</span>
+<span class="c"># This will return all answers for the given form</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
@@ -5352,37 +5352,37 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <tr>
 <td>id</td>
 <td>integer</td>
-<td>An unique identifier for your <code>SurveyAnswerSets</code>.</td>
+<td>An unique identifier for your <code>FormAnswerSets</code>.</td>
 </tr>
 <tr>
 <td>survey</td>
 <td>integer</td>
-<td>The Survey that this <code>SurveyAnswerSets</code> is for.</td>
+<td>The Form that this <code>FormAnswerSets</code> is for.</td>
 </tr>
 <tr>
 <td>content_type</td>
 <td>string</td>
-<td>The content type of the object this <code>SurveyAnswerSets</code> is for.</td>
+<td>The content type of the object this <code>FormAnswerSets</code> is for.</td>
 </tr>
 <tr>
 <td>object_id</td>
 <td>integer</td>
-<td>The object ID that this <code>SurveyAnswerSets</code> is for.</td>
+<td>The object ID that this <code>FormAnswerSets</code> is for.</td>
 </tr>
 <tr>
 <td>device_id</td>
 <td>string</td>
-<td>Unique identifier for the device that submitted this <code>SurveyAnswerSets</code>.</td>
+<td>Unique identifier for the device that submitted this <code>FormAnswerSets</code>.</td>
 </tr>
 <tr>
 <td>survey_version_number</td>
 <td>integer</td>
-<td>Tracks what revision this survey is on.</td>
+<td>Tracks what revision this form is on.</td>
 </tr>
 </tbody></table>
 <h2 id='retrieving-a-specific-code-answerset-code'>Retrieving a specific <code>AnswerSet</code></h2>
-<p>If you would like to see the details of a specific <code>SurveyAnswerSets</code> submitted, you can use the following detail URL to examine the detailed response data.  The example below is fetching <code>SurveyAnswerSets</code> 71.
-To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET</code> request like:</p>
+<p>If you would like to see the details of a specific <code>FormAnswerSets</code> submitted, you can use the following detail URL to examine the detailed response data.  The example below is fetching <code>FormAnswerSets</code> 71.
+To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</code> request like:</p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/</code></p>
 <pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
@@ -5390,7 +5390,7 @@ To retrieve an individual <code>SurveyAnswerSets</code> object issue a <code>GET
 <span class="n">answer_set_detail_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/answer-sets/71/answers/'</span>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
-<span class="c"># This will return all answers for the given survey</span>
+<span class="c"># This will return all answers for the given form</span>
 <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_detail_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
