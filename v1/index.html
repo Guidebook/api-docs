@@ -6236,6 +6236,17 @@ HTTP 400 - <code>qr_badge</code> is not in the request data.</p>
 <p>Including a query parameter <code>guide</code> allows you to filter for all <code>PersonalizedSchedule</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in the following example):</p>
 
 <p><code>GET https://builder.guidebook.com/open-api/v1/personalized-schedules/?guide=47</code></p>
+<h3 id='filtering-by-attendee-id'>Filtering by Attendee id</h3>
+<p>Including a query parameter <code>attendees__id</code> allows you to filter for all <code>PersonalizedSchedule</code> related to an <code>Attendee</code> (<code>Attendee</code> 12 in the following example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/personalized-schedules/?attendees__id=12</code></p>
+
+<p><em><strong>NOTE</strong>: filtering for all <code>PersonalizedSchedule</code> related to an <code>Attendee</code> created via the CVS/Excel import functionality is not currently supported.</em></p>
+<h3 id='filtering-by-attendee-import_id'>Filtering by Attendee import_id</h3>
+<p>Including a query parameter <code>attendees__import_id</code> allows you to filter for all <code>PersonalizedSchedule</code> related to an <code>Attendee</code> <code>import_id</code> (<code>import_id</code> 142 in
+the following example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/personalized-schedules/?attendees__import_id=142</code></p>
 <h2 id='retrieving-a-code-personalizedschedule-code'>Retrieving a <code>PersonalizedSchedule</code></h2>
 <p>In the following examples, we will assume that the id of the <code>PersonalizedSchedule</code> we&#39;d like to modify is 71.
 To retrieve an individual <code>PersonalizedSchedule</code> object issue a <code>GET</code> request like:</p>
