@@ -145,6 +145,21 @@ Including a query parameter `guide` allows you to filter for all `PersonalizedSc
 
 `GET https://builder.guidebook.com/open-api/v1/personalized-schedules/?guide=47`
 
+### Filtering by Attendee id
+
+Including a query parameter `attendees__id` allows you to filter for all `PersonalizedSchedule` related to an `Attendee` (`Attendee` 12 in the following example):
+
+`GET https://builder.guidebook.com/open-api/v1/personalized-schedules/?attendees__id=12`
+
+*__NOTE__: filtering for all `PersonalizedSchedule` related to an `Attendee` created via the CVS/Excel import functionality is not currently supported.*
+
+### Filtering by Attendee import_id
+
+Including a query parameter `attendees__import_id` allows you to filter for all `PersonalizedSchedule` related to an `Attendee` `import_id` (`import_id` 142 in
+the following example):
+
+`GET https://builder.guidebook.com/open-api/v1/personalized-schedules/?attendees__import_id=142`
+
 ## Retrieving a `PersonalizedSchedule`
 
 In the following examples, we will assume that the id of the `PersonalizedSchedule` we'd like to modify is 71.
