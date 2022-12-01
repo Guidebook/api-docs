@@ -33,7 +33,8 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 			"owner": 412,
 			"timezone": "UTC",
 			"created_at": "2018-05-28T21:53:31.010760+0000",
-			"short_name": "summit2017"
+			"short_name": "summit2017",
+			"category": []
 		},
 		{
 			"id": 22,
@@ -46,7 +47,8 @@ response = requests.get(guides_url, headers={'Authorization': 'JWT ' + api_key})
 			"owner": 412,
 			"timezone": "US/Pacific",
 			"created_at": "2018-05-28T21:53:31.010760+0000",
-			"short_name": "summit2018"
+			"short_name": "summit2018",
+			"category": []
 		}
 	]
 }
@@ -73,6 +75,7 @@ home_screen_menuitem    | int         | The id of the `MenuItem` you want on the
 privacy                 | int         | Used for updating privacy options.  1 = Public Guide, 2 = Passphrase Guide, 3 = Invite Only Guide
 redeem_code             | str         | Optional paramater used when updating privacy options.  If you choose privacy option 2, you'll need to supply the desired passphrase in this field.  Note tha we only allow redeem_codes to be updated once per hour.
 short_name				| str 		  | The name used to construct the URL where people view your guide.
+category                | array of integers | Array of IDs of `GuideCategories` this `Guide` is a part of.  See section on [GuideCategories](#guide-categories).
 
 
 ### Filtering `Guides` by `owner` id.
@@ -80,6 +83,12 @@ short_name				| str 		  | The name used to construct the URL where people view y
 Including a query parameter `owner` allows you to filter for all `Guides` owned by a specific Account (`Account` 47 in this example):
 
 `GET https://builder.guidebook.com/open-api/v1/guides/?owner=47`
+
+### Filtering `Guides` by `category` id.
+
+Including a query parameter `category__id` allows you to filter for all `Guides` belonging to a specific `GuideCategory` (`GuideCategory` 23 in this example):
+
+`GET https://builder.guidebook.com/open-api/v1/guides/?category__id=23`
 
 ## Retrieving a `Guide`
 In the following examples, we will assume that the id of the `Guide` we'd like to modify is 21.

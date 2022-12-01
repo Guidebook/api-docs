@@ -176,7 +176,7 @@ question_set    | yes | integer  | The specific `QuestionSet` your `Question` be
 text            | yes | string   | The text of your `Question`.
 requires_answer | no  | boolean  | A booelan value that indicates if this `Question` requires an answer from the end-user.
 rank            | yes | float    | Controls the display order in the `QuestionSet`.  `Questions` are displayed in ascending order.
-display_type    | yes  | string  | Options are 'short-text' display or 'long-text' display.
+display_type    | no  | string  | Options are 'short-text' display or 'long-text' display. Defaults to 'short-text'.
 
 
 `POST https://builder.guidebook.com/open-api/v1/sliding-scale-questions/`
@@ -236,7 +236,7 @@ questions       | yes       | list of dictionaries  | A list of dictionaries of 
 
 ## Listing `Questions`
 
-The following endpoints will list all `Questions` that are owned by your Account. Typically, these endpoints are called with a `guide` filter such that it returns a list of `Questions` associated to a lone `Guide` object that is owned by you.  There is a dedicated endpoint for each type of `Question`.
+The following endpoints will list all `Questions` that are owned by your Account. Typically, these endpoints are called with a `question_set__guide` filter or `question_set` filter such that it returns a list of `Questions` associated to a lone `Guide`  or `QuestionSet` object that is owned by you.  There is a dedicated endpoint for each type of `Question`.
 
 
 ```python
@@ -352,6 +352,8 @@ To retrieve an individual `Question` object issue a `GET` request like:
 
 ## Updating a `Question`
 
+*Updating data on a live `Form` will create a new form version and remove all responses. Be sure that this is what you want
+to do before proceeding.*
 To modify an existing `Question` object, issue a `PATCH` request like:
 
 `PATCH https://builder.guidebook.com/open-api/v1/multiple-choice-questions/71/`

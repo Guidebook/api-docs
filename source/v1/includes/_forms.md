@@ -73,12 +73,12 @@ Parameter       | Required  | Type    | Description
 question_set    | yes | integer  | The specific `QuestionSet` your `Form` is linked to.  See section on [QuestionSets](#questionsets) for more info.
 submission_rule_type  | yes  | string  | Options are 'single-submission', 'revisions-allowed', 'multiple-submission'
 user_login_required   | no  | boolean  | A booelan value that indicates if an user needs to be logged in before they can submit an answer to this `Form`.
-label            | no | string   | Label field for your `Form`.
-name             | no | string   | The title of your `Form`.
+label            | no | string   | A call to action field for your `Form`.
+name             | yes | string   | The title of your `Form`.
 description      | no | string   | The description of your `Form`.
 is_collecting_responses   | no  | boolean  | A booelan value that indicates if this `Form` is collecting responses.
-location_content_type  | yes | string  | Type of Object you want to link this form to.  The options are: "schedule.session", "custom_list.customlistitem"
-location_object_id     | yes | integer | Object ID of the object you want to associate this form with.
+location_content_type  | yes | string  | Type of Object you want to link this form to.  The options are: "schedule.session", "custom_list.customlistitem", and "menuitem.menuitem". If creating a Menu Item `Form`, you do not need to provide a `location_object_id`.
+location_object_id     | yes | integer | Object ID of the object you want to associate this form with. Not required if creating a Menu Item `Form`.
 notification_emails | no | list of emails  |  List of email addresses to notify when an answer is submmitted for this form.
 
 
@@ -194,6 +194,15 @@ created_at      | datetime | Time when this `QuestionSet` was created - UTC.
 version_number  | integer  | Tracks what revision this survey is on.
 
 
+### Filtering data by `Guide` id
+
+Including a query parameter `question_set__guide` allows you to filter for all `Forms` related to a `Guide` you have access to (`Guide` 47 in this example):
+
+`GET https://builder.guidebook.com/open-api/v1/surveys/?question_set__guide=47`
+
+You can also filter by `question_set`.
+
+
 ## Retrieving a `Form`
 In the following examples, we will assume that the id of the `Form` we'd like to modify is 71.
 To retrieve an individual `Form` object issue a `GET` request like:
@@ -202,6 +211,8 @@ To retrieve an individual `Form` object issue a `GET` request like:
 
 ## Updating a `Form`
 
+*Updating data on a live `Form` will create a new form version and remove all responses. Be sure that this is what you want
+to do before proceeding.*
 To modify an existing `Form` object, issue a `PATCH` request like:
 
 `PATCH https://builder.guidebook.com/open-api/v1/surveys/71/`

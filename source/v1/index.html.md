@@ -18,6 +18,7 @@ includes:
   - images
   - html_text
   - guides
+  - guide_categories
   - spaces
   - space_guide_associations
   - sessions
@@ -40,6 +41,9 @@ includes:
   - sponsors
   - inboxes
   - messages
+  - forms
+  - question_sets
+  - questions
   - answersets
   - attendees
   - attendee_groups
