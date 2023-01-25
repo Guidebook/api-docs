@@ -490,6 +490,29 @@
               </ul>
           </li>
           <li>
+            <a href="#gated-features" class="toc-h1 toc-link" data-title="Gated Features">Gated Features</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-code-gatedfeatures-code" class="toc-h2 toc-link" data-title="Gated Features">Creating <code>GatedFeatures</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-gatedfeatures-code" class="toc-h2 toc-link" data-title="Gated Features">Listing <code>GatedFeatures</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-gatedfeature-code" class="toc-h2 toc-link" data-title="Gated Features">Retrieving a <code>GatedFeature</code></a>
+                  </li>
+                  <li>
+                    <a href="#adding-code-attendees-code-and-code-groups-code-to-a-code-gatedfeature-code" class="toc-h2 toc-link" data-title="Gated Features">Adding <code>Attendees</code> and <code>Groups</code> to a <code>GatedFeature</code></a>
+                  </li>
+                  <li>
+                    <a href="#removing-code-attendees-code-and-code-groups-code-from-a-code-gatedfeature-code" class="toc-h2 toc-link" data-title="Gated Features">Removing <code>Attendees</code> and <code>Groups</code> from a <code>GatedFeature</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-gatedfeature-code" class="toc-h2 toc-link" data-title="Gated Features">Deleting a <code>GatedFeature</code></a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#menuitems" class="toc-h1 toc-link" data-title="MenuItems">MenuItems</a>
               <ul class="toc-list-h2">
                   <li>
@@ -3194,6 +3217,182 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 <p>To delete a particular <code>CustomListItemRelation</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>CustomListItemRelation</code> you&#39;d like deleted:</p>
 
 <p><code>DELETE https://builder.guidebook.com/open-api/v1/custom-list-item-relations/156/</code></p>
+<h1 id='gated-features'>Gated Features</h1>
+<p>The <code>GatedFeature</code> resource is responsible for limiting access to certain features in your <code>Guide</code>.</p>
+<h2 id='creating-code-gatedfeatures-code'>Creating <code>GatedFeatures</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">gated_feature_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/gated-feature/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span>
+<span class="p">{</span>
+    <span class="s">"object_id"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s">"guide"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
+    <span class="s">"content_type"</span><span class="p">:</span> <span class="s">"custom_list.customlist"</span><span class="p">,</span>
+    <span class="s">"attendees"</span><span class="p">:</span> <span class="p">[],</span>
+    <span class="s">"groups"</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">gated_feature_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_list.customlist"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+    </span><span class="s2">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint will create a <code>GatedFeature</code> for your <code>Guide</code>.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/gated-features/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>guide</td>
+<td>yes</td>
+<td>integer</td>
+<td>The specific <code>Guide</code> your <code>GatedFeature</code> belongs to.  See section on <a href="#guides">Guides</a> for more info.</td>
+</tr>
+<tr>
+<td>content_type</td>
+<td>yes</td>
+<td>string</td>
+<td>The content type of the target object to gate.  The options are: &quot;custom_list.customlist&quot;</td>
+</tr>
+<tr>
+<td>object_id</td>
+<td>yes</td>
+<td>integer</td>
+<td>The id number of the target object to gate.  Not updatable after creation.</td>
+</tr>
+<tr>
+<td>attendees</td>
+<td>no</td>
+<td>list</td>
+<td>The list of attendees that should be able to access the gated object.</td>
+</tr>
+<tr>
+<td>groups</td>
+<td>no</td>
+<td>list</td>
+<td>The list of groups that should be able to access the gated object.</td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-gatedfeatures-code'>Listing <code>GatedFeatures</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">gated_feature_url</span> <span class="o">=</span>  <span class="s">'https://builder.guidebook.com/open-api/v1/gated_features/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `GatedFeatures` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gated_feature_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_list.customlist"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">5</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">10</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_list.customlist"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">7</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">10</span><span class="w">
+            </span><span class="p">]</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"guide"</span><span class="p">:</span><span class="w"> </span><span class="mi">7</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"content_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom_list.customlist"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"attendees"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+                </span><span class="mi">23</span><span class="p">,</span><span class="w"> </span><span class="mi">42</span><span class="w">
+            </span><span class="p">],</span><span class="w">
+            </span><span class="s2">"groups"</span><span class="p">:</span><span class="w"> </span><span class="p">[]</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>This endpoint can also be used to read data on <code>GatedFeature</code>.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/gated-feature/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only fields</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>GatedFeature</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time when this <code>GatedFeature</code> was created - UTC.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>GatedFeatures</code> related to a <code>Guide</code> you have access to (<code>Guide</code> 47 in this example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/gated-features/?guide=47</code></p>
+<h2 id='retrieving-a-code-gatedfeature-code'>Retrieving a <code>GatedFeature</code></h2>
+<p>In the following examples, we will assume that the id of the <code>GatedFeature</code> we&#39;d like to modify is 71.
+To retrieve an individual <code>GatedFeature</code> object issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/gated-features/71/</code></p>
+<h2 id='adding-code-attendees-code-and-code-groups-code-to-a-code-gatedfeature-code'>Adding <code>Attendees</code> and <code>Groups</code> to a <code>GatedFeature</code></h2>
+<p>To add Attendees or Groups to a <code>GatedFeature</code>, issue a <code>POST</code> request like:</p>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/gated-features/71/add-access/</code></p>
+
+<p>The body of the POST request should be a dictionary like...<code>{&quot;attendees&quot;: [&lt;attendee_id_1&gt;, &lt;attendee_id_2&gt;, &lt;attendee_id_n&gt;], &quot;groups&quot;: [&lt;group_id_1&gt;, &lt;group_id_2&gt;, &lt;group_id_n&gt;]}</code>.</p>
+<h2 id='removing-code-attendees-code-and-code-groups-code-from-a-code-gatedfeature-code'>Removing <code>Attendees</code> and <code>Groups</code> from a <code>GatedFeature</code></h2>
+<p>To remove Attendees or Groups from a <code>GatedFeature</code>, issue a <code>POST</code> request like:</p>
+
+<p><code>POST https://builder.guidebook.com/open-api/v1/gated-features/71/remove-access/</code></p>
+
+<p>The body of the POST request should be a dictionary like...<code>{&quot;attendees&quot;: [&lt;attendee_id_1&gt;, &lt;attendee_id_2&gt;, &lt;attendee_id_n&gt;], &quot;groups&quot;: [&lt;group_id_1&gt;, &lt;group_id_2&gt;, &lt;group_id_n&gt;]}</code>.</p>
+<h2 id='deleting-a-code-gatedfeature-code'>Deleting a <code>GatedFeature</code></h2>
+<p>To delete a particular <code>GatedFeature</code>, issue a <code>DELETE</code> request to the url that points to the specific <code>GatedFeature</code> you&#39;d like deleted. This will make the content object accessible to all users.</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/gated-features/71/</code></p>
 <h1 id='menuitems'>MenuItems</h1>
 <p>A <code>MenuItem</code> is an object that controls how a feature appears on builder and the mobile app. A <code>MenuItem</code> points to a specific object within a guide, such as a custom list, map, or schedule. They are used to navigate to different parts of a guide.</p>
 
@@ -6514,6 +6713,16 @@ You must be using a Guide that is configured to use the new Forms feature that l
 <td>survey_version_number</td>
 <td>integer</td>
 <td>Tracks what revision this form is on.</td>
+</tr>
+<tr>
+<td>completed_at</td>
+<td>datetime</td>
+<td>The date and time that this <code>FormAnswerSet</code> was submitted.</td>
+</tr>
+<tr>
+<td>user</td>
+<td>integer</td>
+<td>The ID of the user that submitted this <code>FormAnswerSet</code>. This will be null if the user was not logged in.</td>
 </tr>
 </tbody></table>
 <h2 id='retrieving-a-specific-code-answerset-code'>Retrieving a specific <code>AnswerSet</code></h2>
