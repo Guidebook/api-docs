@@ -28,6 +28,7 @@ includes:
   - custom_lists
   - custom_list_items
   - custom_list_item_relations
+  - gated_features
   - menuitems
   - folders
   - pdfs

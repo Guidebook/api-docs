@@ -76,6 +76,9 @@ content_type	| string  | The content type of the object this `FormAnswerSets` is
 object_id       | integer | The object ID that this `FormAnswerSets` is for.
 device_id	    | string  | Unique identifier for the device that submitted this `FormAnswerSets`.
 survey_version_number  | integer  | Tracks what revision this form is on.
+completed_at    | datetime | The date and time that this `FormAnswerSet` was submitted.
+user            | integer | The ID of the user that submitted this `FormAnswerSet`. This will be null if the user was not logged in.
+
 
 
 ## Retrieving a specific `AnswerSet`
