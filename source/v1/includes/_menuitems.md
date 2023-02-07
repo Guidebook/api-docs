@@ -65,7 +65,7 @@ menu_item_url = 'https://builder.guidebook.com/open-api/v1/menu-items/'
 api_key = 'API_KEY'
 
 # This will return all `MenuItem` you have access to
-response = request.post(menu_item_url, headers={'Authorization': 'JWT ' + api_key}).json()
+response = requests.post(menu_item_url, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
 

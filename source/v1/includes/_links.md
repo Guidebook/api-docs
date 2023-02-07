@@ -26,7 +26,7 @@ post_data =
 	"guide": 7,
 	"target_content_type": "custom_list.customlistitem"
 }
-response = request.post(link_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+response = requests.post(link_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 
 ```
@@ -95,7 +95,7 @@ link_url =  'https://builder.guidebook.com/open-api/v1/links/'
 api_key = 'API_KEY'
 
 # This will return all `Links` you have access to
-response = request.get(link_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

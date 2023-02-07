@@ -16,7 +16,7 @@ answer_set_url =  'https://builder.guidebook.com/open-api/v1/answer-sets/?survey
 api_key = 'API_KEY'
 
 # This will return all answers for the given form
-response = request.get(answer_set_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(answer_set_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:
@@ -95,7 +95,7 @@ answer_set_detail_url =  'https://builder.guidebook.com/open-api/v1/answer-sets/
 api_key = 'API_KEY'
 
 # This will return all answers for the given form
-response = request.get(answer_set_detail_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(answer_set_detail_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

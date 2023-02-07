@@ -20,7 +20,7 @@ post_data =
 	"title": "Test Title 1",
 	"content": "Test Content 1"
 }
-response = request.post(quick_info_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+response = requests.post(quick_info_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 
 ```
@@ -70,7 +70,7 @@ quick_info_url =  'https://builder.guidebook.com/open-api/v1/quick-info/'
 api_key = 'API_KEY'
 
 # This will return all `QuickInfo` you have access to
-response = request.get(quick_info_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(quick_info_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

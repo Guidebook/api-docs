@@ -15,7 +15,7 @@ post_data =
 	"title": "Title of Message",
 	"message": "Message created from the Open API"
 }
-response = request.post(messages_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(messages_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -78,7 +78,7 @@ messages_url =  'https://builder.guidebook.com/open-api/v1/messages/'
 api_key = 'API_KEY'
 
 # This will return all messages you have access to
-response = request.get(messages_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(messages_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

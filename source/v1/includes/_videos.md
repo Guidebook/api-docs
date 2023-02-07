@@ -66,7 +66,7 @@ video_url =  'https://builder.guidebook.com/open-api/v1/videos/'
 api_key = 'API_KEY'
 
 # This will return all `Videos` you have access to
-response = request.get(video_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(video_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

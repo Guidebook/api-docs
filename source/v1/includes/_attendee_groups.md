@@ -16,7 +16,7 @@ post_data =
 	"name": "Test AttendeeGroup created via the Open API"
 }
 
-response = request.post(attendee_groups_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(attendee_groups_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -57,7 +57,7 @@ attendee_groups_list_url =  'https://builder.guidebook.com/open-api/v1/attendee-
 api_key = 'API_KEY'
 
 # This will return all AttendeeGroups you have access to
-response = request.get(attendee_groups_list_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(attendee_groups_list_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

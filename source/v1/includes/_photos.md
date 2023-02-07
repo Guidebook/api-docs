@@ -18,7 +18,7 @@ post_data =
     "image": "photo"
 }
 with open('photo.png', 'rb') as photo:
-	response = request.post(photo_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+	response = requests.post(photo_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
 
@@ -59,7 +59,7 @@ photo_url =  'https://builder.guidebook.com/open-api/v1/photos/'
 api_key = 'API_KEY'
 
 # This will return all `Photos` you have access to
-response = request.get(photo_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(photo_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

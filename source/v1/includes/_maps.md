@@ -19,7 +19,7 @@ post_data =
     "description": "Event Map"
 }
 with open('your_map.jpg', 'rb') as map_image:
-	response = request.post(map_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+	response = requests.post(map_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
 
@@ -64,7 +64,7 @@ map_url =  'https://builder.guidebook.com/open-api/v1/maps/'
 api_key = 'API_KEY'
 
 # This will return all `Maps` you have access to
-response = request.get(map_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(map_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

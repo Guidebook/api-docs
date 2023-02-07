@@ -36,7 +36,7 @@ post_data = {
     'qr_badge': 'QR_BADGE_QUERY_STRING'
 }
 
-response = request.post(verify_guidebook_id_badge_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(verify_guidebook_id_badge_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 is_valid_guidebook_id = response.status_code == 200
 ```

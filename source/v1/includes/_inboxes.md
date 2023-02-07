@@ -13,7 +13,7 @@ inboxes_list_url =  'https://builder.guidebook.com/open-api/v1/inboxes/'
 api_key = 'API_KEY'
 
 # This will return all inboxes you have access to
-response = request.get(inboxes_list_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(inboxes_list_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

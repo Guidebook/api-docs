@@ -11,8 +11,8 @@ api_key = 'API_KEY'
 post_data =
 {
   "submission_rule_type": "multiple-submission",
-  "description": "Survey for gathering feedback about the event.",
-  "name": "Event Feedback Survey",
+  "description": "Form for gathering feedback about the event.",
+  "name": "Event Feedback Form",
   "location_content_type": "schedule.session",
   "question_set": 32,
   "user_login_required": false,
@@ -20,7 +20,7 @@ post_data =
   "location_object_id": 8765,
   "label": "Please Fill in this Form"
 }
-response = request.post(form_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(form_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -32,8 +32,8 @@ response = request.post(form_url, data=post_data, headers={'Authorization': 'JWT
   "created_at": "2019-06-24T02:08:42.952413+0000",
   "last_updated": "2019-06-24T02:08:42.952434+0000",
   "label": "Please Fill in this Form",
-  "name": "Event Feedback Survey",
-  "description": "Survey for gathering feedback about the event.",
+  "name": "Event Feedback Form",
+  "description": "Form for gathering feedback about the event.",
   "notification_emails": [],
   "submission_rule_type": "multiple-submission",
   "user_login_required": false,
@@ -94,7 +94,7 @@ form_url =  'https://builder.guidebook.com/open-api/v1/surveys/'
 api_key = 'API_KEY'
 
 # This will return all forms you have access to
-response = request.get(form_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(form_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:
@@ -110,8 +110,8 @@ response = request.get(form_url, headers={'Authorization': 'JWT ' + api_key})
       "created_at": "2019-06-24T02:09:39.966166+0000",
       "last_updated": "2019-06-24T02:09:39.966182+0000",
       "label": "Fill out this form",
-      "name": "Session Survey",
-      "description": "Please fill out this survey for this session.",
+      "name": "Session Form",
+      "description": "Please fill out this form for this session.",
       "notification_emails": null,
       "submission_rule_type": "multiple-submission",
       "user_login_required": false,
@@ -133,8 +133,8 @@ response = request.get(form_url, headers={'Authorization': 'JWT ' + api_key})
       "created_at": "2019-06-24T02:09:39.969125+0000",
       "last_updated": "2019-06-24T02:09:39.969141+0000",
       "label": "Fill out this form",
-      "name": "Session Survey",
-      "description": "Please fill out this survey for this session.",
+      "name": "Session Form",
+      "description": "Please fill out this form for this session.",
       "notification_emails": null,
       "submission_rule_type": "single-submission",
       "user_login_required": false,
@@ -156,8 +156,8 @@ response = request.get(form_url, headers={'Authorization': 'JWT ' + api_key})
       "created_at": "2019-06-24T02:09:39.971788+0000",
       "last_updated": "2019-06-24T02:09:39.971804+0000",
       "label": "Fill out this form",
-      "name": "Session Survey",
-      "description": "Please fill out this survey for this session.",
+      "name": "Session Form",
+      "description": "Please fill out this form for this session.",
       "notification_emails": null,
       "submission_rule_type": "revisions-allowed",
       "user_login_required": false,
@@ -189,9 +189,9 @@ Same as the fields used in creation with the addition of the following read-only
 
 Parameter       | Type    | Description
 ---------       | ------- | -----------
-id              | integer  | An unique identifier for your `QuestionSet`.
-created_at      | datetime | Time when this `QuestionSet` was created - UTC.
-version_number  | integer  | Tracks what revision this survey is on.
+id              | integer  | An unique identifier for your `Form`.
+created_at      | datetime | Time when this `Form` was created - UTC.
+version_number  | integer  | Tracks what revision this `Form` is on.
 
 
 ### Filtering data by `Guide` id

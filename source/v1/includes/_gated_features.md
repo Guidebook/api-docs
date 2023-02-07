@@ -18,7 +18,7 @@ post_data =
 	"attendees": [],
 	"groups": []
 }
-response = request.post(gated_feature_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+response = requests.post(gated_feature_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 
 ```
@@ -65,7 +65,7 @@ gated_feature_url =  'https://builder.guidebook.com/open-api/v1/gated_features/'
 api_key = 'API_KEY'
 
 # This will return all `GatedFeatures` you have access to
-response = request.get(gated_feature_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(gated_feature_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

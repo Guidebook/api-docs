@@ -13,7 +13,7 @@ post_data =
 	"guide": 1,
 	"name": "Test Custom List Created via the Open API"
 }
-response = request.post(custom_lists_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(custom_lists_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -60,7 +60,7 @@ custom_lists_url =  'https://builder.guidebook.com/open-api/v1/custom-lists/'
 api_key = 'API_KEY'
 
 # This will return all custom lists you have access to
-response = request.get(custom_lists_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(custom_lists_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

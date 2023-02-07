@@ -52,7 +52,7 @@ folder_url =  'https://builder.guidebook.com/open-api/v1/folders/'
 api_key = 'API_KEY'
 
 # This will return all `Folders` you have access to
-response = request.get(folder_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(folder_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

@@ -136,8 +136,8 @@ answer_set_id   | The id of the `AnswerSet` that was just submitted. See section
 device_id       |  The unique identifier for the device that submitted this `AnswerSet`.
 content_type    |  If this `AnswerSet` is related to an object, this is the type of that object.
 object_id       |  If this `AnswerSet` is related to an object, this is the id of that object.
-survey_id       |  The ID of the `Survey` object that this `AnswerSet` relates to.
-survey_version_number      |  The version of the `Survey` that was answered.
+survey_id       |  The ID of the `Form` object that this `AnswerSet` relates to.
+survey_version_number      |  The version of the `Form` that was answered.
 
 `Builder-SessionCreated`
 

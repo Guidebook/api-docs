@@ -14,7 +14,7 @@ post_data =
   "is_branch": false,
   "name": "Test Question Set"
 }
-response = request.post(question_sets_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(question_sets_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -33,10 +33,10 @@ response = request.post(question_sets_url, data=post_data, headers={'Authorizati
 ```
 
 
-`QuestionSets` are part of the larger feature of `Surveys`.   The organization of the models is as follows.  You can create a `QuestionSet` that is the container for your question objects.  You can then create all the questions you want and link these to the `QuestionSet` container.   Finally, you can then link your `QuestionSet` object to a `Survey` object.  This `Survey` object will control additional options on how you want to handle response submissions from your `Attendees`.
+`QuestionSets` are part of the larger feature of `Forms`.   The organization of the models is as follows.  You can create a `QuestionSet` that is the container for your question objects.  You can then create all the questions you want and link these to the `QuestionSet` container.   Finally, you can then link your `QuestionSet` object to a `Form` object.  This `Form` object will control additional options on how you want to handle response submissions from your `Attendees`.
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Forms feature that launched June 2019.  Legacy forms are not supported for the Open API.
 </aside>
 
 
@@ -66,7 +66,7 @@ question_sets_url =  'https://builder.guidebook.com/open-api/v1/question-sets/'
 api_key = 'API_KEY'
 
 # This will return all question sets you have access to
-response = request.get(question_sets_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(question_sets_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

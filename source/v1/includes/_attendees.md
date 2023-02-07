@@ -15,7 +15,7 @@ post_data =
 	"first_name": "Open API",
 	"last_name": "Example User"
 }
-response = request.post(attendees_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(attendees_list_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -78,7 +78,7 @@ attendees_url =  'https://builder.guidebook.com/open-api/v1/attendees/'
 api_key = 'API_KEY'
 
 # This will return all attendees you have access to
-response = request.get(attendees_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(attendees_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:
@@ -224,7 +224,7 @@ post_data =
 {
 	"attendees": [1,2,3,4,5]
 }
-response = request.post(attendees_email_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(attendees_email_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 

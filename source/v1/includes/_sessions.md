@@ -171,7 +171,7 @@ session_url =  'https://builder.guidebook.com/open-api/v1/sessions/'
 api_key = 'API_KEY'
 
 # This will return all `Sessions` you have access to
-response = request.get(session_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(session_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

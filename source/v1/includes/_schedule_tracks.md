@@ -16,7 +16,7 @@ post_data =
 	"name": "Test Schedule Track Created via the Open API",
 	"color": "#000080"
 }
-response = request.post(schedule_tracks_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(schedule_tracks_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -62,7 +62,7 @@ schedule_tracks_url =  'https://builder.guidebook.com/open-api/v1/schedule-track
 api_key = 'API_KEY'
 
 # This will return all `ScheduleTracks` you have access to
-response = request.get(schedule_tracks_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(schedule_tracks_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

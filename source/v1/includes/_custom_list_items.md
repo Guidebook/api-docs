@@ -15,7 +15,7 @@ post_data =
 	"description_html": "<p>This is a description field that supports basic HTML</p>",
 	"name": "Test Custom List Item Created via the Open API"
 }
-response = request.post(custom_list_item_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+response = requests.post(custom_list_item_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 
 ```
@@ -76,7 +76,7 @@ custom_list_item_url =  'https://builder.guidebook.com/open-api/v1/custom-list-i
 api_key = 'API_KEY'
 
 # This will return all `CustomListItems` you have access to
-response = request.get(custom_list_item_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(custom_list_item_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

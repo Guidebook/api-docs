@@ -84,7 +84,7 @@ pdf_url =  'https://builder.guidebook.com/open-api/v1/pdfs/'
 api_key = 'API_KEY'
 
 # This will return all `PDFs` you have access to
-response = request.get(pdf_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(pdf_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

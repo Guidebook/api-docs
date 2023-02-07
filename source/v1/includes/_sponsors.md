@@ -20,7 +20,7 @@ post_data =
     "website_only": true
 }
 with open('banner.png', 'rb') as banner_image:
-	response = request.post(sponsor_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
+	response = requests.post(sponsor_url, data=post_data, headers={'Authorization': 'JWT ' + api_key}).json()
 
 ```
 
@@ -72,7 +72,7 @@ sponsor_url =  'https://builder.guidebook.com/open-api/v1/sponsors/'
 api_key = 'API_KEY'
 
 # This will return all `Sponsors` you have access to
-response = request.get(sponsor_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(sponsor_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

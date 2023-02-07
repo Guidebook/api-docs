@@ -13,7 +13,7 @@ guidebook_web_metadata_url = 'https://builder.guidebook.com/open-api/v1/guideboo
 api_key = 'API_KEY'
 
 # This will return all Guidebook Web metadata objects you have access to
-response = request.get(guidebook_web_metadata_url, headers={'Authorization': 'JWT' + api_key})
+response = requests.get(guidebook_web_metadata_url, headers={'Authorization': 'JWT' + api_key})
 ```
 
 > The above command returns JSON structured like this:

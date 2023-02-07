@@ -16,7 +16,7 @@ post_data =
   "requires_answer": false,
   "text": "What did you think of the event?"
 }
-response = request.post(free_response_question_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(free_response_question_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -69,7 +69,7 @@ post_data =
   ],
   "requires_answer": false
 }
-response = request.post(grid_question_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(grid_question_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -129,7 +129,7 @@ post_data =
   "grid_choice_question": 364,
   "multiple_choice_question": null
 }
-response = request.post(mc_question_choice_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(mc_question_choice_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -159,7 +159,7 @@ response = request.post(mc_question_choice_url, data=post_data, headers={'Author
 There are four distinct types of `Questions` you can create via the Open API.  The above examples illustrate how you can create Free Response Questions, Multiple Choice Questions, Sliding Scale Questions, and Grid Questions.
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Forms feature that launched June 2019.  Legacy forms are not supported for the Open API.
 </aside>
 
 
@@ -246,7 +246,7 @@ sliding_scale_question_lists_url =  'https://builder.guidebook.com/open-api/v1/s
 api_key = 'API_KEY'
 
 # This will return all sliding scale questions you have access to
-response = request.get(sliding_scale_question_lists_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(sliding_scale_question_lists_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

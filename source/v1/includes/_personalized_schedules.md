@@ -24,7 +24,7 @@ post_data =
 		118
 	]
 }
-response = request.post(personalized_schedule_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(personalized_schedule_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -78,7 +78,7 @@ personalized_schedule_url =  'https://builder.guidebook.com/open-api/v1/personal
 api_key = 'API_KEY'
 
 # This will return all `PersonalizedSchedule` you have access to
-response = request.get(personalized_schedule_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(personalized_schedule_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

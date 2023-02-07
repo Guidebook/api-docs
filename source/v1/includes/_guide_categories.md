@@ -14,7 +14,7 @@ post_data =
     "description": "A Category for My Guides",
     "space": 3
 }
-response = request.post(guide_categories_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(guide_categories_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -56,7 +56,7 @@ guide_categories_url =  'https://builder.guidebook.com/open-api/v1/guide-categor
 api_key = 'API_KEY'
 
 # This will return all guide categories you have access to
-response = request.get(guide_categories_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(guide_categories_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:

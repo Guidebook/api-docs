@@ -16,7 +16,7 @@ post_data =
     "guide": 1,
     "name": "My Photo Album"
 }
-response = request.post(albums_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
+response = requests.post(albums_url, data=post_data, headers={'Authorization': 'JWT ' + api_key})
 
 ```
 
@@ -58,7 +58,7 @@ albums_url =  'https://builder.guidebook.com/open-api/v1/albums/'
 api_key = 'API_KEY'
 
 # This will return all albums you have access to
-response = request.get(albums_url, headers={'Authorization': 'JWT ' + api_key})
+response = requests.get(albums_url, headers={'Authorization': 'JWT ' + api_key})
 ```
 
 > The above command returns JSON structured like this:
