@@ -1376,7 +1376,7 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
     <span class="s">"description"</span><span class="p">:</span> <span class="s">"A Category for My Guides"</span><span class="p">,</span>
     <span class="s">"space"</span><span class="p">:</span> <span class="mi">3</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">guide_categories_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">guide_categories_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -1427,7 +1427,7 @@ To retrieve an individual <code>Guide</code> object issue a <code>GET</code> req
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all guide categories you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">guide_categories_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">guide_categories_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -1890,7 +1890,7 @@ Remember — don't forget to include your API key in the `Authorization` header!
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Sessions` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">session_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2058,7 +2058,7 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Schedule Track Created via the Open API"</span><span class="p">,</span>
     <span class="s">"color"</span><span class="p">:</span> <span class="s">"#000080"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">schedule_tracks_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">schedule_tracks_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -2118,7 +2118,7 @@ To retrieve an individual <code>Session</code> object issue a <code>GET</code> r
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `ScheduleTracks` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">schedule_tracks_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">schedule_tracks_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2482,7 +2482,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
     <span class="s">"description"</span><span class="p">:</span> <span class="s">"Event Map"</span>
 <span class="p">}</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'your_map.jpg'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">map_image</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">map_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">map_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 </code></pre>
 <blockquote>
@@ -2546,7 +2546,7 @@ To retrieve an individual <code>Location</code> object, issue a <code>GET</code>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Maps` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">map_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">map_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2622,7 +2622,7 @@ To retrieve an individual <code>Map</code> object issue a <code>GET</code> reque
     <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Custom List Created via the Open API"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">custom_lists_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">custom_lists_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -2688,7 +2688,7 @@ To retrieve an individual <code>Map</code> object issue a <code>GET</code> reque
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all custom lists you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">custom_lists_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">custom_lists_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -2789,7 +2789,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
     <span class="s">"description_html"</span><span class="p">:</span> <span class="s">"&lt;p&gt;This is a description field that supports basic HTML&lt;/p&gt;"</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Custom List Item Created via the Open API"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">custom_list_item_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">custom_list_item_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
 </code></pre>
@@ -2894,7 +2894,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `CustomListItems` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">custom_list_item_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">custom_list_item_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3231,7 +3231,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
     <span class="s">"attendees"</span><span class="p">:</span> <span class="p">[],</span>
     <span class="s">"groups"</span><span class="p">:</span> <span class="p">[]</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">gated_feature_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">gated_feature_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
 </code></pre>
@@ -3297,7 +3297,7 @@ To retrieve an individual <code>CustomListItem</code> object issue a <code>GET</
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `GatedFeatures` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gated_feature_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">gated_feature_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3485,7 +3485,7 @@ To retrieve an individual <code>GatedFeature</code> object issue a <code>GET</co
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `MenuItem` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">menu_item_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">menu_item_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 </code></pre>
 <blockquote>
@@ -3609,7 +3609,7 @@ To retrieve an individual <code>MenuItem</code> object issue a <code>GET</code> 
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Folders` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">folder_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">folder_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3784,7 +3784,7 @@ To retrieve an individual <code>Folder</code> object issue a <code>GET</code> re
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `PDFs` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pdf_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pdf_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -3956,7 +3956,7 @@ To retrieve an individual <code>PDF</code> object issue a <code>GET</code> reque
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `WebViews` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">webview_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4088,7 +4088,7 @@ To retrieve an individual <code>WebView</code> object issue a <code>GET</code> r
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Videos` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">video_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">video_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4238,7 +4238,7 @@ Links will only show up on the `source` object. If you want to have a `Session` 
     <span class="s">"guide"</span><span class="p">:</span> <span class="mi">7</span><span class="p">,</span>
     <span class="s">"target_content_type"</span><span class="p">:</span> <span class="s">"custom_list.customlistitem"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">link_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">link_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
 </code></pre>
@@ -4346,7 +4346,7 @@ Links will only show up on the `source` object. If you want to have a `Session` 
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Links` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4511,7 +4511,7 @@ To retrieve an individual <code>Link</code> object issue a <code>GET</code> requ
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Links` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link_category_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link_category_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4802,7 +4802,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
     <span class="s">"title"</span><span class="p">:</span> <span class="s">"Test Title 1"</span><span class="p">,</span>
     <span class="s">"content"</span><span class="p">:</span> <span class="s">"Test Content 1"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">quick_info_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">quick_info_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 
 </code></pre>
@@ -4876,7 +4876,7 @@ To delete a particular <code>LinkCategory</code>, issue a <code>DELETE</code> re
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `QuickInfo` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">quick_info_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">quick_info_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -4973,7 +4973,7 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
     <span class="s">"guide"</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"My Photo Album"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">albums_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">albums_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -5024,7 +5024,7 @@ To retrieve an individual <code>QuickInfo</code> object issue a <code>GET</code>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all albums you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">albums_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">albums_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5105,7 +5105,7 @@ To retrieve an individual <code>Album</code> object issue a <code>GET</code> req
     <span class="s">"image"</span><span class="p">:</span> <span class="s">"photo"</span>
 <span class="p">}</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'photo.png'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">photo</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">photo_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">photo_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 </code></pre>
 <blockquote>
@@ -5156,7 +5156,7 @@ To retrieve an individual <code>Album</code> object issue a <code>GET</code> req
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Photos` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">photo_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">photo_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5249,7 +5249,7 @@ To retrieve an individual <code>Photo</code> object issue a <code>GET</code> req
     <span class="s">"website_only"</span><span class="p">:</span> <span class="n">true</span>
 <span class="p">}</span>
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">'banner.png'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">banner_image</span><span class="p">:</span>
-    <span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">sponsor_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">sponsor_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 
 </code></pre>
 <blockquote>
@@ -5341,7 +5341,7 @@ To retrieve an individual <code>Photo</code> object issue a <code>GET</code> req
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `Sponsors` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sponsor_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sponsor_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5424,7 +5424,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all inboxes you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">inboxes_list_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">inboxes_list_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5500,7 +5500,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
     <span class="s">"title"</span><span class="p">:</span> <span class="s">"Title of Message"</span><span class="p">,</span>
     <span class="s">"message"</span><span class="p">:</span> <span class="s">"Message created from the Open API"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">messages_list_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">messages_list_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -5601,7 +5601,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all messages you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">messages_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">messages_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5706,8 +5706,8 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
 <span class="n">post_data</span> <span class="o">=</span>
 <span class="p">{</span>
   <span class="s">"submission_rule_type"</span><span class="p">:</span> <span class="s">"multiple-submission"</span><span class="p">,</span>
-  <span class="s">"description"</span><span class="p">:</span> <span class="s">"Survey for gathering feedback about the event."</span><span class="p">,</span>
-  <span class="s">"name"</span><span class="p">:</span> <span class="s">"Event Feedback Survey"</span><span class="p">,</span>
+  <span class="s">"description"</span><span class="p">:</span> <span class="s">"Form for gathering feedback about the event."</span><span class="p">,</span>
+  <span class="s">"name"</span><span class="p">:</span> <span class="s">"Event Feedback Form"</span><span class="p">,</span>
   <span class="s">"location_content_type"</span><span class="p">:</span> <span class="s">"schedule.session"</span><span class="p">,</span>
   <span class="s">"question_set"</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
   <span class="s">"user_login_required"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
@@ -5715,7 +5715,7 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
   <span class="s">"location_object_id"</span><span class="p">:</span> <span class="mi">8765</span><span class="p">,</span>
   <span class="s">"label"</span><span class="p">:</span> <span class="s">"Please Fill in this Form"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">form_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">form_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -5726,8 +5726,8 @@ To retrieve an individual <code>Sponsor</code> object issue a <code>GET</code> r
   </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:08:42.952413+0000"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:08:42.952434+0000"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please Fill in this Form"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Survey"</span><span class="p">,</span><span class="w">
-  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Survey for gathering feedback about the event."</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Event Feedback Form"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Form for gathering feedback about the event."</span><span class="p">,</span><span class="w">
   </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
   </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple-submission"</span><span class="p">,</span><span class="w">
   </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5831,7 +5831,7 @@ You must be using a Guide that is configured to use the new Forms feature that l
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all forms you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">form_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -5846,8 +5846,8 @@ You must be using a Guide that is configured to use the new Forms feature that l
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.966166+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.966182+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fill out this form"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Survey"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this survey for this session."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this form for this session."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"multiple-submission"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5869,8 +5869,8 @@ You must be using a Guide that is configured to use the new Forms feature that l
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.969125+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.969141+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fill out this form"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Survey"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this survey for this session."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this form for this session."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"single-submission"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5892,8 +5892,8 @@ You must be using a Guide that is configured to use the new Forms feature that l
       </span><span class="s2">"created_at"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.971788+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"last_updated"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-06-24T02:09:39.971804+0000"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"label"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Fill out this form"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Survey"</span><span class="p">,</span><span class="w">
-      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this survey for this session."</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Session Form"</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Please fill out this form for this session."</span><span class="p">,</span><span class="w">
       </span><span class="s2">"notification_emails"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
       </span><span class="s2">"submission_rule_type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"revisions-allowed"</span><span class="p">,</span><span class="w">
       </span><span class="s2">"user_login_required"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
@@ -5927,17 +5927,17 @@ You must be using a Guide that is configured to use the new Forms feature that l
 <tr>
 <td>id</td>
 <td>integer</td>
-<td>An unique identifier for your <code>QuestionSet</code>.</td>
+<td>An unique identifier for your <code>Form</code>.</td>
 </tr>
 <tr>
 <td>created_at</td>
 <td>datetime</td>
-<td>Time when this <code>QuestionSet</code> was created - UTC.</td>
+<td>Time when this <code>Form</code> was created - UTC.</td>
 </tr>
 <tr>
 <td>version_number</td>
 <td>integer</td>
-<td>Tracks what revision this survey is on.</td>
+<td>Tracks what revision this <code>Form</code> is on.</td>
 </tr>
 </tbody></table>
 <h3 id='filtering-data-by-code-guide-code-id'>Filtering data by <code>Guide</code> id</h3>
@@ -5973,7 +5973,7 @@ To modify an existing <code>Form</code> object, issue a <code>PATCH</code> reque
   <span class="s">"is_branch"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
   <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test Question Set"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -5989,10 +5989,10 @@ To modify an existing <code>Form</code> object, issue a <code>PATCH</code> reque
 </span><span class="p">}</span><span class="w">
 
 </span></code></pre>
-<p><code>QuestionSets</code> are part of the larger feature of <code>Surveys</code>.   The organization of the models is as follows.  You can create a <code>QuestionSet</code> that is the container for your question objects.  You can then create all the questions you want and link these to the <code>QuestionSet</code> container.   Finally, you can then link your <code>QuestionSet</code> object to a <code>Survey</code> object.  This <code>Survey</code> object will control additional options on how you want to handle response submissions from your <code>Attendees</code>.</p>
+<p><code>QuestionSets</code> are part of the larger feature of <code>Forms</code>.   The organization of the models is as follows.  You can create a <code>QuestionSet</code> that is the container for your question objects.  You can then create all the questions you want and link these to the <code>QuestionSet</code> container.   Finally, you can then link your <code>QuestionSet</code> object to a <code>Form</code> object.  This <code>Form</code> object will control additional options on how you want to handle response submissions from your <code>Attendees</code>.</p>
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Forms feature that launched June 2019.  Legacy forms are not supported for the Open API.
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://builder.guidebook.com/open-api/v1/question-sets/</code></p>
@@ -6032,7 +6032,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all question sets you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">question_sets_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -6122,7 +6122,7 @@ To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</cod
   <span class="s">"requires_answer"</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
   <span class="s">"text"</span><span class="p">:</span> <span class="s">"What did you think of the event?"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">free_response_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">free_response_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -6171,7 +6171,7 @@ To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</cod
   <span class="p">],</span>
   <span class="s">"requires_answer"</span><span class="p">:</span> <span class="n">false</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">grid_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">grid_question_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -6226,7 +6226,7 @@ To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</cod
   <span class="s">"grid_choice_question"</span><span class="p">:</span> <span class="mi">364</span><span class="p">,</span>
   <span class="s">"multiple_choice_question"</span><span class="p">:</span> <span class="n">null</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">mc_question_choice_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">mc_question_choice_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -6253,7 +6253,7 @@ To retrieve an individual <code>QuestionSet</code> object issue a <code>GET</cod
 <p>There are four distinct types of <code>Questions</code> you can create via the Open API.  The above examples illustrate how you can create Free Response Questions, Multiple Choice Questions, Sliding Scale Questions, and Grid Questions.</p>
 
 <aside class="notice">
-You must be using a Guide that is configured to use the new Surveys feature that launched June 2019.  Legacy surveys are not supported for the Open API.
+You must be using a Guide that is configured to use the new Forms feature that launched June 2019.  Legacy forms are not supported for the Open API.
 </aside>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://builder.guidebook.com/open-api/v1/free-response-questions/</code></p>
@@ -6497,7 +6497,7 @@ You must be using a Guide that is configured to use the new Surveys feature that
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all sliding scale questions you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sliding_scale_question_lists_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">sliding_scale_question_lists_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -6632,7 +6632,7 @@ You must be using a Guide that is configured to use the new Forms feature that l
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all answers for the given form</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -6736,7 +6736,7 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all answers for the given form</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_detail_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">answer_set_detail_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -6821,7 +6821,7 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
     <span class="s">"first_name"</span><span class="p">:</span> <span class="s">"Open API"</span><span class="p">,</span>
     <span class="s">"last_name"</span><span class="p">:</span> <span class="s">"Example User"</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">attendees_list_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">attendees_list_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -6902,7 +6902,7 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all attendees you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attendees_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attendees_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -7101,7 +7101,7 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <span class="p">{</span>
     <span class="s">"attendees"</span><span class="p">:</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">]</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">attendees_email_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">attendees_email_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -7212,7 +7212,7 @@ Be very cautious with updating <code>import_ids</code>!  If your integration req
     <span class="s">"name"</span><span class="p">:</span> <span class="s">"Test AttendeeGroup created via the Open API"</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">attendee_groups_list_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">attendee_groups_list_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -7258,7 +7258,7 @@ Be very cautious with updating <code>import_ids</code>!  If your integration req
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all AttendeeGroups you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attendee_groups_list_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">attendee_groups_list_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -7402,7 +7402,7 @@ HTTP 400 - <code>qr_badge</code> is not in the request data.</p>
     <span class="s">'qr_badge'</span><span class="p">:</span> <span class="s">'QR_BADGE_QUERY_STRING'</span>
 <span class="p">}</span>
 
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">verify_guidebook_id_badge_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">verify_guidebook_id_badge_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 <span class="n">is_valid_guidebook_id</span> <span class="o">=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span>
 </code></pre><h3 id='http-request'>HTTP Request</h3>
@@ -7443,7 +7443,7 @@ HTTP 400 - <code>qr_badge</code> is not in the request data.</p>
         <span class="mi">118</span>
     <span class="p">]</span>
 <span class="p">}</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">personalized_schedule_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">personalized_schedule_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 
 </code></pre>
 <blockquote>
@@ -7510,7 +7510,7 @@ HTTP 400 - <code>qr_badge</code> is not in the request data.</p>
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all `PersonalizedSchedule` you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">personalized_schedule_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">personalized_schedule_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -7879,11 +7879,11 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 </tr>
 <tr>
 <td>survey_id</td>
-<td>The ID of the <code>Survey</code> object that this <code>AnswerSet</code> relates to.</td>
+<td>The ID of the <code>Form</code> object that this <code>AnswerSet</code> relates to.</td>
 </tr>
 <tr>
 <td>survey_version_number</td>
-<td>The version of the <code>Survey</code> that was answered.</td>
+<td>The version of the <code>Form</code> that was answered.</td>
 </tr>
 </tbody></table>
 
@@ -7990,7 +7990,7 @@ Note that there is a 5 second delay between Account creation and our metrics ind
 <span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
 
 <span class="c"># This will return all Guidebook Web metadata objects you have access to</span>
-<span class="n">response</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">guidebook_web_metadata_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT'</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">guidebook_web_metadata_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT'</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span>
 </code></pre>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
