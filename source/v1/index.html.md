@@ -17,6 +17,7 @@ includes:
   - timezones
   - images
   - html_text
+  - rate_limits
   - guides
   - guide_categories
   - spaces
