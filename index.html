@@ -273,6 +273,9 @@
               </ul>
           </li>
           <li>
+            <a href="#rate-limiting" class="toc-h1 toc-link" data-title="Rate Limiting">Rate Limiting</a>
+          </li>
+          <li>
             <a href="#guides" class="toc-h1 toc-link" data-title="Guides">Guides</a>
               <ul class="toc-list-h2">
                   <li>
@@ -1200,6 +1203,8 @@ The Open API only supports PNG and JPEG image files.
 <td><code>abbr</code>, <code>accept</code>, <code>accept-charset</code>, <code>accesskey</code>, <code>action</code>, <code>align</code>, <code>alt</code>, <code>axis</code>, <code>border</code>, <code>cellpadding</code>, <code>cellspacing</code>, <code>char</code>, <code>charoff</code>, <code>charset</code>, <code>checked</code>, <code>cite</code>, <code>clear</code>, <code>cols</code>, <code>colspan</code>, <code>color</code>, <code>compact</code>, <code>coords</code>, <code>datetime</code>, <code>dir</code>, <code>disabled</code>, <code>enctype</code>, <code>for</code>, <code>frame</code>, <code>headers</code>, <code>height</code>, <code>hreflang</code>, <code>hspace</code>, <code>ismap</code>, <code>label</code>, <code>lang</code>, <code>longdesc</code>, <code>maxlength</code>, <code>media</code>, <code>method</code>, <code>multiple</code>, <code>name</code>, <code>nohref</code>, <code>noshade</code>, <code>nowrap</code>, <code>prompt</code>, <code>readonly</code>, <code>rel</code>, <code>rev</code>, <code>rows</code>, <code>rowspan</code>, <code>rules</code>, <code>scope</code>, <code>selected</code>, <code>shape</code>, <code>size</code>, <code>span</code>, <code>start</code>, <code>summary</code>, <code>tabindex</code>, <code>target</code>, <code>title</code>, <code>type</code>, <code>usemap</code>, <code>valign</code>, <code>value</code>, <code>vspace</code>, <code>width</code>, <code>itemprop</code></td>
 </tr>
 </tbody></table>
+<h1 id='rate-limiting'>Rate Limiting</h1>
+<p>Guidebook enforces a global rate limit across all Open API endpoints. An account is allowed 2000 requests per day. If exceeded, any further requests will return a 429 response.</p>
 <h1 id='guides'>Guides</h1>
 <p>Many of the resources exposed by the Guidebook Open API relate to a class of objects called <code>Guide</code>. <code>Guide</code> objects are typically containers for the set of data related to an event like a conference. For example, if you were hosting a conference called, &quot;Programmer Summit 2017&quot; you would likely have one <code>Guide</code> object that contained the schedule for the conference, a list of speakers for that conference, and a list of users who you expect to attend the conference.</p>
 
