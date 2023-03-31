@@ -65,7 +65,11 @@ import_id       | no  | string     | A string field you can use to input your ow
 email           | yes | string    | Email address of the `Attendee`.  We will search existing Guidebook users and attempt to associate with an existing account.
 first_name      | no  | string    | First name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.
 last_name      | no  | string    | Last name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.
-
+avatar          | no | image   | Avatar image for this `Attendee`. For newly invited `Attendees`, you can update this field.  If the `Attendee` has logged in and claimed their account, then this field is read-only. See section on [images](#images) to update.
+cover           | no | image   | Cover (background) image for the `Attendee`. For newly invited `Attendees`, you can update this field.  If the `Attendee` has logged in and claimed their account, then this field is read-only. See section on [images](#images) to update.
+app_profile     | no | dictionary of strings | Contains profile information filled out by the `Attendee`.  Possible keys include `company`, `position`, `contact_email`, `phone_number`, and `website`.  Note that these keys can change at anytime! For newly created `Attendees` over the API, you can submit data for this field.  If there is existing app_profile data for an `Attendee`, then this field is read-only.
+revoked         | no | boolean  | Indicates if this `Attendee` still has access to this guide.  This field is only relevant if your `Guide` is using the `invite-only` security option. Defaults to `False`.
+email_opt_out   | boolean  | Indicates if this `Attendee` is opted out of emails for this `Guide`. Defaults to `False`.
 
 
 ## Listing `Attendees`
@@ -190,7 +194,7 @@ This endpoint can also be used to read data on `Attendees`.  Typically, this end
 
 ### Model Fields
 
-The fields returned in the `GET` responses are far more detailed and include the following fields:
+The fields returned in the `GET` responses are the same as the fields used in creation with the addition of the following read-only fields:
 
 Parameter       | Type    | Description
 ---------       | ------- | -----------
@@ -199,14 +203,6 @@ created_at      | datetime | Time when this `Attendee` was created - UTC.
 last_email_send | datetime | Time when an invite email was sent to this `Attendee` - UTC.  Note that this field can be null if no emails have been sent.
 guide_id        | integer  | The specific `Guide` your `Attendee` belongs to.  See section on [Guides](#guides) for more info.
 account_id      | integer  | The unique ID for the `Account` object that this attendee is linked to.
-first_name      | string   | First name of the `Attendee`.
-last_name       | string   | Last name of the `Attendee`.
-email           | string   | Email address of the `Attendee`.
-avatar          | image   | Avatar image for this `Attendee`. For newly invited `Attendees`, you can update this field.  If the `Attendee` has logged in and claimed their account, then this field is read-only. See section on [images](#images) to update.
-cover           | image   | Cover (background) image for the `Attendee`. For newly invited `Attendees`, you can update this field.  If the `Attendee` has logged in and claimed their account, then this field is read-only. See section on [images](#images) to update.
-app_profile     | dictionary of strings | Contains profile information filed out by the `Attendee`.  Possible keys include `company`, `position`, `contact_email`, `website`.  Note that these keys can change at anytime! For newly created `Attendees` over the API, you can submit data for `company` and `profile`.  If there is existing app_profile data for an `Attendee`, then this field is read-only.
-revoked         | boolean  | Indicates if this `Attendee` still has access to this guide.  This field is only relevant if your `Guide` is using the `invite-only` security option.
-email_opt_out   | boolean  | Indicates if this `Attendee` should receive emails for this `Guide`.
 status          | integer  |  Integer status code.  0 - Attendee Created, 1 - New Account Created, Email Invite Sent, 2 - Existing Account matched, Email Invite Sent, 3 - Email Invite Accepted/Attendee Logged In.
 qr_badge		| string   | String that is used to create an attendee's QR code.
 
