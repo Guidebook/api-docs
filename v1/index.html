@@ -6900,6 +6900,36 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <td>string</td>
 <td>Last name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.</td>
 </tr>
+<tr>
+<td>avatar</td>
+<td>no</td>
+<td>image</td>
+<td>Avatar image for this <code>Attendee</code>. For newly invited <code>Attendees</code>, you can update this field.  If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only. See section on <a href="#images">images</a> to update.</td>
+</tr>
+<tr>
+<td>cover</td>
+<td>no</td>
+<td>image</td>
+<td>Cover (background) image for the <code>Attendee</code>. For newly invited <code>Attendees</code>, you can update this field.  If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only. See section on <a href="#images">images</a> to update.</td>
+</tr>
+<tr>
+<td>app_profile</td>
+<td>no</td>
+<td>dictionary of strings</td>
+<td>Contains profile information filled out by the <code>Attendee</code>.  Possible keys include <code>company</code>, <code>position</code>, <code>contact_email</code>, <code>phone_number</code>, and <code>website</code>.  Note that these keys can change at anytime! For newly created <code>Attendees</code> over the API, you can submit data for this field.  If there is existing app_profile data for an <code>Attendee</code>, then this field is read-only.</td>
+</tr>
+<tr>
+<td>revoked</td>
+<td>no</td>
+<td>boolean</td>
+<td>Indicates if this <code>Attendee</code> still has access to this guide.  This field is only relevant if your <code>Guide</code> is using the <code>invite-only</code> security option. Defaults to <code>False</code>.</td>
+</tr>
+<tr>
+<td>email_opt_out</td>
+<td>boolean</td>
+<td>Indicates if this <code>Attendee</code> is opted out of emails for this <code>Guide</code>. Defaults to <code>False</code>.</td>
+<td></td>
+</tr>
 </tbody></table>
 <h2 id='listing-code-attendees-code'>Listing <code>Attendees</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
 
@@ -7012,7 +7042,7 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>GET https://builder.guidebook.com/open-api/v1/attendees/</code></p>
 <h3 id='model-fields-2'>Model Fields</h3>
-<p>The fields returned in the <code>GET</code> responses are far more detailed and include the following fields:</p>
+<p>The fields returned in the <code>GET</code> responses are the same as the fields used in creation with the addition of the following read-only fields:</p>
 
 <table><thead>
 <tr>
@@ -7045,46 +7075,6 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <td>account_id</td>
 <td>integer</td>
 <td>The unique ID for the <code>Account</code> object that this attendee is linked to.</td>
-</tr>
-<tr>
-<td>first_name</td>
-<td>string</td>
-<td>First name of the <code>Attendee</code>.</td>
-</tr>
-<tr>
-<td>last_name</td>
-<td>string</td>
-<td>Last name of the <code>Attendee</code>.</td>
-</tr>
-<tr>
-<td>email</td>
-<td>string</td>
-<td>Email address of the <code>Attendee</code>.</td>
-</tr>
-<tr>
-<td>avatar</td>
-<td>image</td>
-<td>Avatar image for this <code>Attendee</code>. For newly invited <code>Attendees</code>, you can update this field.  If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only. See section on <a href="#images">images</a> to update.</td>
-</tr>
-<tr>
-<td>cover</td>
-<td>image</td>
-<td>Cover (background) image for the <code>Attendee</code>. For newly invited <code>Attendees</code>, you can update this field.  If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only. See section on <a href="#images">images</a> to update.</td>
-</tr>
-<tr>
-<td>app_profile</td>
-<td>dictionary of strings</td>
-<td>Contains profile information filed out by the <code>Attendee</code>.  Possible keys include <code>company</code>, <code>position</code>, <code>contact_email</code>, <code>website</code>.  Note that these keys can change at anytime! For newly created <code>Attendees</code> over the API, you can submit data for <code>company</code> and <code>profile</code>.  If there is existing app_profile data for an <code>Attendee</code>, then this field is read-only.</td>
-</tr>
-<tr>
-<td>revoked</td>
-<td>boolean</td>
-<td>Indicates if this <code>Attendee</code> still has access to this guide.  This field is only relevant if your <code>Guide</code> is using the <code>invite-only</code> security option.</td>
-</tr>
-<tr>
-<td>email_opt_out</td>
-<td>boolean</td>
-<td>Indicates if this <code>Attendee</code> should receive emails for this <code>Guide</code>.</td>
 </tr>
 <tr>
 <td>status</td>
