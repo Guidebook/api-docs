@@ -136,7 +136,7 @@ Parameter       | Required  | Type    | Description
 ---------       | --------  | ------- | -----------
 guide           | yes | integer  | The specific `Guide` your `Session` belongs to.  See section on [Guides](#guides) for more info.
 name            | yes | string   | The title of your `Session`.
-description_html| yes | string   | A text description of the `Session`.  This field has a 20,000 character limit.  This field supports basic HTML.  See section on [html text](#html-text).
+description_html| no  | string   | A text description of the `Session`.  This field has a 20,000 character limit.  This field supports basic HTML.  See section on [html text](#html-text).
 start_time      | yes | datetime | The start time of the event. For consistency, all timestamps are converted to the UTC timezone.
 end_time        | no  | datetime | The end time of the event.  Leave blank for all day events. For consistency, all timestamps are converted to the UTC timezone.
 all_day         | no  | boolean  | A boolean value indicating if a `Session` runs for the entire day.
