@@ -957,6 +957,29 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#buildericons" class="toc-h1 toc-link" data-title="BuilderIcons">BuilderIcons</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#creating-a-code-buildericon-code" class="toc-h2 toc-link" data-title="BuilderIcons">Creating a <code>BuilderIcon</code></a>
+                  </li>
+                  <li>
+                    <a href="#listing-code-buildericons-code" class="toc-h2 toc-link" data-title="BuilderIcons">Listing <code>BuilderIcons</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-a-code-buildericon-code" class="toc-h2 toc-link" data-title="BuilderIcons">Retrieving a <code>BuilderIcon</code></a>
+                  </li>
+                  <li>
+                    <a href="#retrieving-available-code-buildericon-code-tags" class="toc-h2 toc-link" data-title="BuilderIcons">Retrieving available <code>BuilderIcon</code> tags</a>
+                  </li>
+                  <li>
+                    <a href="#updating-a-code-buildericon-code" class="toc-h2 toc-link" data-title="BuilderIcons">Updating a <code>BuilderIcon</code></a>
+                  </li>
+                  <li>
+                    <a href="#deleting-a-code-buildericon-code" class="toc-h2 toc-link" data-title="BuilderIcons">Deleting a <code>BuilderIcon</code></a>
+                  </li>
+              </ul>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='https://builder.guidebook.com/#/account/api/'>Get your Guidebook API Key</a></li>
@@ -8081,6 +8104,206 @@ full request body. The following fields are updatable:</p>
 <td>Whether the specific <code>Guides</code> Guidebook Web page is accessible.</td>
 </tr>
 </tbody></table>
+<h1 id='buildericons'>BuilderIcons</h1>
+<p>A <code>BuilderIcon</code> is an object that allows you to create custom <code>MenuItem</code> icons from PNG images which can be shared across <em>all</em> your Guides and/or Organizations.</p>
+<h2 id='creating-a-code-buildericon-code'>Creating a <code>BuilderIcon</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">builder_icon_url</span> <span class="o">=</span> <span class="s">'https://builder.guidebook.com/open-api/v1/builder-icons/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+<span class="n">post_data</span> <span class="o">=</span> 
+<span class="p">{</span>
+  <span class="s">"file"</span><span class="p">:</span> <span class="s">"icon_image"</span><span class="p">,</span>
+  <span class="s">"tags"</span><span class="p">:</span> <span class="s">"['tag one', 'tag two]"</span><span class="p">,</span>
+  <span class="s">"org"</span><span class="p">:</span> <span class="mi">123</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">builder_icon_url</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">post_data</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre>
+<blockquote>
+<p>The above commands return JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">293</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mediacdn.guidebook.com/upload/builderfile/c1c88374-2133-12ee-a0z1-3d957ascee78/rEiJ5EG43j0ViHVuWsXSuckPD0tlYAeYAugL.png"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"tag one"</span><span class="p">,</span><span class="w"> </span><span class="s2">"tag two"</span><span class="p">],</span><span class="w">
+  </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="mi">1784</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"access_control"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1784</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">2343</span><span class="p">,</span><span class="w">
+      </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>This endpoint will create a <code>BuilderIcon</code> for the PNG image <code>file</code> that you
+specify.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST https://builder.guidebook.com/open-api/v1/builder-icons/</code></p>
+<h3 id='model-fields'>Model Fields</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Required</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>file</td>
+<td>yes</td>
+<td>file</td>
+<td>Your icon image file. It must be PNG and be of size 180x180px, 180x150px, 150x150px, 120x100px, or 100x100px.</td>
+</tr>
+<tr>
+<td>tags</td>
+<td>no</td>
+<td>array or stringified array</td>
+<td>A list of strings used to identify &amp; search icons.</td>
+</tr>
+<tr>
+<td>org</td>
+<td>no</td>
+<td><code>id</code> of the Organization you wish to share the <code>BuilderIcon</code> with.</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='listing-code-buildericons-code'>Listing <code>BuilderIcons</code></h2><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">menu_item_url</span> <span class="o">=</span> <span class="s">'https://builder.guidebook.com/open-api/v1/builder-icons/'</span>
+<span class="n">api_key</span> <span class="o">=</span> <span class="s">'API_KEY'</span>
+
+<span class="c"># This will return all `BuilderIcons` you have access to</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">menu_item_url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s">'Authorization'</span><span class="p">:</span> <span class="s">'JWT '</span> <span class="o">+</span> <span class="n">api_key</span><span class="p">})</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+
+</code></pre>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+  </span><span class="s2">"count"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"next"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"previous"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"results"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">369</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mediacdn.guidebook.com/upload/builderfile/315bac20-2a69-11ee-afe4-dbf38e2997f2/Sbpnmc2CD9B9Fe9nuOL4hZzfd0i9WOUtJ8co.png"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="s2">"tag one"</span><span class="p">,</span><span class="w">
+              </span><span class="s2">"tag two"</span><span class="w">
+          </span><span class="p">],</span><span class="w">
+          </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"access_control"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+          </span><span class="s2">"id"</span><span class="p">:</span><span class="w"> </span><span class="mi">368</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"file"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://mediacdn.guidebook.com/upload/builderfile/10a0dc94-2a69-11ee-afe4-dbf38e2997f2/1TY9VtysL5gmFPKai8pFyFeXf9wPn5ONNWNV.png"</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"tags"</span><span class="p">:</span><span class="w"> </span><span class="p">[],</span><span class="w">
+          </span><span class="s2">"creator"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+          </span><span class="s2">"access_control"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+              </span><span class="p">{</span><span class="w">
+                  </span><span class="s2">"object_id"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                  </span><span class="s2">"entity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"org"</span><span class="w">
+              </span><span class="p">}</span><span class="w">
+          </span><span class="p">]</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET https://builder.guidebook.com/open-api/v1/menu-items/</code></p>
+<h3 id='model-fields-2'>Model Fields</h3>
+<p>Same as the fields used in creation with the addition of the following read-only fields:</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>integer</td>
+<td>A unique identifier for your <code>BuilderIcon</code>.</td>
+</tr>
+<tr>
+<td>created_at</td>
+<td>datetime</td>
+<td>Time when this <code>BuilderIcon</code> was created - UTC.</td>
+</tr>
+<tr>
+<td>creator</td>
+<td>integer</td>
+<td><code>id</code> of the <code>Account</code> that created the <code>BuilderIcon</code>.</td>
+</tr>
+<tr>
+<td>access_control</td>
+<td>array</td>
+<td>Array of access records specifying who has permissions to interact with the <code>BuilderIcon</code>.</td>
+</tr>
+</tbody></table>
+<h3 id='filtering-data-by-code-guide-code-id-and-other-fields'>Filtering Data by <code>Guide</code> id and other fields</h3>
+<p>Including a query parameter <code>guide</code> allows you to filter for all <code>BuilderIcons</code>
+related to a <code>Guide</code> you have access to (<code>Guide</code> 13 in the following example):</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/?guide=13</code></p>
+
+<p>By default, all <code>BuilderIcons</code> you have permissions to will be returned.</p>
+
+<p>You are also able to filter by the fields <code>org</code> and <code>tags</code> if you want to fetch
+a list of <code>BuilderIcons</code> fitting specific criteria. See examples below for how
+to filter on these fields and combining multiple filters:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/?org=2</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/?guide=13&amp;org=2</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/?tags=cat,dog</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/?guide=13&amp;tags=cat,dog</code></p>
+<h2 id='retrieving-a-code-buildericon-code'>Retrieving a <code>BuilderIcon</code></h2>
+<p>In the following examples, we will assume that the id of the <code>BuilderIcon</code> we&#39;d
+like to modify is 42. To retrieve an individual <code>BuilderIcon</code> object issue a
+<code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/42/</code></p>
+<h2 id='retrieving-available-code-buildericon-code-tags'>Retrieving available <code>BuilderIcon</code> tags</h2>
+<p>To view tags for available <code>BuilderIcons</code> issue a <code>GET</code> request like:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/tags/</code></p>
+
+<p>By default, a list of tags for all <code>BuilderIcons</code> you have permissions to will be returned.</p>
+
+<p>You are also able to filter tags by the fields <code>guide</code> and <code>org</code> if you want to
+fetch a list of <code>BuilderIcon</code> tags fitting specific criteria. See examples
+below for how to filter on these fields and combining multiple filters:</p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/tags/?guide=23</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/tags/org=4</code></p>
+
+<p><code>GET https://builder.guidebook.com/open-api/v1/builder-icons/tags/?guide=23&amp;org=4</code></p>
+<h2 id='updating-a-code-buildericon-code'>Updating a <code>BuilderIcon</code></h2>
+<p>To modify an existing <code>BuilderIcon</code> object, issue a <code>PATCH</code> request like:</p>
+
+<p><code>PATCH https://builder.guidebook.com/open-api/v1/builder-icons/71/</code></p>
+
+<p>You will only need to include the specific fields you are updating and not a
+full request body. Only <code>file</code> and <code>tags</code> are updatable after creation.</p>
+<h2 id='deleting-a-code-buildericon-code'>Deleting a <code>BuilderIcon</code></h2>
+<p>To delete a particular <code>BuilderIcon</code>, issue a <code>DELETE</code> request to the url that
+points to the specific <code>BuilderIcon</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1/builder-icons/82/</code></p>
 
       </div>
       <div class="dark-box">
