@@ -53,7 +53,7 @@ includes:
   - personalized_schedules
   - webhooks
   - guidebook_web
-  - builder_icon
+  - builder_icons
 
 search: true
 ---
