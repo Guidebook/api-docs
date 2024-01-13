@@ -170,7 +170,7 @@ The `guide` filter is required.
 
 ### HTTP Request
 
-`GET https://builder.guidebook.com/open-api/v1.1/custom-list-items/`?guide=<guide_id>
+`GET https://builder.guidebook.com/open-api/v1.1/custom-list-items/?guide=<guide_id>`
 
 ### Model Fields
 
