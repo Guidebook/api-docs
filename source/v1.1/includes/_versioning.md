@@ -9,3 +9,10 @@ Guidebook reserves the right, however, to make backwards-compatible changes to t
 - Adding new properties to existing responses
 - Changing the order of properties in existing API responses
 - Changing the length or format of object IDs or other opaque strings.
+
+
+## Previous API versions documentation
+
+To see previous API documentation, see the following links:
+
+v1 https://developer.guidebook.com/v1/
