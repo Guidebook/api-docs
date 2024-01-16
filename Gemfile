@@ -1,3 +1,6 @@
+gem 'execjs'
+gem 'therubyracer', :platforms => :ruby
+
 ruby '>=2.3.1'
 source 'https://rubygems.org'
 
