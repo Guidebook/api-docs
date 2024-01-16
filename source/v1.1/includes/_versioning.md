@@ -15,4 +15,4 @@ Guidebook reserves the right, however, to make backwards-compatible changes to t
 
 To see previous API documentation, see the following links:
 
-v1 https://developer.guidebook.com/v1/
+v1 - [https://developer.guidebook.com/v1/](https://developer.guidebook.com/v1/)
