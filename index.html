@@ -223,11 +223,6 @@
           </li>
           <li>
             <a href="#versioning" class="toc-h1 toc-link" data-title="Versioning">Versioning</a>
-              <ul class="toc-list-h2">
-                  <li>
-                    <a href="#previous-api-versions-documentation" class="toc-h2 toc-link" data-title="Versioning">Previous API versions documentation</a>
-                  </li>
-              </ul>
           </li>
           <li>
             <a href="#example-implementations" class="toc-h1 toc-link" data-title="Example Implementations">Example Implementations</a>
@@ -1058,10 +1053,6 @@
 <li>Changing the order of properties in existing API responses</li>
 <li>Changing the length or format of object IDs or other opaque strings.</li>
 </ul>
-<h2 id='previous-api-versions-documentation'>Previous API versions documentation</h2>
-<p>To see previous API documentation, see the following links:</p>
-
-<p>v1 - <a href="https://developer.guidebook.com/v1/">https://developer.guidebook.com/v1/</a></p>
 <h1 id='example-implementations'>Example Implementations</h1>
 <p>Our <a href="https://github.com/Guidebook/">public github repo</a> contains several source code samples of how to integrate Guidebook with other services.  These are provided as an additional resource to assist developers in learning about the possiblities enabled with our API.  Clients are welcome to use these examples as a starting point to create their own custom integrations.</p>
 <h2 id='eventbrite-integration'>Eventbrite Integration</h2>
@@ -3039,7 +3030,7 @@ To retrieve an individual <code>CustomList</code> object issue a <code>GET</code
 <p>This endpoint can also be used to read data on <code>CustomListItems</code>.
 The <code>guide</code> filter is required.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
-<p><code>GET https://builder.guidebook.com/open-api/v1.1/custom-list-items/?guide=&lt;guide_id&gt;</code></p>
+<p><code>GET https://builder.guidebook.com/open-api/v1.1/custom-list-items/</code>?guide=<guide_id></p>
 <h3 id='model-fields-2'>Model Fields</h3>
 <p>Same as the fields used in creation with the addition of the following read-only fields</p>
 
