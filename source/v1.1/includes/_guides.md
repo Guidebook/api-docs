@@ -128,3 +128,16 @@ To publish all `PersonalizedSchedules` on a `Guide` object, issue a `POST` reque
 A successful request to this endpoint will return a status code of `202 ACCEPTED`
 
 To successfully publish personalized schedules for a guide, the guide must be on a Premium service level and must already be published.
+
+
+## Retrieving `Leaderboard` rankings for a `Guide`
+
+To retrieve `Leaderboard` rankings for a `Guide`, issue a `GET` request like:
+
+`GET https://builder.guidebook.com/open-api/v1.1/guides/21/get-leaderboard-rankings/`
+
+A successful request to this endpoint will return a status code of `200 OK`
+
+This endpoint is paginated with a maximum `page_size` of 500. See the section on [Pagination] (#pagination). It defaults to returning user scores, but if you would like to retrieve scores by group, you can provide a query param in your request like:
+
+`GET https://builder.guidebook.com/open-api/v1.1/guides/21/get-leaderboard-rankings/?scoring_entity=groups`
