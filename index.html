@@ -275,6 +275,9 @@
                   <li>
                     <a href="#allowed-attributes" class="toc-h2 toc-link" data-title="HTML Text">Allowed Attributes</a>
                   </li>
+                  <li>
+                    <a href="#allowed-styles" class="toc-h2 toc-link" data-title="HTML Text">Allowed Styles</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -1234,10 +1237,16 @@ The Open API only supports PNG and JPEG image files.
 <td><code>itemscope</code>, <code>itemtype</code></td>
 </tr>
 <tr>
+<td><code>span</code></td>
+<td><code>style</code></td>
+</tr>
+<tr>
 <td>all tags</td>
 <td><code>abbr</code>, <code>accept</code>, <code>accept-charset</code>, <code>accesskey</code>, <code>action</code>, <code>align</code>, <code>alt</code>, <code>axis</code>, <code>border</code>, <code>cellpadding</code>, <code>cellspacing</code>, <code>char</code>, <code>charoff</code>, <code>charset</code>, <code>checked</code>, <code>cite</code>, <code>clear</code>, <code>cols</code>, <code>colspan</code>, <code>color</code>, <code>compact</code>, <code>coords</code>, <code>datetime</code>, <code>dir</code>, <code>disabled</code>, <code>enctype</code>, <code>for</code>, <code>frame</code>, <code>headers</code>, <code>height</code>, <code>hreflang</code>, <code>hspace</code>, <code>ismap</code>, <code>label</code>, <code>lang</code>, <code>longdesc</code>, <code>maxlength</code>, <code>media</code>, <code>method</code>, <code>multiple</code>, <code>name</code>, <code>nohref</code>, <code>noshade</code>, <code>nowrap</code>, <code>prompt</code>, <code>readonly</code>, <code>rel</code>, <code>rev</code>, <code>rows</code>, <code>rowspan</code>, <code>rules</code>, <code>scope</code>, <code>selected</code>, <code>shape</code>, <code>size</code>, <code>span</code>, <code>start</code>, <code>summary</code>, <code>tabindex</code>, <code>target</code>, <code>title</code>, <code>type</code>, <code>usemap</code>, <code>valign</code>, <code>value</code>, <code>vspace</code>, <code>width</code>, <code>itemprop</code></td>
 </tr>
 </tbody></table>
+<h3 id='allowed-styles'>Allowed Styles</h3>
+<p>Currently, we only allow <code>style</code> attributes for <code>span</code> tags. The supported styles are: <code>color</code>. </p>
 <h1 id='rate-limiting'>Rate Limiting</h1>
 <p>Guidebook enforces a global rate limit across all Open API endpoints. An account is allowed 2000 requests per day. If exceeded, any further requests will return a 429 response.</p>
 <h1 id='guides'>Guides</h1>
@@ -7045,13 +7054,13 @@ To retrieve an individual <code>FormAnswerSets</code> object issue a <code>GET</
 <td>first_name</td>
 <td>no</td>
 <td>string</td>
-<td>First name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.</td>
+<td>First name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only.</td>
 </tr>
 <tr>
 <td>last_name</td>
 <td>no</td>
 <td>string</td>
-<td>Last name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.</td>
+<td>Last name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. If the <code>Attendee</code> has logged in and claimed their account, then this field is read-only.</td>
 </tr>
 <tr>
 <td>avatar</td>
@@ -7301,15 +7310,21 @@ You must publish your `Guide` via the Builder CMS before you can send out invite
 
 <p>The above request will fetch data for the <code>Attendee</code> with the id 71.</p>
 <h2 id='updating-code-attendee-code-info'>Updating <code>Attendee</code> info</h2>
-<p>The <code>Attendee</code> object defines the relationship between an individual and a given <code>Guide</code>.  Fields such as <code>status</code> can not be manipulated via the Open API. Additionally we do not allow you to manipulate the profile information of the individual accounts.  These are controlled by the end-user themselves.</p>
+<p>The <code>Attendee</code> object defines the relationship between an individual and a given <code>Guide</code>.  Fields such as <code>status</code> can not be manipulated via the Open API. However, we do allow you to manipulate the profile information of individual accounts if they have not yet been claimed by the attendees.</p>
 
-<p>There are three fields we allow you to update - <code>revoked</code>, <code>email_opt_out</code>, and <code>import_id</code>.  Updating the <code>revoked</code> field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The <code>import_id</code>field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.</p>
+<p>There are three fields we allow you to update for all attendees - <code>revoked</code>, <code>email_opt_out</code>, <code>import_id</code>.  Updating the <code>revoked</code> field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The <code>import_id</code>field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.</p>
+
+<p>There are five fields we allow you to update only for attendees that have not yet logged in and claimed their accounts - <code>first_name</code>, <code>last_name</code>, <code>avatar</code>, <code>cover</code>, and <code>app_profile</code>. See &quot;Creating an Attendee&quot; for more details.</p>
 
 <aside class="notice">
 Be very cautious with updating <code>import_ids</code>!  If your integration requires the use of the `import_id` of an Attendee, please fill this field on creation.  If this is not possible, please attempt to fill in the `import_id` ASAP.  The Guidebook Mobile Clients will cache Attendee `id` and `import_id` information when an individual signs in and first accesses a guide.  If you change the `import_id` via the Open API, you will still need to have the updated users logout and log back in to update their cached Ids.
 </aside>
 <h2 id='deleting-an-code-attendee-code'>Deleting an <code>Attendee</code></h2>
-<p>The <code>Attendee</code> object is a crucial component that&#39;s used in our metrics tracking system.  In order to preserve the accuracy of metrics reports, we do NOT allow Attendee objects to be deleted once they been created.  If you want to &quot;revoke&quot; a person&#39;s access to a specific guide, you would issue a PATCH request and set revoked=True.</p>
+<p><code>Attendees</code> can only be deleted if they are in a <code>Created</code> or <code>Invited</code> state, which means the attendee has not yet logged in and claimted their account. To delete an eligible user, issue a <code>DELETE</code> request to the url that points to the specific <code>Attendee</code> you&#39;d like deleted:</p>
+
+<p><code>DELETE https://builder.guidebook.com/open-api/v1.1/attendees/82/</code></p>
+
+<p>If you just want to &quot;revoke&quot; a person&#39;s access to a specific guide, you would issue a PATCH request and set revoked=True.</p>
 
 <p>We do allow various Open API operations for objects that are related to an <code>Attendee</code> and a <code>Guide</code>. i.e <a href="#personalizedschedules">Personalized Schedules</a> for a given <code>Attendee</code>.</p>
 <h2 id='retrieving-an-attendee-in-a-web-view'>Retrieving an Attendee In a Web View</h2>
