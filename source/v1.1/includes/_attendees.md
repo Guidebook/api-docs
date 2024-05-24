@@ -65,8 +65,8 @@ Parameter       | Required  | Type    | Description
 guide           | yes | integer  | The specific `Guide` your `Attendee` belongs to.  See section on [Guides](#guides) for more info.
 import_id       | no  | string     | A string field you can use to input your own identifier.  This is for when you have your own IDs for `Attendees` in your data store.
 email           | yes | string    | Email address of the `Attendee`.  We will search existing Guidebook users and attempt to associate with an existing account.
-first_name      | no  | string    | First name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.
-last_name      | no  | string    | Last name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. Otherwise, this field is ignored.
+first_name      | no  | string    | First name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. If the `Attendee` has logged in and claimed their account, then this field is read-only.
+last_name      | no  | string    | Last name of the Attendee.  Only used if no existing Guidebook Account was found via email matching. If the `Attendee` has logged in and claimed their account, then this field is read-only.
 avatar          | no | image   | Avatar image for this `Attendee`. For newly invited `Attendees`, you can update this field.  If the `Attendee` has logged in and claimed their account, then this field is read-only. See section on [images](#images) to update.
 cover           | no | image   | Cover (background) image for the `Attendee`. For newly invited `Attendees`, you can update this field.  If the `Attendee` has logged in and claimed their account, then this field is read-only. See section on [images](#images) to update.
 app_profile     | no | dictionary of strings | Contains profile information filled out by the `Attendee`.  Possible keys include `company`, `position`, `contact_email`, `phone_number`, and `website`.  Note that these keys can change at anytime! For newly created `Attendees` over the API, you can submit data for this field.  If there is existing app_profile data for an `Attendee`, then this field is read-only.
@@ -289,9 +289,11 @@ The above request will fetch data for the `Attendee` with the id 71.
 
 ## Updating `Attendee` info
 
-The `Attendee` object defines the relationship between an individual and a given `Guide`.  Fields such as `status` can not be manipulated via the Open API. Additionally we do not allow you to manipulate the profile information of the individual accounts.  These are controlled by the end-user themselves.
+The `Attendee` object defines the relationship between an individual and a given `Guide`.  Fields such as `status` can not be manipulated via the Open API. However, we do allow you to manipulate the profile information of individual accounts if they have not yet been claimed by the attendees.
 
-There are three fields we allow you to update - `revoked`, `email_opt_out`, and `import_id`.  Updating the `revoked` field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The `import_id `field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.
+There are three fields we allow you to update for all attendees - `revoked`, `email_opt_out`, `import_id`.  Updating the `revoked` field will toggle access to an invite-only guide.  If you have a public guide, this field will have no effect.  The `import_id `field acts as a link between the Attendee in Builder and the unique identifier of the related account in your system. In practice, this field should be populated during creation. However, if that is untenable, you can update that field at a later point in time via the Open API.
+
+There are five fields we allow you to update only for attendees that have not yet logged in and claimed their accounts - `first_name`, `last_name`, `avatar`, `cover`, and `app_profile`. See "Creating an Attendee" for more details.
 
 <aside class="notice">
 Be very cautious with updating <code>import_ids</code>!  If your integration requires the use of the `import_id` of an Attendee, please fill this field on creation.  If this is not possible, please attempt to fill in the `import_id` ASAP.  The Guidebook Mobile Clients will cache Attendee `id` and `import_id` information when an individual signs in and first accesses a guide.  If you change the `import_id` via the Open API, you will still need to have the updated users logout and log back in to update their cached Ids.
@@ -300,7 +302,11 @@ Be very cautious with updating <code>import_ids</code>!  If your integration req
 
 ## Deleting an `Attendee`
 
-The `Attendee` object is a crucial component that's used in our metrics tracking system.  In order to preserve the accuracy of metrics reports, we do NOT allow Attendee objects to be deleted once they been created.  If you want to "revoke" a person's access to a specific guide, you would issue a PATCH request and set revoked=True.
+`Attendees` can only be deleted if they are in a `Created` or `Invited` state, which means the attendee has not yet logged in and claimted their account. To delete an eligible user, issue a `DELETE` request to the url that points to the specific `Attendee` you'd like deleted:
+
+`DELETE https://builder.guidebook.com/open-api/v1.1/attendees/82/`
+
+If you just want to "revoke" a person's access to a specific guide, you would issue a PATCH request and set revoked=True.
 
 We do allow various Open API operations for objects that are related to an `Attendee` and a `Guide`. i.e [Personalized Schedules](#personalizedschedules) for a given `Attendee`.
 
