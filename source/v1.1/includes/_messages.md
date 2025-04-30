@@ -144,7 +144,7 @@ Parameter       | Type    | Description
 ---------       | ------- | -----------
 id              | integer  | An unique identifier for your `Message`.
 attachment_object | string | A string indicating the content type and id of the object. Ex. schedule.session:321
-segmented_push_options | JSON | A dictionary listing the targets your message will be sent to.
+segmented_push_options | string | A dictionary listing the targets your message will be sent to.
 
 
 ### Filtering data by `Guide` id and other fields

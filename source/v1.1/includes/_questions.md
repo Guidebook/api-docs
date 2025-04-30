@@ -337,6 +337,8 @@ response = requests.get(sliding_scale_question_lists_url, headers={'Authorizatio
 
 `GET https://builder.guidebook.com/open-api/v1.1/grid-questions/?question_set__guide=<guide_id>`
 
+`GET https://builder.guidebook.com/open-api/v1.1/multiple-choice-question-choices/?guide=<guide_id>`
+
 
 ### Model Fields
 
