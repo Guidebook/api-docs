@@ -123,6 +123,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  erubis (~> 2.7.0)
   execjs
   middleman (~> 4.2.1)
   middleman-autoprefixer (~> 2.7.0)
