@@ -1,5 +1,5 @@
 gem 'execjs'
-gem 'therubyracer', :platforms => :ruby
+gem 'mini_racer', :platforms => :ruby
 
 ruby '>=2.3.1'
 source 'https://rubygems.org'

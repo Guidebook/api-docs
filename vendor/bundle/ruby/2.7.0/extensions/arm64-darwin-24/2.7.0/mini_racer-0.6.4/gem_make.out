@@ -1,0 +1,21 @@
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+/Users/adieken/.rvm/rubies/ruby-2.7.8/bin/ruby -I /Users/adieken/.rvm/rubies/ruby-2.7.8/lib/ruby/2.7.0 -r ./siteconf20250501-4272-1ymfgal.rb extconf.rb
+checking for -lpthread... yes
+checking for -lobjc... yes
+checking for whether -Wl,--exclude-libs=ALL  is accepted as LDFLAGS... no
+creating Makefile
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+make "DESTDIR=" clean
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+make "DESTDIR="
+compiling mini_racer_extension.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+linking shared-object mini_racer_extension.bundle
+ld: warning: -multiply_defined is obsolete
+ld: warning: ignoring duplicate libraries: '-lruby.2.7'
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/mini_racer-0.6.4/ext/mini_racer_extension
+make "DESTDIR=" install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 mini_racer_extension.bundle ./.gem.20250501-4272-1e2eqsx
