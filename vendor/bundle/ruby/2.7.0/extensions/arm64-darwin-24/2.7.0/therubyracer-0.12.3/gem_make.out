@@ -1,0 +1,234 @@
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/therubyracer-0.12.3/ext/v8
+/Users/adieken/.rvm/rubies/ruby-2.7.8/bin/ruby -I /Users/adieken/.rvm/rubies/ruby-2.7.8/lib/ruby/2.7.0 -r ./siteconf20250501-85532-pbhim9.rb extconf.rb
+checking for -lpthread... yes
+checking for -lobjc... yes
+creating Makefile
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" clean
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR="
+compiling accessor.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling array.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling backref.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling constants.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling constraints.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling context.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling date.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling exception.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling external.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling function.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling gc.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling handles.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling heap.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling init.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+init.cc:11:20: warning: empty parentheses interpreted as a function declaration [-Wvexing-parse]
+   11 |     v8::Locker lock();
+      |                    ^~
+init.cc:11:20: note: remove parentheses to declare a variable
+   11 |     v8::Locker lock();
+      |                    ^~
+init.cc:11:16: warning: 'lock' has C-linkage specified, but returns user-defined type 'v8::Locker' which is incompatible with C [-Wreturn-type-c-linkage]
+   11 |     v8::Locker lock();
+      |                ^
+2 warnings generated.
+compiling invocation.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling locker.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling message.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling object.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling primitive.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling rr.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling script.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling signature.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling stack.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling string.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling template.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling trycatch.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling v8.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+compiling value.cc
+clang++: warning: argument unused during compilation: '-rdynamic' [-Wunused-command-line-argument]
+linking shared-object v8/init.bundle
+ld: warning: -multiply_defined is obsolete
+ld: warning: ignoring duplicate libraries: '-lruby.2.7'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_snapshot.a[4](snapshot.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_snapshot.a[3](experimental-libraries.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_snapshot.a[2](libraries.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[148](platform-posix.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[147](platform-macos.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[146](stub-cache-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[145](regexp-macro-assembler-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[144](macro-assembler-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[143](lithium-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[142](lithium-gap-resolver-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[141](lithium-codegen-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[140](ic-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[139](full-codegen-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[138](frames-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[137](disasm-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[136](deoptimizer-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[135](debug-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[134](cpu-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[133](codegen-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[132](code-stubs-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[131](builtins-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[130](assembler-x64.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[129](stub-cache-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[128](regexp-macro-assembler-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[127](macro-assembler-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[126](lithium-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[125](lithium-gap-resolver-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[124](lithium-codegen-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[123](ic-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[122](full-codegen-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[121](frames-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[120](disasm-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[119](deoptimizer-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[118](debug-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[117](cpu-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[116](codegen-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[115](code-stubs-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[114](builtins-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[113](assembler-ia32.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[112](zone.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[111](version.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[110](variables.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[109](v8utils.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[108](v8threads.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[107](v8conversions.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[106](v8.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[105](v8-counters.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[104](utils.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[103](unicode.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[102](type-info.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[101](transitions.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[100](token.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[99](sweeper-thread.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[98](stub-cache.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[97](strtod.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[96](string-stream.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[95](string-search.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[94](store-buffer.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[93](spaces.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[92](snapshot-common.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[91](serialize.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[90](scopes.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[89](scopeinfo.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[88](scanner.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[87](scanner-character-streams.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[86](safepoint-table.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[85](runtime.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[84](runtime-profiler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[83](rewriter.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[82](regexp-stack.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[81](regexp-macro-assembler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[80](regexp-macro-assembler-tracer.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[79](regexp-macro-assembler-irregexp.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[78](property.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[77](profile-generator.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[76](prettyprinter.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[75](preparser.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[74](preparse-data.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[73](parser.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[72](optimizing-compiler-thread.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[71](once.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[70](objects.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[69](objects-visiting.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[68](objects-printer.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[67](objects-debug.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[66](messages.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[65](marking-thread.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[64](mark-compact.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[63](log.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[62](log-utils.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[61](liveedit.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[60](lithium.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[59](lithium-allocator.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[58](jsregexp.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[57](isolate.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[56](interpreter-irregexp.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[55](interface.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[54](incremental-marking.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[53](ic.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[52](hydrogen.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[51](hydrogen-instructions.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[50](heap.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[49](heap-profiler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[48](handles.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[47](global-handles.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[46](gdb-jit.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[45](func-name-inferrer.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[44](full-codegen.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[43](frames.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[42](flags.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[41](fixed-dtoa.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[40](fast-dtoa.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[39](factory.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[38](statistics-extension.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[37](gc-extension.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[36](externalize-string-extension.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[35](execution.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[34](elements.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[33](elements-kind.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[32](dtoa.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[31](diy-fp.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[30](disassembler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[29](deoptimizer.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[28](debug.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[27](debug-agent.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[26](dateparser.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[25](date.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[24](data-flow.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[23](cpu-profiler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[22](counters.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[21](conversions.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[20](contexts.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[2](accessors.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[3](allocation.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[4](api.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[6](ast.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[8](bignum-dtoa.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[11](builtins.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[12](cached-powers.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[15](code-stubs.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[13](checks.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[7](atomicops_internals_x86_gcc.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[19](compiler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[16](code-stubs-hydrogen.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[9](bignum.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[17](codegen.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[5](assembler.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[18](compilation-cache.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[10](bootstrapper.o)': found architecture 'x86_64', required architecture 'arm64'
+ld: warning: ignoring file '/Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/libv8-3.16.14.19.1-universal-darwin/vendor/v8/out/x64.release/libv8_base.a[14](circular-queue.o)': found architecture 'x86_64', required architecture 'arm64'
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/therubyracer-0.12.3/ext/v8
+make "DESTDIR=" install
+/opt/homebrew/opt/coreutils/bin/ginstall -c -m 0755 init.bundle ./.gem.20250501-85532-1kwmxl9/v8

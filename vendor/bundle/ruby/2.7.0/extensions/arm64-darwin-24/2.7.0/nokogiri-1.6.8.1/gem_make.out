@@ -1,0 +1,282 @@
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.6.8.1/ext/nokogiri
+/Users/adieken/.rvm/rubies/ruby-2.7.8/bin/ruby -I /Users/adieken/.rvm/rubies/ruby-2.7.8/lib/ruby/2.7.0 -r ./siteconf20250501-83214-v9sl5.rb extconf.rb --use-system-libraries
+checking if the C compiler accepts ... yes
+checking if the C compiler accepts -Wno-error=unused-command-line-argument-hard-error-in-future... no
+Building nokogiri using system libraries.
+checking for xmlParseDoc() in libxml/parser.h... yes
+checking for xsltParseStylesheetDoc() in libxslt/xslt.h... yes
+checking for exsltFuncRegister() in libexslt/exslt.h... yes
+checking for xmlHasFeature()... yes
+checking for xmlFirstElementChild()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetParserStructuredErrors()... yes
+checking for xmlRelaxNGSetValidStructuredErrors()... yes
+checking for xmlSchemaSetValidStructuredErrors()... yes
+checking for xmlSchemaSetParserStructuredErrors()... yes
+creating Makefile
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.6.8.1/ext/nokogiri
+make "DESTDIR=" clean
+
+current directory: /Users/adieken/dev/api-docs/vendor/bundle/ruby/2.7.0/gems/nokogiri-1.6.8.1/ext/nokogiri
+make "DESTDIR="
+compiling html_document.c
+In file included from html_document.c:1:
+In file included from ./html_document.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from html_document.c:1:
+In file included from ./html_document.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+html_document.c:16:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+   16 |   rb_scan_args(argc, argv, "0*", &rest);
+      |                            ^
+3 warnings generated.
+compiling html_element_description.c
+In file included from html_element_description.c:1:
+In file included from ./html_element_description.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from html_element_description.c:1:
+In file included from ./html_element_description.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+html_element_description.c:252:48: warning: cast from 'const struct _htmlElemDesc *' to 'void *' drops const qualifier [-Wcast-qual]
+  252 |   return Data_Wrap_Struct(klass, 0, 0, (void *)description);
+      |                                                ^
+3 warnings generated.
+compiling html_entity_lookup.c
+In file included from html_entity_lookup.c:1:
+In file included from ./html_entity_lookup.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from html_entity_lookup.c:1:
+In file included from ./html_entity_lookup.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+2 warnings generated.
+compiling html_sax_parser_context.c
+In file included from html_sax_parser_context.c:1:
+In file included from ./html_sax_parser_context.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from html_sax_parser_context.c:1:
+In file included from ./html_sax_parser_context.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+2 warnings generated.
+compiling html_sax_push_parser.c
+In file included from html_sax_push_parser.c:1:
+In file included from ./html_sax_push_parser.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from html_sax_push_parser.c:1:
+In file included from ./html_sax_push_parser.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+2 warnings generated.
+compiling nokogiri.c
+In file included from nokogiri.c:1:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from nokogiri.c:1:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+2 warnings generated.
+compiling xml_attr.c
+In file included from xml_attr.c:1:
+In file included from ./xml_attr.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from xml_attr.c:1:
+In file included from ./xml_attr.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+xml_attr.c:58:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+   58 |   rb_scan_args(argc, argv, "2*", &document, &name, &rest);
+      |                            ^
+3 warnings generated.
+compiling xml_attribute_decl.c
+In file included from xml_attribute_decl.c:1:
+In file included from ./xml_attribute_decl.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from xml_attribute_decl.c:1:
+In file included from ./xml_attribute_decl.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+2 warnings generated.
+compiling xml_cdata.c
+In file included from xml_cdata.c:1:
+In file included from ./xml_cdata.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from xml_cdata.c:1:
+In file included from ./xml_cdata.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+xml_cdata.c:18:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+   18 |   rb_scan_args(argc, argv, "2*", &doc, &content, &rest);
+      |                            ^
+3 warnings generated.
+compiling xml_comment.c
+In file included from xml_comment.c:1:
+In file included from ./xml_comment.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from xml_comment.c:1:
+In file included from ./xml_comment.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+xml_comment.c:21:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+   21 |   rb_scan_args(argc, argv, "2*", &document, &content, &rest);
+      |                            ^
+3 warnings generated.
+compiling xml_document.c
+In file included from xml_document.c:1:
+In file included from ./xml_document.h:4:
+In file included from ./nokogiri.h:33:
+In file included from /Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby.h:33:
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/ruby.h:2594:41: warning: implicit conversion changes signedness: 'int' to 'unsigned long' [-Wsign-conversion]
+ 2594 |         memcpy(ptr, argv, sizeof(VALUE)*argc);
+      |                                        ~^~~~
+/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/include/secure/_string.h:63:33: note: expanded from macro 'memcpy'
+   63 |                 __builtin___memcpy_chk (dest, __VA_ARGS__, __darwin_obsz0 (dest))
+      |                                               ^~~~~~~~~~~
+In file included from xml_document.c:1:
+In file included from ./xml_document.h:4:
+./nokogiri.h:39:11: warning: 'MAYBE_UNUSED' macro redefined [-Wmacro-redefined]
+   39 | #  define MAYBE_UNUSED(name) name __attribute__((unused))
+      |           ^
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/arm64-darwin24/ruby/config.h:159:9: note: previous definition is here
+  159 | #define MAYBE_UNUSED(x) __attribute__ ((__unused__)) x
+      |         ^
+xml_document.c:46:25: error: incompatible function pointer types passing 'int (xmlNodePtr, xmlNodePtr, xmlDocPtr)' (aka 'int (struct _xmlNode *, struct _xmlNode *, struct _xmlDoc *)') to parameter of type 'st_foreach_callback_func *' (aka 'int (*)(unsigned long, unsigned long, unsigned long)') [-Wincompatible-function-pointer-types]
+   46 |   st_foreach(node_hash, dealloc_node_i, (st_data_t)doc);
+      |                         ^~~~~~~~~~~~~~
+/Users/adieken/.rvm/rubies/ruby-2.7.8/include/ruby-2.7.0/ruby/st.h:141:57: note: passing argument to parameter here
+  141 | int rb_st_foreach(st_table *, st_foreach_callback_func *, st_data_t);
+      |                                                         ^
+xml_document.c:182:21: warning: cast from 'const unsigned char *' to 'char *' drops const qualifier [-Wcast-qual]
+  182 |       free((char *) doc->encoding); /* this may produce a gcc cast warning */
+      |                     ^
+xml_document.c:327:31: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  327 |   if(rb_scan_args(argc, argv, "01", &level) == 0)
+      |                               ^
+xml_document.c:354:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  354 |   rb_scan_args(argc, argv, "0*", &rest);
+      |                            ^
+xml_document.c:433:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  433 |   rb_scan_args(argc, argv, "14", &name, &type, &external_id, &system_id,
+      |                            ^
+xml_document.c:508:28: warning: cast from 'const char *' to 'char *' drops const qualifier [-Wcast-qual]
+  508 |   rb_scan_args(argc, argv, "03", &mode, &incl_ns, &with_comments);
+      |                            ^
+xml_document.c:535:26: warning: cast from 'const char *' to 'unsigned char *' drops const qualifier [-Wcast-qual]
+  535 |       ns[i] = (xmlChar*) ptr;
+      |                          ^
+8 warnings and 1 error generated.
+make: *** [xml_document.o] Error 1
+
+make failed, exit code 2
