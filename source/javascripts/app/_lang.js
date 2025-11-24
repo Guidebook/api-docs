@@ -98,7 +98,7 @@ under the License.
   // gets the language set in the query string
   function getLanguageFromQueryString() {
     if (location.search.length >= 1) {
-      var language = parseURL(location.search).language
+      var language = parseURL(location.search).language;
       if (language) {
         return language;
       } else if (jQuery.inArray(location.search.substr(1), languages) != -1) {
@@ -129,11 +129,16 @@ under the License.
     history.pushState({}, '', '?' + generateNewQueryString(language) + '#' + hash);
 
     // save language as next default
-    localStorage.setItem("language", language);
+    if (localStorage) {
+      localStorage.setItem("language", language);
+    }
   }
 
   function setupLanguages(l) {
-    var defaultLanguage = localStorage.getItem("language");
+    var defaultLanguage = null;
+    if (localStorage) {
+      defaultLanguage = localStorage.getItem("language");
+    }
 
     languages = l;
 
@@ -142,7 +147,9 @@ under the License.
       // the language is in the URL, so use that language!
       activateLanguage(presetLanguage);
 
-      localStorage.setItem("language", presetLanguage);
+      if (localStorage) {
+        localStorage.setItem("language", presetLanguage);
+      }
     } else if ((defaultLanguage !== null) && (jQuery.inArray(defaultLanguage, languages) != -1)) {
       // the language was the last selected one saved in localstorage, so use that language!
       activateLanguage(defaultLanguage);

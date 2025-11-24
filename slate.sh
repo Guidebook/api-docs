@@ -1,41 +1,41 @@
 #!/usr/bin/env bash
 set -o errexit #abort if any command fails
+
 me=$(basename "$0")
 
 help_message="\
-Usage: $me [-c FILE] [<options>]
-Deploy generated files to a git branch.
+Usage: $me [<options>] <command> [<command-options>]
+Run commands related to the slate process.
 
-Options:
+Commands:
 
-  -h, --help               Show this help information.
-  -v, --verbose            Increase verbosity. Useful for debugging.
-  -e, --allow-empty        Allow deployment of an empty directory.
-  -m, --message MESSAGE    Specify the message used when committing on the
-                           deploy branch.
-  -n, --no-hash            Don't append the source commit's hash to the deploy
-                           commit's message.
-  -c, --current VERSION    Specify current version - copies VERSION/index.html to root
-      --source-only        Only build but not push
-      --push-only          Only push but not build
+  serve                   Run the middleman server process, useful for
+                          development.
+  build                   Run the build process.
+  deploy                  Will build and deploy files to branch. Use
+                          --no-build to only deploy.
+
+Global Options:
+
+  -h, --help              Show this help information.
+  -v, --verbose           Increase verbosity. Useful for debugging.
+
+Deploy options:
+  -e, --allow-empty       Allow deployment of an empty directory.
+  -m, --message MESSAGE   Specify the message used when committing on the
+                          deploy branch.
+  -n, --no-hash           Don't append the source commit's hash to the deploy
+                          commit's message.
+  --no-build              Do not build the source files.
 "
 
 
-run_build() {
-  bundle exec middleman build --clean
+run_serve() {
+  exec bundle exec middleman serve --watcher-force-polling
 }
 
-copy_current_version() {
-  if [ -z "$CURRENT_VERSION" ]; then
-    echo 'Deploying versioned html files only...'
-  else
-    echo "Deploying versioned html files and updating root index.html from $CURRENT_VERSION"
-    if [ -f "$deploy_directory/$CURRENT_VERSION/index.html" ]; then
-      cp "$deploy_directory/$CURRENT_VERSION/index.html" "$deploy_directory"/index.html
-    else
-      echo "Warning: $deploy_directory/$CURRENT_VERSION/index.html not found, skipping copy"
-    fi
-  fi
+run_build() {
+  bundle exec middleman build --clean --watcher-disable
 }
 
 parse_args() {
@@ -43,6 +43,8 @@ parse_args() {
   if [ -e ".env" ]; then
     source .env
   fi
+
+  command=
 
   # Parse arg flags
   # If something is exposed as an environment variable, set/overwrite it
@@ -63,22 +65,23 @@ parse_args() {
     elif [[ $1 = "-n" || $1 = "--no-hash" ]]; then
       GIT_DEPLOY_APPEND_HASH=false
       shift
-    elif [[ ( $1 = "-c" || $1 = "--current" ) && -n $2 ]]; then
-      CURRENT_VERSION=$2
-      shift 2
-    elif [[ $1 = "--source-only" ]]; then
-      source_only=true
+    elif [[ $1 = "--no-build" ]]; then
+      no_build=true
       shift
-    elif [[ $1 = "--push-only" ]]; then
-      push_only=true
+    elif [[ $1 = "serve" || $1 = "build" || $1 = "deploy" ]]; then
+      if [ ! -z "${command}" ]; then
+        >&2 echo "You can only specify one command."
+        exit 1
+      fi
+      command=$1
       shift
-    else
+    elif [ -z $1 ]; then
       break
     fi
   done
 
-  if [ ${source_only} ] && [ ${push_only} ]; then
-    >&2 echo "You can only specify one of --source-only or --push-only"
+  if [ -z "${command}" ]; then
+    >&2 echo "Command not specified."
     exit 1
   fi
 
@@ -171,7 +174,7 @@ incremental_deploy() {
     0) echo No changes to files in $deploy_directory. Skipping commit.;;
     1) commit+push;;
     *)
-      echo git diff exited with code $diff. Aborting. Staying on branch $deploy_branch so you can debug. To switch back to master, use: git symbolic-ref HEAD refs/heads/master && git reset --mixed >&2
+      echo git diff exited with code $diff. Aborting. Staying on branch $deploy_branch so you can debug. To switch back to main, use: git symbolic-ref HEAD refs/heads/main && git reset --mixed >&2
       return $diff
       ;;
   esac
@@ -233,13 +236,13 @@ sanitize() {
 
 parse_args "$@"
 
-if [[ ${source_only} ]]; then
+if [ "${command}" = "serve" ]; then
+  run_serve
+elif [[ "${command}" = "build" ]]; then
   run_build
-  copy_current_version
-elif [[ ${push_only} ]]; then
-  main "$@"
-else
-  run_build
-  copy_current_version
+elif [[ ${command} = "deploy" ]]; then
+  if [[ ${no_build} != true ]]; then
+    run_build
+  fi
   main "$@"
 fi
