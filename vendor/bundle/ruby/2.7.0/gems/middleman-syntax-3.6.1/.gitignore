@@ -1,0 +1,15 @@
+.DS_Store
+coverage
+rdoc
+pkg
+.tmp
+Gemfile.lock
+docs
+.*.swp
+build
+doc
+.yardoc
+tmp
+Makefile
+.bundle
+vendor/bundle
