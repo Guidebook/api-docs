@@ -1,9 +1,12 @@
 # Nested unique header generation
 require 'middleman-core/renderers/redcarpet'
+require 'active_support/core_ext/module/attribute_accessors'
 
 class NestingUniqueHeadCounter < Middleman::Renderers::MiddlemanRedcarpetHTML
-  def initialize
-    super
+  cattr_accessor :scope
+
+  def initialize(options={})
+    super(options)
     @@headers_history = {} if !defined?(@@headers_history)
   end
 

@@ -1,9 +1,13 @@
 # Unique header generation
 require 'middleman-core/renderers/redcarpet'
 require 'digest'
+require 'active_support/core_ext/module/attribute_accessors'
+
 class UniqueHeadCounter < Middleman::Renderers::MiddlemanRedcarpetHTML
-  def initialize
-    super
+  cattr_accessor :scope
+
+  def initialize(options={})
+    super(options)
     @head_count = {}
   end
   def header(text, header_level)
