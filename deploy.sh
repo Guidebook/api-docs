@@ -15,10 +15,28 @@ Options:
                            deploy branch.
   -n, --no-hash            Don't append the source commit's hash to the deploy
                            commit's message.
-  -c, --current            Specify Current version for index.html
+  -c, --current VERSION    Specify current version - copies VERSION/index.html to root
+      --source-only        Only build but not push
+      --push-only          Only push but not build
 "
 
-bundle exec middleman build --clean
+
+run_build() {
+  bundle exec middleman build --clean
+}
+
+copy_current_version() {
+  if [ -z "$CURRENT_VERSION" ]; then
+    echo 'Deploying versioned html files only...'
+  else
+    echo "Deploying versioned html files and updating root index.html from $CURRENT_VERSION"
+    if [ -f "$deploy_directory/$CURRENT_VERSION/index.html" ]; then
+      cp "$deploy_directory/$CURRENT_VERSION/index.html" "$deploy_directory"/index.html
+    else
+      echo "Warning: $deploy_directory/$CURRENT_VERSION/index.html not found, skipping copy"
+    fi
+  fi
+}
 
 parse_args() {
   # Set args from a local environment file.
@@ -32,7 +50,7 @@ parse_args() {
   while : ; do
     if [[ $1 = "-h" || $1 = "--help" ]]; then
       echo "$help_message"
-      return 0
+      exit 0
     elif [[ $1 = "-v" || $1 = "--verbose" ]]; then
       verbose=true
       shift
@@ -48,10 +66,21 @@ parse_args() {
     elif [[ ( $1 = "-c" || $1 = "--current" ) && -n $2 ]]; then
       CURRENT_VERSION=$2
       shift 2
+    elif [[ $1 = "--source-only" ]]; then
+      source_only=true
+      shift
+    elif [[ $1 = "--push-only" ]]; then
+      push_only=true
+      shift
     else
       break
     fi
   done
+
+  if [ ${source_only} ] && [ ${push_only} ]; then
+    >&2 echo "You can only specify one of --source-only or --push-only"
+    exit 1
+  fi
 
   # Set internal option vars from the environment and arg flags. All internal
   # vars should be declared here, with sane defaults if applicable.
@@ -72,15 +101,6 @@ parse_args() {
 }
 
 main() {
-  parse_args "$@"
-
-  if [ -z "$CURRENT_VERSION" ]; then
-    echo 'Deploying a versioned html file only...'
-  else
-    echo 'Deploying a versioned html file and also updating the current index.html'
-    cp "$deploy_directory"/"$CURRENT_VERSION"/index.html "$deploy_directory"/index.html
-  fi
-
   enable_expanded_output
 
   if ! git diff --exit-code --quiet --cached; then
@@ -108,7 +128,7 @@ main() {
     return 1
   fi
 
-  # must use short form of flag in ls for compatibility with OS X and BSD
+  # must use short form of flag in ls for compatibility with macOS and BSD
   if [[ -z `ls -A "$deploy_directory" 2> /dev/null` && -z $allow_empty ]]; then
     echo "Deploy directory '$deploy_directory' is empty. Aborting. If you're sure you want to deploy an empty tree, use the --allow-empty / -e flag." >&2
     return 1
@@ -211,4 +231,15 @@ sanitize() {
   "$@" 2> >(filter 1>&2) | filter
 }
 
-[[ $1 = --source-only ]] || main "$@"
+parse_args "$@"
+
+if [[ ${source_only} ]]; then
+  run_build
+  copy_current_version
+elif [[ ${push_only} ]]; then
+  main "$@"
+else
+  run_build
+  copy_current_version
+  main "$@"
+fi

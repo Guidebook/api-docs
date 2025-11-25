@@ -1,6 +1,12 @@
 # Unique header generation
 require './lib/unique_head.rb'
 
+# Custom Rouge theme
+require './lib/monokai_sublime_slate.rb'
+
+# Require Uglifier for ES6 support
+require 'uglifier'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -10,8 +16,7 @@ set :markdown,
     prettify: true,
     tables: true,
     with_toc_data: true,
-    no_intra_emphasis: true,
-    renderer: UniqueHeadCounter
+    no_intra_emphasis: true
 
 # Assets
 set :css_dir, 'stylesheets'
@@ -25,13 +30,17 @@ ready do
   require './lib/multilang.rb'
 end
 
-activate :sprockets
-
-activate :autoprefixer do |config|
-  config.browsers = ['last 2 version', 'Firefox ESR']
-  config.cascade  = false
-  config.inline   = true
+# Configure Sprockets to handle JS only, not CSS
+activate :sprockets do |c|
+  c.supported_output_extensions = ['.js']
 end
+
+# Autoprefixer disabled - causes CSS syntax errors with Ruby 3.2
+# activate :autoprefixer do |config|
+#   config.browsers = ['last 2 version', 'Firefox ESR']
+#   config.cascade  = false
+#   config.inline   = true
+# end
 
 # Github pages require relative links
 activate :relative_assets
@@ -42,7 +51,11 @@ configure :build do
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
-  activate :minify_javascript
+  activate :minify_javascript do |config|
+    config.compressor = proc {
+      ::Uglifier.new(harmony: true)
+    }
+  end
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip

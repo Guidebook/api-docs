@@ -22,3 +22,10 @@ build/
 _yardoc
 doc/
 .idea/
+
+/gems/
+/extensions/
+/vendor/bundle/
+
+# Vagrant artifacts
+ubuntu-*-console.log
