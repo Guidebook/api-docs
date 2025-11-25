@@ -4,6 +4,9 @@ require './lib/unique_head.rb'
 # Custom Rouge theme
 require './lib/monokai_sublime_slate.rb'
 
+# Require Uglifier for ES6 support
+require 'uglifier'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
@@ -48,7 +51,11 @@ configure :build do
   # If you're having trouble with Middleman hanging, commenting
   # out the following two lines has been known to help
   activate :minify_css
-  activate :minify_javascript
+  activate :minify_javascript do |config|
+    config.compressor = proc {
+      ::Uglifier.new(harmony: true)
+    }
+  end
   # activate :relative_assets
   # activate :asset_hash
   # activate :gzip
