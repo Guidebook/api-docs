@@ -1,6 +1,9 @@
 # Unique header generation
 require './lib/unique_head.rb'
 
+# Custom Rouge theme
+require './lib/monokai_sublime_slate.rb'
+
 # Markdown
 set :markdown_engine, :redcarpet
 set :markdown,
