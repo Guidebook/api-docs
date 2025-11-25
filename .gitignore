@@ -27,3 +27,5 @@ doc/
 /extensions/
 /vendor/bundle/
 
+# Vagrant artifacts
+ubuntu-*-console.log
