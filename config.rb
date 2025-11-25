@@ -10,8 +10,7 @@ set :markdown,
     prettify: true,
     tables: true,
     with_toc_data: true,
-    no_intra_emphasis: true,
-    renderer: UniqueHeadCounter
+    no_intra_emphasis: true
 
 # Assets
 set :css_dir, 'stylesheets'
@@ -25,13 +24,17 @@ ready do
   require './lib/multilang.rb'
 end
 
-activate :sprockets
-
-activate :autoprefixer do |config|
-  config.browsers = ['last 2 version', 'Firefox ESR']
-  config.cascade  = false
-  config.inline   = true
+# Configure Sprockets to handle JS only, not CSS
+activate :sprockets do |c|
+  c.supported_output_extensions = ['.js']
 end
+
+# Autoprefixer disabled - causes CSS syntax errors with Ruby 3.2
+# activate :autoprefixer do |config|
+#   config.browsers = ['last 2 version', 'Firefox ESR']
+#   config.cascade  = false
+#   config.inline   = true
+# end
 
 # Github pages require relative links
 activate :relative_assets
