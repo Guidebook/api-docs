@@ -58,6 +58,7 @@ response = requests.post(link_url, data=post_data, headers={'Authorization': 'JW
 	"category": 33,
 	"_title": null,
 	"_description": "testing overridden description",
+	"_image": null,
 	"last_updated": "2018-06-27T15:30:11.015128+0000"
 }
 
@@ -82,6 +83,7 @@ target_object_id     | yes | integer  | The id number of the target object.  Not
 rank                 | no  | float  | The order the `Link` will appear in the `Links` section on the app.  `Links` are displayed in ascending rank value.  If no rank value is supplied on creation, a default rank is used.
 _title               | no  | string   | Use this field to override the default title of the `Link`.  The default behavior is to derive the title from the target object. Targets such as `PDFs` do not have their own title field, and depend on this to be given a custom name.
 _description         | no  | string   | Use this field to override the default description of the `Link`.  The default behavior is to derive the description from the target object
+_image               | no  | image    | Thumbnail that will appear with the `Link` in Guidebook apps. The ideal size is 240px wide, 240 px tall. See section on [images](#images)
 category             | no  | integer  | `LinkCategory` ID this `Link` will be displayed in.  Most of the logic regarding `LinkCategories` are automatically handled for you so you do not need to supply an category ID.   Use this field to update the category if needed.
 
 
@@ -131,6 +133,7 @@ response = requests.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			"category": 39,
 			"_title": null,
 			"_description": null,
+			"_image": null,
 			"last_updated": "2018-06-27T15:30:11.015128+0000"
 		},
 		{
@@ -158,6 +161,7 @@ response = requests.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			"category": 40,
 			"_title": null,
 			"_description": null,
+			"_image": null,
 			"last_updated": "2018-06-27T15:30:11.015128+0000"
 		},
 		{
@@ -185,6 +189,7 @@ response = requests.get(link_url, headers={'Authorization': 'JWT ' + api_key})
 			"category": 39,
 			"_title": null,
 			"_description": null,
+			"_image": null,
 			"last_updated": "2018-06-27T15:30:11.015128+0000"
 		}
 	]
